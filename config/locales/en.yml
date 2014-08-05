@@ -3,3 +3,86 @@
 
 en:
   hello: "Hello world"
+
+  # GENERAL
+  login: "Sign in"
+  logout: "Sign out"
+  add: "Add New"
+  new: "New"
+  edit: "Edit"
+  destroy: "Destroy"
+  delete: "Delete"
+  submit: "Save"
+  show: "Show"
+  peek: "Peek"
+  back: "Back"
+  cancel: "Cancel"
+  pick: "Pick"
+  close: "Close"
+  post: "Post"
+  void: "Void"
+  confirm: "Are you sure?"
+  prompt: "Select a"
+  disable_with: "Processing.."
+  read_more: "Read more"
+  all: "All"
+  process: "Process"
+  print: "Print"
+  printing: "Printing.."
+  reset: "Reset"
+  select_all: "Select All"
+  created: "successfully created."
+  updated: "successfully updated."
+  search: "Search"
+  import: "Import"
+  import_excel: "Import from Excel"
+  import_excel_for: "Import Excel for"
+  row_number: "No."
+
+  # DATE
+  date:
+    day:
+      sunday: "Sunday"
+      monday: "Monday"
+      tuesday: "Tuesday"
+      wednesday: "Wednesday"
+      thursday: "Thursday"
+      friday: "Friday"
+      saturday: "Saturday"
+    month:
+      january: "January"
+      february: "February"
+      march: "March"
+      april: "April"
+      may: "May"
+      june: "June"
+      july: "July"
+      august: "August"
+      september: "September"
+      october: "October"
+      november: "November"
+      december: "December"
+
+  # MASTER
+  country:
+    countries: "Countries"
+    country: "Country"
+    name: "Name"
+    country_ext: "Country Ext."
+    is_active: "Is Active"
+
+  province:
+    provinces: "Provinces"
+    province: "Province"
+    country: "Country"
+    name: "Name"
+    is_active: "Is Active"
+
+  city:
+    cities: "Cities"
+    city: "City"
+    country: "Country"
+    province: "Province"
+    name: "Name"
+    city_ext: "City Ext."
+    is_active: "Is Active"

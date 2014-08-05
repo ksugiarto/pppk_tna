@@ -1,4 +1,12 @@
 PppkTna::Application.routes.draw do
+
+  resources :cities
+  resources :provinces
+  resources :countries
+
+  get "home/index"
+  root to: "home#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
