@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140805085815) do
+ActiveRecord::Schema.define(:version => 20141029142317) do
+
+  create_table "basic_competencies", :force => true do |t|
+    t.integer  "core_competency_id"
+    t.integer  "seq_num"
+    t.text     "description"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
 
   create_table "cities", :force => true do |t|
     t.integer  "country_id"
@@ -22,9 +30,24 @@ ActiveRecord::Schema.define(:version => 20140805085815) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "core_competencies", :force => true do |t|
+    t.integer  "vocational_id"
+    t.integer  "seq_num"
+    t.text     "description"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "countries", :force => true do |t|
     t.string   "name"
     t.string   "country_ext"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "curicculums", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -34,6 +57,33 @@ ActiveRecord::Schema.define(:version => 20140805085815) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "schools", :force => true do |t|
+    t.string   "nss"
+    t.string   "npsn"
+    t.string   "name"
+    t.integer  "status"
+    t.string   "address"
+    t.integer  "city_id"
+    t.integer  "province_id"
+    t.integer  "country_id"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "email"
+    t.integer  "curicculum_id"
+    t.string   "built_year"
+    t.string   "start_year"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "vocationals", :force => true do |t|
+    t.integer  "curicculum_id"
+    t.string   "name"
+    t.string   "class_for"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end

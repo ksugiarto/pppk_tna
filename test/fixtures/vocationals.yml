@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  curicculum_id: 1
+  name: MyString
+  class: MyString
+
+two:
+  curicculum_id: 1
+  name: MyString
+  class: MyString

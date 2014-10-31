@@ -1,0 +1,23 @@
+<table class="table table-condensed">
+  <tr style="background-color:#708DC6;">
+    <th><%= t 'school.nss' %></th>
+    <th><%= t 'school.npsn' %></th>
+    <th><%= t 'school.name' %></th>
+    <th><%= t 'school.city' %></th>
+    <th></th>
+  </tr>
+
+<% @schools.each do |school| %>
+  <tr>
+    <td><%= school.nss %></td>
+    <td><%= school.npsn %></td>
+    <td><%= school.name %></td>
+    <td><%= school.city.try(:name) %></td>
+    <td class="text-right">
+        <%= link_to "#{t 'show'}", school %>
+        <%= link_to "#{t 'edit'}", edit_school_path(school) %>
+        <%= link_to "#{t 'delete'}", school, method: :delete, data: { confirm: "#{t 'confirm'}" } %>
+    </td>
+  </tr>
+<% end %>
+</table>

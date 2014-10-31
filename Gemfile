@@ -6,7 +6,16 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.12'
 gem 'pg', '0.17.0'
 gem 'jquery-rails', '3.0.4'
+gem "paperclip", '~> 3.4.2'					# required for upload and save photo
+gem 'remotipart', '~> 1.0.5'				# required for form upload image remote form
+gem "prawn", "~> 1.0.0"
+gem 'cancan', '~> 1.6.10'
+gem 'rubyzip', '~> 0.9.9'           # required for roo
+gem 'spreadsheet'                   # required for roo
+gem 'nokogiri'                      # required for roo
+gem 'roo', '~> 1.11.2'
 gem "will_paginate", "~> 3.0.4"     # required for pagination
+gem "pry"														# using 'binding.pry' inside the code
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,5 +1,15 @@
 PppkTna::Application.routes.draw do
 
+  resources :schools
+
+  resources :curicculums do
+    resources :vocationals do
+      resources :core_competencies do
+        resources :basic_competencies
+      end
+    end
+  end
+
   resources :cities
   resources :provinces
   resources :countries

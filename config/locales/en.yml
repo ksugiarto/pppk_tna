@@ -86,3 +86,45 @@ en:
     name: "Name"
     city_ext: "City Ext."
     is_active: "Is Active"
+
+  curicculum:
+    curicculums: "Curicculums"
+    curicculum: "Curicculum"
+    name: "Name"
+    description: "Description"
+
+  vocational:
+    vocationals: "Vocational"
+    vocational: "Vocational"
+    name: "Name"
+    class_for: "Class"
+
+  core_competency:
+    core_competencies: "Core Competencies"
+    core_competency: "Core Competency"
+    seq_num: "Sequence Number"
+    description: "Description"
+
+  basic_competency:
+    basic_competencies: "Basic Competencies"
+    basic_competency: "Basic Competency"
+    seq_num: "Sequence Number"
+    description: "Description"
+
+  school:
+    schools: "Schools"
+    school: "School"
+    nss: "NSS"
+    npsn: "NPSN"
+    name: "Name"
+    status: "Status"
+    address: "Address"
+    city: "City"
+    province: "Province"
+    country: "Country"
+    phone: "Phone"
+    fax: "Fax"
+    email: "Email"
+    curicculum: "Curicculum"
+    built_year: "Built Year"
+    start_year: "Start Year"

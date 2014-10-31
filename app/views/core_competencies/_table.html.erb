@@ -1,0 +1,32 @@
+<table id="vocational_#{vocational_id}" class="table table-condensed table-bordered">
+  <tr style="background-color:#708DC6;">
+    <th>
+      <%= t 'core_competency.core_competency' %>
+      <%= link_to "#{t 'new'}", new_curicculum_vocational_core_competency_path(@curicculum, vocational), :class => "btn btn-default btn-xs", :remote => true %>
+    </th>
+    <th>
+      <%= t 'basic_competency.basic_competency' %>
+    </th>
+    <th></th>
+  </tr>
+
+  <% vocational.core_competencies.each do |core_competency| %>
+    <tr>
+      <td>
+        <%= core_competency.description %>
+        <%= link_to "#{t 'new'}", new_curicculum_vocational_core_competency_basic_competency_path(@curicculum, vocational, core_competency), :class => "btn btn-default btn-xs", :remote => true %>
+      </td>
+      <td>
+        <!-- BASIC COMPETENCIES -->
+        <% core_competency.basic_competencies.each do |basic_competency| %>
+          <%= basic_competency.description %><br>
+        <% end %>
+        <!-- END BASIC COMPETENCIES -->
+      </td>
+      <td>
+        <%= link_to "#{t 'edit'}", edit_curicculum_vocational_core_competency_path(@curicculum, vocational, core_competency) %>
+        <%= link_to "#{t 'destroy'}", curicculum_vocational_core_competency_path(@curicculum, vocational, core_competency), method: :delete, data: { confirm: "#{t 'confirm'}" } %>
+      </td>
+    </tr>
+  <% end %>
+</table>

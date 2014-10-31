@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nss: MyString
+  npsn: MyString
+  name: MyString
+  status: 1
+  address: MyString
+  city_id: 1
+  province_id: 1
+  country_id: 1
+  phone: MyString
+  fax: MyString
+  email: MyString
+  curicculum_id: 1
+  built_year: MyString
+  start_year: MyString
+
+two:
+  nss: MyString
+  npsn: MyString
+  name: MyString
+  status: 1
+  address: MyString
+  city_id: 1
+  province_id: 1
+  country_id: 1
+  phone: MyString
+  fax: MyString
+  email: MyString
+  curicculum_id: 1
+  built_year: MyString
+  start_year: MyString

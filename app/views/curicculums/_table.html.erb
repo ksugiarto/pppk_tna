@@ -1,0 +1,19 @@
+<table class="table table-condensed">
+  <tr style="background-color:#708DC6;">
+    <th><%= t 'curicculum.name' %></th>
+    <th><%= t 'curicculum.description' %></th>
+    <th></th>
+  </tr>
+
+<% @curicculums.each do |curicculum| %>
+  <tr>
+    <td><%= curicculum.name %></td>
+    <td><%= curicculum.description %></td>
+    <td class="text-right">
+      <%= link_to "#{t 'show'}", curicculum, :class => "btn btn-info btn-xs" %>
+      <%= link_to "#{t 'edit'}", edit_curicculum_path(curicculum), :class => "btn btn-warning btn-xs", :remote => true %>
+      <%= link_to "#{t 'delete'}", curicculum, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs", :remote => true %>
+    </td>
+  </tr>
+<% end %>
+</table>

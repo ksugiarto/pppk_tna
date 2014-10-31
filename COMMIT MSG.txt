@@ -1,0 +1,5 @@
+=========================
+Things Done [@ksugiarto]:
+(1) Adding fresh Curriculum, Vocational, Core Compentency, Basic Competency, and School.
+(2) Working on Curriculum show page which include Vocational, Core Competency, and Basic Competency inside the page.
+(3) Adding new gem 'pry' to break the code and simulate within the point.

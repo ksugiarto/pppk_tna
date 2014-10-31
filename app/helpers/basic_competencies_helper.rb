@@ -1,0 +1,2 @@
+module BasicCompetenciesHelper
+end
