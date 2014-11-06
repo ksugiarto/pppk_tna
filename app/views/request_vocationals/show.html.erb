@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>School request:</b>
+  <%= @request_vocational.school_request_id %>
+</p>
+
+<p>
+  <b>Vocational:</b>
+  <%= @request_vocational.vocational_id %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @request_vocational.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_request_vocational_path(@request_vocational) %> |
+<%= link_to 'Back', request_vocationals_path %>

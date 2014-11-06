@@ -94,7 +94,7 @@ en:
     description: "Description"
 
   vocational:
-    vocationals: "Vocational"
+    vocationals: "Vocationals"
     vocational: "Vocational"
     name: "Name"
     class_for: "Class"
@@ -118,6 +118,8 @@ en:
     npsn: "NPSN"
     name: "Name"
     status: "Status"
+    negeri: "Negeri"
+    swasta: "Swasta"
     address: "Address"
     city: "City"
     province: "Province"
@@ -128,3 +130,8 @@ en:
     curicculum: "Curicculum"
     built_year: "Built Year"
     start_year: "Start Year"
+    vocational: "Vocational"
+    request: "Request"
+    reference_number: "Reference Number"
+    request_date: "Request Date"
+    notes: "Notes"

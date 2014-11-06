@@ -1,3 +1,5 @@
+<%= will_paginate @schools, :class => "apple_pagination" %>
+
 <table class="table table-condensed">
   <tr style="background-color:#708DC6;">
     <th><%= t 'school.nss' %></th>
@@ -14,10 +16,12 @@
     <td><%= school.name %></td>
     <td><%= school.city.try(:name) %></td>
     <td class="text-right">
-        <%= link_to "#{t 'show'}", school %>
-        <%= link_to "#{t 'edit'}", edit_school_path(school) %>
-        <%= link_to "#{t 'delete'}", school, method: :delete, data: { confirm: "#{t 'confirm'}" } %>
+        <%= link_to "#{t 'show'}", school, :class => "btn btn-info btn-xs" %>
+        <%= link_to "#{t 'edit'}", edit_school_path(school), :class => "btn btn-warning btn-xs", :remote => true %>
+        <%= link_to "#{t 'delete'}", school, method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
     </td>
   </tr>
 <% end %>
 </table>
+
+<%= will_paginate @schools, :class => "apple_pagination" %>

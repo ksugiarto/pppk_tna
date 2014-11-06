@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  teacher_id: 1
+  vocational_id: 1
+  notes: MyText
+
+two:
+  teacher_id: 1
+  vocational_id: 1
+  notes: MyText

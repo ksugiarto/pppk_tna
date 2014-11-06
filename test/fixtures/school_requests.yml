@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  school_id: 1
+  references_number: MyString
+  request_date: 2014-11-06
+  notes: MyText
+
+two:
+  school_id: 1
+  references_number: MyString
+  request_date: 2014-11-06
+  notes: MyText

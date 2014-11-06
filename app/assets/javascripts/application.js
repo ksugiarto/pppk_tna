@@ -13,3 +13,65 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+jQuery.ajaxSetup({
+  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+})
+
+$.fn.ajaxSelect = function(rel) {
+  var that = this;
+
+  this.change(function() {
+    $.get(rel, {id: that.val()}, null, "script");
+  });
+}
+
+$.fn.ajaxChange = function(rel) {
+  var that = this;
+
+  $.get(rel, {id: that.val()}, null, "script");
+  return false;
+}
+
+$.fn.keyUp = function(rel) {
+  var that = this;
+
+  this.keyup(function() {
+    $.get(rel, {id: that.val()}, null, "script");
+  })
+}
+
+$.fn.onLoad = function(rel) {
+  var that = this;
+
+  this.ready(function() {
+    $.get(rel, {id: that.val()}, null, "script");
+  })
+}
+
+$.fn.ajaxPagination = function() {
+  this.on("click", function () {
+    $(".apple_pagination").html("Silahkan tunggu...")
+    $.get(this.href, null, null, "script");
+    return false;
+  });
+}
+
+$(document).ready(function() {
+  /* Activating Best In Place */
+  // jQuery(".best_in_place").best_in_place();
+
+  $(".apple_pagination a").ajaxPagination();
+
+  window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+      $(this).remove(); 
+    });
+  }, 10000);
+
+  $(function () {
+    $('.checkall').on('click', function () {
+        $(this).closest('fieldset').find(':checkbox').prop('checked', this.checked);
+    });
+  });
+});

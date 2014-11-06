@@ -1,0 +1,27 @@
+<h1>Listing request_participants</h1>
+
+<table>
+  <tr>
+    <th>School request</th>
+    <th>Teacher</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @request_participants.each do |request_participant| %>
+  <tr>
+    <td><%= request_participant.school_request_id %></td>
+    <td><%= request_participant.teacher_id %></td>
+    <td><%= request_participant.notes %></td>
+    <td><%= link_to 'Show', request_participant %></td>
+    <td><%= link_to 'Edit', edit_request_participant_path(request_participant) %></td>
+    <td><%= link_to 'Destroy', request_participant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Request participant', new_request_participant_path %>

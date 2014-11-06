@@ -1,0 +1,27 @@
+<h1>Listing teacher_vocationals</h1>
+
+<table>
+  <tr>
+    <th>Teacher</th>
+    <th>Vocational</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @teacher_vocationals.each do |teacher_vocational| %>
+  <tr>
+    <td><%= teacher_vocational.teacher_id %></td>
+    <td><%= teacher_vocational.vocational_id %></td>
+    <td><%= teacher_vocational.notes %></td>
+    <td><%= link_to 'Show', teacher_vocational %></td>
+    <td><%= link_to 'Edit', edit_teacher_vocational_path(teacher_vocational) %></td>
+    <td><%= link_to 'Destroy', teacher_vocational, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Teacher vocational', new_teacher_vocational_path %>

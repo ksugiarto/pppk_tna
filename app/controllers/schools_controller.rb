@@ -1,12 +1,20 @@
 class SchoolsController < ApplicationController
+  def get_data
+    @countries = Country.order(:name)
+    @provinces = Province.order(:name)
+    @cities = City.order(:name)
+    @curicculums = Curicculum.order(:name)
+  end
+
   # GET /schools
   # GET /schools.json
   def index
-    @schools = School.all
+    @schools = School.order(:name).pagination(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @schools }
+      format.js
     end
   end
 
@@ -25,16 +33,13 @@ class SchoolsController < ApplicationController
   # GET /schools/new.json
   def new
     @school = School.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @school }
-    end
+    get_data
   end
 
   # GET /schools/1/edit
   def edit
     @school = School.find(params[:id])
+    get_data
   end
 
   # POST /schools

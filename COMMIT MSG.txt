@@ -1,5 +1,11 @@
 =========================
 Things Done [@ksugiarto]:
+(1) Adding fresh School Vocational, School Request, Teacher, Teacher Vocational, Request Participant, and Request Vocational.
+(2) Working on School page, 'school request' and 'vocational' inside School Show Page.
+(3) Change default locale to :id (adding 'id.yml' indeed too).
+
+=========================
+Things Done [@ksugiarto]:
 (1) Adding fresh Curriculum, Vocational, Core Compentency, Basic Competency, and School.
 (2) Working on Curriculum show page which include Vocational, Core Competency, and Basic Competency inside the page.
 (3) Adding new gem 'pry' to break the code and simulate within the point.

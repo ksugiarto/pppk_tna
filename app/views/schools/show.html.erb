@@ -1,75 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-2">
+    <%= link_to schools_path, :class => "btn btn-default btn-sm" do %>
+      <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<%= t 'back' %>
+    <% end %>
+  </div>
+  
+  <div class="col-md-8">
+    <h4 align="center"><%= t 'school.school' %> - <%= t 'detail' %></h4>
+  </div>
 
-<p>
-  <b>Nss:</b>
-  <%= @school.nss %>
-</p>
+  <div class="col-md-2" align="right">
+    <%= link_to edit_school_path(@school), :class => "btn btn-warning btn-sm", :remote => true do %>
+      <%= t 'edit' %>&nbsp;<span class="glyphicon glyphicon-pencil"></span>
+    <% end %>
+  </div>
+</div>
 
-<p>
-  <b>Npsn:</b>
-  <%= @school.npsn %>
-</p>
+<%= render 'show' %>
 
-<p>
-  <b>Name:</b>
-  <%= @school.name %>
-</p>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#request" data-toggle="tab"><%= t 'school.request' %></a></li>
+  <li><a href="#vocational" data-toggle="tab"><%= t 'school.vocational' %></a></li>
+  <li><a href="#teacher" data-toggle="tab"><%= t 'school.teacher' %></a></li>
+</ul>
 
-<p>
-  <b>Status:</b>
-  <%= @school.status %>
-</p>
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="request"><%= render 'school_requests/table' %></div>
+  <div class="tab-pane" id="vocational"><%= render 'school_vocationals/table' %></div>
+  <div class="tab-pane" id="teacher"><%= #render 'customer_phones/table' 
+  %></div>
+</div>
 
-<p>
-  <b>Address:</b>
-  <%= @school.address %>
-</p>
+<div id="modal"></div>
 
-<p>
-  <b>City:</b>
-  <%= @school.city_id %>
-</p>
-
-<p>
-  <b>Province:</b>
-  <%= @school.province_id %>
-</p>
-
-<p>
-  <b>Country:</b>
-  <%= @school.country_id %>
-</p>
-
-<p>
-  <b>Phone:</b>
-  <%= @school.phone %>
-</p>
-
-<p>
-  <b>Fax:</b>
-  <%= @school.fax %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @school.email %>
-</p>
-
-<p>
-  <b>Curicculum:</b>
-  <%= @school.curicculum_id %>
-</p>
-
-<p>
-  <b>Built year:</b>
-  <%= @school.built_year %>
-</p>
-
-<p>
-  <b>Start year:</b>
-  <%= @school.start_year %>
-</p>
-
-
-<%= link_to 'Edit', edit_school_path(@school) %> |
-<%= link_to 'Back', schools_path %>
+<!-- Modal -->
+<div id="general_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="BranchModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:900px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 class="modal-title"></h3>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>

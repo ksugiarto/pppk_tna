@@ -1,0 +1,137 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+id:
+  hello: "Halo dunia"
+
+  # GENERAL
+  login: "Sign in"
+  logout: "Sign out"
+  add: "Tambah Baru"
+  new: "Buat Baru"
+  edit: "Ubah"
+  destroy: "Hapus"
+  delete: "Hapus"
+  submit: "Simpan"
+  show: "Lihat"
+  peek: "Intip"
+  back: "Kembali"
+  cancel: "Batal"
+  pick: "Pilih"
+  close: "Tutup"
+  post: "Post"
+  void: "Void"
+  confirm: "Anda yakin?"
+  prompt: "Pilih "
+  disable_with: "Memproses.."
+  read_more: "Baca lengkap"
+  all: "Semua"
+  process: "Proses"
+  print: "Cetak"
+  printing: "Mencetak.."
+  reset: "Ulang"
+  select_all: "Pilih Semua"
+  created: "sukses dibuat."
+  updated: "sukses diubah."
+  search: "Cari"
+  import: "Impor"
+  import_excel: "Impor dari Excel"
+  import_excel_for: "Impor Excel untuk"
+  row_number: "No."
+
+  # DATE
+  date:
+    day:
+      sunday: "Minggu"
+      monday: "Senin"
+      tuesday: "Selasa"
+      wednesday: "Rabu"
+      thursday: "Kamis"
+      friday: "Jumat"
+      saturday: "Sabtu"
+    month:
+      january: "Januari"
+      february: "Februari"
+      march: "Maret"
+      april: "April"
+      may: "Mei"
+      june: "Juni"
+      july: "Juli"
+      august: "Agustus"
+      september: "September"
+      october: "Oktober"
+      november: "November"
+      december: "Desember"
+
+  # MASTER
+  country:
+    countries: "Daftar Negara"
+    country: "Negara"
+    name: "Nama"
+    country_ext: "Kode Ext."
+    is_active: "Aktif?"
+
+  province:
+    provinces: "Daftar Provinsi"
+    province: "Provinsi"
+    country: "Negara"
+    name: "Nama"
+    is_active: "Aktif?"
+
+  city:
+    cities: "Daftar Kota"
+    city: "Kota"
+    country: "Negara"
+    province: "Provinsi"
+    name: "Nama"
+    city_ext: "Kode Ext."
+    is_active: "Aktif?"
+
+  curicculum:
+    curicculums: "Daftar Kurikulum"
+    curicculum: "Kurikulum"
+    name: "Nama"
+    description: "Deskripsi"
+
+  vocational:
+    vocationals: "Daftar Kejuruan"
+    vocational: "Kejuruan"
+    name: "Nama"
+    class_for: "Kelas"
+
+  core_competency:
+    core_competencies: "Daftar Kompetensi Inti"
+    core_competency: "Kompetensi Inti"
+    seq_num: "Urutan"
+    description: "Deskripsi"
+
+  basic_competency:
+    basic_competencies: "Daftar Kompetensi Dasar"
+    basic_competency: "Kompetensi Dasar"
+    seq_num: "Urutan"
+    description: "Deskripsi"
+
+  school:
+    schools: "Daftar Sekolah"
+    school: "Sekolah"
+    nss: "NSS"
+    npsn: "NPSN"
+    name: "Nama"
+    status: "Status"
+    negeri: "Negeri"
+    swasta: "Swasta"
+    address: "Alamat"
+    city: "Kota"
+    province: "Provinsi"
+    country: "Negara"
+    phone: "Telepon"
+    fax: "Fax"
+    email: "Email"
+    curicculum: "Kurikulum"
+    built_year: "Tahun Dibangun"
+    start_year: "Tahun Mulai"
+    vocational: "Kejuruan"
+    request: "Permohonan"
+    reference_number: "Nomor Referensi"
+    request_date: "Tanggal Permohonan"
+    notes: "Notes"

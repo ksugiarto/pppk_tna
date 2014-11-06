@@ -1,0 +1,2 @@
+module RequestParticipantsHelper
+end

@@ -1,0 +1,38 @@
+<table class="table table-condensed">
+  <tr>
+    <th><%= t 'school.nss' %></th>
+    <td><b>:&nbsp;<%= @school.nss %></b></td>
+    <th><%= t 'school.npsn' %></th>
+    <td><b>:</b>&nbsp;<%= @school.npsn %></td>
+  </tr>
+  <tr>
+    <th><%= t 'school.name' %></th>
+    <td><b>:&nbsp;<%= @school.name %></b></td>
+    <th><%= t 'school.status' %></th>
+    <td><b>:</b>&nbsp;<%= @school.status_name %></td>
+  </tr>
+  <tr>
+    <th><%= t 'school.phone' %></th>
+    <td><b>:</b>&nbsp;<%= @school.phone %></td>
+    <th><%= t 'school.fax' %></th>
+    <td><b>:</b>&nbsp;<%= @school.fax %></td>
+  </tr>
+  <tr>
+    <th><%= t 'suppllier.email' %>:</th>
+    <td><b>:</b>&nbsp;<%= @school.email %></td>
+    <th><%= t 'school.curicculum' %></th>
+    <td><b>:</b>&nbsp;<%= @school.curicculum.try(:name) %></td>
+  </tr>
+  <tr>
+    <th><%= t 'suppllier.built_year' %>:</th>
+    <td><b>:</b>&nbsp;<%= @school.built_year %></td>
+    <th><%= t 'school.start_year' %></th>
+    <td><b>:</b>&nbsp;<%= @school.start_year %></td>
+  </tr>
+  <tr>
+    <th><%= t 'suppllier.address' %>:</th>
+    <td><b>:</b>&nbsp;<%= @school.address %>, <%= @school.city.try(:name) %></td>
+    <th><%= t 'school.city' %></th>
+    <td><b>:</b>&nbsp;<%= @school.city.try(:name) %></td>
+  </tr>
+</table>

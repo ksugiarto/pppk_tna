@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141029142317) do
+ActiveRecord::Schema.define(:version => 20141106173522) do
 
   create_table "basic_competencies", :force => true do |t|
     t.integer  "core_competency_id"
@@ -59,6 +59,39 @@ ActiveRecord::Schema.define(:version => 20141029142317) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "request_participants", :force => true do |t|
+    t.integer  "school_request_id"
+    t.integer  "teacher_id"
+    t.text     "notes"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "request_vocationals", :force => true do |t|
+    t.integer  "school_request_id"
+    t.integer  "vocational_id"
+    t.text     "notes"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "school_requests", :force => true do |t|
+    t.integer  "school_id"
+    t.string   "references_number"
+    t.date     "request_date"
+    t.text     "notes"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "school_vocationals", :force => true do |t|
+    t.integer  "school_id"
+    t.integer  "vocational_id"
+    t.text     "notes"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "schools", :force => true do |t|
     t.string   "nss"
     t.string   "npsn"
@@ -76,6 +109,34 @@ ActiveRecord::Schema.define(:version => 20141029142317) do
     t.string   "start_year"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "teacher_vocationals", :force => true do |t|
+    t.integer  "teacher_id"
+    t.integer  "vocational_id"
+    t.text     "notes"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "teachers", :force => true do |t|
+    t.string   "nip"
+    t.string   "front_title"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "end_title"
+    t.string   "born_place"
+    t.date     "born_date"
+    t.integer  "gender"
+    t.string   "email"
+    t.integer  "religion"
+    t.string   "address"
+    t.integer  "city_id"
+    t.integer  "province_id"
+    t.integer  "country_id"
+    t.string   "start_teach"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "vocationals", :force => true do |t|

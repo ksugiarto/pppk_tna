@@ -1,4 +1,4 @@
-<%= form_for(@school) do |f| %>
+<%= form_for(@school, :html => { :class => "form-horizontal" }) do |f| %>
   <% if @school.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@school.errors.count, "error") %> prohibited this school from being saved:</h2>
@@ -11,63 +11,73 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nss %><br />
-    <%= f.text_field :nss %>
-  </div>
-  <div class="field">
-    <%= f.label :npsn %><br />
-    <%= f.text_field :npsn %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.number_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :city_id %><br />
-    <%= f.number_field :city_id %>
-  </div>
-  <div class="field">
-    <%= f.label :province_id %><br />
-    <%= f.number_field :province_id %>
-  </div>
-  <div class="field">
-    <%= f.label :country_id %><br />
-    <%= f.number_field :country_id %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :fax %><br />
-    <%= f.text_field :fax %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :curicculum_id %><br />
-    <%= f.number_field :curicculum_id %>
-  </div>
-  <div class="field">
-    <%= f.label :built_year %><br />
-    <%= f.text_field :built_year %>
-  </div>
-  <div class="field">
-    <%= f.label :start_year %><br />
-    <%= f.text_field :start_year %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :nss, "#{t 'school.nss'}", :class => "col-sm-3 control-label" %>
+        <div class="col-sm-8"><%= f.text_field :nss, :class => "form-control" %></div>
+      </div>
+      <div class="form-group">
+        <%= f.label :npsn, "#{t 'school.npsn'}", :class => "col-sm-3 control-label" %>
+        <div class="col-sm-8"><%= f.text_field :npsn, :class => "form-control" %></div>
+      </div>
+      <div class="form-group">
+        <%= f.label :name, "#{t 'school.name'}", :class => "col-sm-3 control-label" %>
+        <div class="col-sm-8"><%= f.text_field :name, :class => "form-control" %></div>
+      </div>
+      <div class="form-group">
+        <%= f.label :status, "#{t 'school.status'}", :class => "col-sm-3 control-label" %>
+        <div class="col-sm-8"><%= f.select(:status, options_for_select([
+          ["#{t 'school.negeri'}", 1], 
+          ["#{t 'school.swasta'}", 2]], :selected => @school.status.to_i), {}, {:class => "form-control"}) %></div>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, "#{t 'school.email'}", :class => "col-sm-3 control-label" %>
+        <div class="col-sm-8"><%= f.text_field :email, :class => "form-control" %></div>
+      </div>
+      <div class="form-group">
+        <%= f.label :curicculum, "#{t 'school.curicculum'}", :class => "col-sm-3 control-label" %>
+        <div class="col-sm-8"><%= f.select(:curicculum_id, @curicculums.collect {|curicculum| [curicculum.name, curicculum.id,]}, {:prompt => "#{t 'prompt'} #{t 'school.curicculum'}"}, {:class => "form-control"}) %></div>
+      </div>
+      <div class="form-group">
+        <%= f.label :phone, "#{t 'school.phone'}", :class => "col-sm-3 control-label" %>
+        <div class="col-sm-8"><%= f.text_field :phone, :class => "form-control" %></div>
+      </div>
+      <div class="form-group">
+        <%= f.label :fax, "#{t 'school.fax'}", :class => "col-sm-3 control-label" %>
+        <div class="col-sm-8"><%= f.text_field :fax, :class => "form-control" %></div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :address, "#{t 'school.address'}", :class => "col-sm-3 control-label" %>
+        <div class="col-sm-8"><%= f.text_field :address, :class => "form-control" %></div>
+      </div>
+      <div class="form-group">
+        <%= f.label :country, "#{t 'school.country'}", :class => "col-sm-3 control-label" %>
+        <div class="col-sm-8"><%= f.select(:country_id, @countries.collect {|country| [country.name, country.id,]}, {:prompt => "#{t 'prompt'} #{t 'city.country'}"}, {:class => "form-control"}) %></div>
+      </div>
+      <div class="form-group">
+        <%= f.label :province, "#{t 'school.province'}", :class => "col-sm-3 control-label" %>
+        <div class="col-sm-8"><%= f.select(:province_id, @provinces.collect {|province| [province.name, province.id,]}, {:prompt => "#{t 'prompt'} #{t 'city.province'}"}, :class => "form-control") %></div>
+      </div>
+      <div class="form-group">
+        <%= f.label :city, "#{t 'school.city'}", :class => "col-sm-3 control-label" %>
+        <div class="col-sm-8"><%= f.select(:city_id, @cities.collect {|city| [city.name, city.id,]}, {:prompt => "#{t 'prompt'} #{t 'city.city'}"}, :class => "form-control") %></div>
+      </div>
+      <div class="form-group">
+        <%= f.label :built_year, "#{t 'school.built_year'}", :class => "col-sm-3 control-label" %>
+        <div class="col-sm-8"><%= f.text_field :built_year, :class => "form-control" %></div>
+      </div>
+      <div class="form-group">
+        <%= f.label :start_year, "#{t 'school.start_year'}", :class => "col-sm-3 control-label" %>
+        <div class="col-sm-8"><%= f.text_field :start_year, :class => "form-control" %></div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-8"><%= f.submit "#{t 'submit'}", :class => "btn btn-success btn-block", :disable_with => "#{t 'disable_with'}" %></div>
+      </div>
+    </div>
   </div>
 <% end %>

@@ -1,0 +1,21 @@
+<table id="school_request_table" class="table table-condensed">
+  <tr style="background-color:#708DC6;">
+    <th><%= t 'reference_number' %></th>
+    <th><%= t 'request_date' %></th>
+    <th><%= t 'notes' %></th>
+    <th><%= link_to "#{t 'new'}", new_school_school_request_path(@school), :class => "btn btn-default btn-xs", :remote => true %></th>
+  </tr>
+
+<% @school.requests.each do |school_request| %>
+  <tr>
+    <td><%= school_request.references_number %></td>
+    <td><%= date(school_request.request_date) %></td>
+    <td><%= school_request.notes %></td>
+    <td>
+      <%= link_to "#{t 'show'}", school_school_request_path(@school, school_request), :class => "btn btn-info btn-xs" %>
+      <%= link_to "#{t 'edit'}", edit_school_school_request_path(@school, school_request), :class => "btn btn-warning btn-xs", :remote => true %>
+      <%= link_to "#{t 'destroy'}", school_school_request_path(@school, school_request), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
+    </td>
+  </tr>
+<% end %>
+</table>

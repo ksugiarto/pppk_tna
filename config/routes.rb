@@ -1,6 +1,21 @@
 PppkTna::Application.routes.draw do
 
-  resources :schools
+  resources :request_vocationals
+
+
+  resources :request_participants
+
+
+  resources :teacher_vocationals
+
+
+  resources :teachers
+
+
+  resources :schools do
+    resources :school_vocationals
+    resources :school_requests
+  end
 
   resources :curicculums do
     resources :vocationals do
@@ -15,6 +30,11 @@ PppkTna::Application.routes.draw do
   resources :countries
 
   get "home/index"
+  # get "*module/home/provinces_by_country" => "home#provinces_by_country"
+  # get "*module/home/cities_by_province" => "home#cities_by_province"
+  get "home/provinces_by_country" => "home#provinces_by_country"
+  get "home/cities_by_province" => "home#cities_by_province"
+  
   root to: "home#index"
 
   # The priority is based upon order of creation:
