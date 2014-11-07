@@ -1,80 +1,45 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-2">
+    <%= link_to teachers_path, :class => "btn btn-default btn-sm" do %>
+      <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<%= t 'back' %>
+    <% end %>
+  </div>
+  
+  <div class="col-md-8">
+    <h4 align="center"><%= t 'teacher.teacher' %> - <%= t 'detail' %></h4>
+  </div>
 
-<p>
-  <b>Nip:</b>
-  <%= @teacher.nip %>
-</p>
+  <div class="col-md-2" align="right">
+    <%= link_to edit_teacher_path(@teacher), :class => "btn btn-warning btn-sm", :remote => true do %>
+      <%= t 'edit' %>&nbsp;<span class="glyphicon glyphicon-pencil"></span>
+    <% end %>
+  </div>
+</div>
 
-<p>
-  <b>Front title:</b>
-  <%= @teacher.front_title %>
-</p>
+<%= render 'show' %>
 
-<p>
-  <b>First name:</b>
-  <%= @teacher.first_name %>
-</p>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#vocational" data-toggle="tab"><%= t 'school.vocational' %></a></li>
+</ul>
 
-<p>
-  <b>Last name:</b>
-  <%= @teacher.last_name %>
-</p>
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="vocational"><%= render 'teacher_vocationals/table' %></div>
+</div>
 
-<p>
-  <b>End title:</b>
-  <%= @teacher.end_title %>
-</p>
+<div id="modal"></div>
 
-<p>
-  <b>Born place:</b>
-  <%= @teacher.born_place %>
-</p>
-
-<p>
-  <b>Born date:</b>
-  <%= @teacher.born_date %>
-</p>
-
-<p>
-  <b>Gender:</b>
-  <%= @teacher.gender %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @teacher.email %>
-</p>
-
-<p>
-  <b>Religion:</b>
-  <%= @teacher.religion %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%= @teacher.address %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @teacher.city_id %>
-</p>
-
-<p>
-  <b>Province:</b>
-  <%= @teacher.province_id %>
-</p>
-
-<p>
-  <b>Country:</b>
-  <%= @teacher.country_id %>
-</p>
-
-<p>
-  <b>Start teach:</b>
-  <%= @teacher.start_teach %>
-</p>
-
-
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
-<%= link_to 'Back', teachers_path %>
+<!-- Modal -->
+<div id="general_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="BranchModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:900px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 class="modal-title"></h3>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>

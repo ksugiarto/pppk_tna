@@ -1,20 +1,15 @@
 PppkTna::Application.routes.draw do
 
-  resources :request_vocationals
-
-
-  resources :request_participants
-
-
-  resources :teacher_vocationals
-
-
-  resources :teachers
-
+  resources :teachers do
+    resources :teacher_vocationals
+  end
 
   resources :schools do
     resources :school_vocationals
-    resources :school_requests
+    resources :school_requests do
+      resources :request_participants
+      resources :request_vocationals
+    end
   end
 
   resources :curicculums do

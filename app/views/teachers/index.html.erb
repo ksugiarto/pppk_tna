@@ -1,51 +1,50 @@
-<h1>Listing teachers</h1>
+<div class="row">
+  <div class="col-md-2">
+  </div>
+  
+  <div class="col-md-8">
+    <h4 align="center"><%= t 'teacher.teachers' %></h4>
+  </div>
 
-<table>
-  <tr>
-    <th>Nip</th>
-    <th>Front title</th>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>End title</th>
-    <th>Born place</th>
-    <th>Born date</th>
-    <th>Gender</th>
-    <th>Email</th>
-    <th>Religion</th>
-    <th>Address</th>
-    <th>City</th>
-    <th>Province</th>
-    <th>Country</th>
-    <th>Start teach</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <div class="col-md-2" align="right">
+    <%= link_to new_teacher_path, :class => "btn btn-default btn-sm", :remote => true do %>
+      <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;<%= t 'new' %>
+    <% end %>
+  </div>
+</div>
 
-<% @teachers.each do |teacher| %>
-  <tr>
-    <td><%= teacher.nip %></td>
-    <td><%= teacher.front_title %></td>
-    <td><%= teacher.first_name %></td>
-    <td><%= teacher.last_name %></td>
-    <td><%= teacher.end_title %></td>
-    <td><%= teacher.born_place %></td>
-    <td><%= teacher.born_date %></td>
-    <td><%= teacher.gender %></td>
-    <td><%= teacher.email %></td>
-    <td><%= teacher.religion %></td>
-    <td><%= teacher.address %></td>
-    <td><%= teacher.city_id %></td>
-    <td><%= teacher.province_id %></td>
-    <td><%= teacher.country_id %></td>
-    <td><%= teacher.start_teach %></td>
-    <td><%= link_to 'Show', teacher %></td>
-    <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-    <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          <b>FILTER</b>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+        <%=# render 'filter/province' 
+        %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<br />
+<div id="table"><%= render 'table' %></div>
 
-<%= link_to 'New Teacher', new_teacher_path %>
+<div id="modal"></div>
+
+<!-- Modal -->
+<div id="general_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="BranchModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:900px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 class="modal-title"></h3>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>

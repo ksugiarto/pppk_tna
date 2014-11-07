@@ -1,5 +1,13 @@
 =========================
 Things Done [@ksugiarto]:
+(1) Working on School Request page, Teacher, and Teacher page.
+
+Next Things To Do:
+(1) Finishing Request Participant.
+(2) Start to work on Event.
+
+=========================
+Things Done [@ksugiarto]:
 (1) Adding fresh School Vocational, School Request, Teacher, Teacher Vocational, Request Participant, and Request Vocational.
 (2) Working on School page, 'school request' and 'vocational' inside School Show Page.
 (3) Change default locale to :id (adding 'id.yml' indeed too).

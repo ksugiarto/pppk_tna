@@ -1,0 +1,19 @@
+<table id="request_participant_table" class="table table-condensed">
+  <tr style="background-color:#708DC6;">
+    <th><%= t 'school.name' %></th>
+    <th><%= t 'school.notes' %></th>
+    <th><%= link_to "#{t 'new'}", new_school_school_request_request_participant_path(@school, @school_request), :class => "btn btn-default btn-xs", :remote => true %></th>
+  </tr>
+
+<% @school_request.participants.each do |request_participant| %>
+  <tr>
+    <td><%= request_participant.teacher.try(:first_name) %></td>
+    <td><%= request_participant.notes %></td>
+    <td>
+      <%= link_to "#{t 'show'}", school_school_request_request_participant_path(@school, @school_request, request_participant), :class => "btn btn-info btn-xs", :remote => true %>
+      <%= link_to "#{t 'edit'}", edit_school_school_request_request_participant_path(@school, @school_request, request_participant), :class => "btn btn-warning btn-xs", :remote => true %>
+      <%= link_to "#{t 'destroy'}", school_school_request_request_participant_path(@school, @school_request, request_participant), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
+    </td>
+  </tr>
+<% end %>
+</table>

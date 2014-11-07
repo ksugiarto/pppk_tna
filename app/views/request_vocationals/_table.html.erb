@@ -1,0 +1,19 @@
+<table id="request_vocational_table" class="table table-condensed">
+  <tr style="background-color:#708DC6;">
+    <th><%= t 'school.vocational' %></th>
+    <th><%= t 'school.notes' %></th>
+    <th><%= link_to "#{t 'new'}", new_school_school_request_request_vocational_path(@school, @school_request), :class => "btn btn-default btn-xs", :remote => true %></th>
+  </tr>
+
+<% @school_request.vocationals.each do |request_vocational| %>
+  <tr>
+    <td><%= request_vocational.vocational.try(:name) %></td>
+    <td><%= request_vocational.notes %></td>
+    <td>
+      <%= link_to "#{t 'show'}", school_school_request_request_vocational_path(@school, @school_request, request_vocational), :class => "btn btn-info btn-xs", :remote => true %>
+      <%= link_to "#{t 'edit'}", edit_school_school_request_request_vocational_path(@school, @school_request, request_vocational), :class => "btn btn-warning btn-xs", :remote => true %>
+      <%= link_to "#{t 'destroy'}", school_school_request_request_vocational_path(@school, @school_request, request_vocational), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
+    </td>
+  </tr>
+<% end %>
+</table>

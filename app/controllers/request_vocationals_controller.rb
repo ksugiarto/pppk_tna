@@ -1,13 +1,11 @@
 class RequestVocationalsController < ApplicationController
-  # GET /request_vocationals
-  # GET /request_vocationals.json
-  def index
-    @request_vocationals = RequestVocational.all
+  def get_school
+    @school = School.find(params[:school_id])
+    @school_request = @school.requests.find(params[:school_request_id])
+  end
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @request_vocationals }
-    end
+  def get_vocational
+    @vocationals = Vocational.order(:name)
   end
 
   # GET /request_vocationals/1
@@ -24,60 +22,38 @@ class RequestVocationalsController < ApplicationController
   # GET /request_vocationals/new
   # GET /request_vocationals/new.json
   def new
-    @request_vocational = RequestVocational.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @request_vocational }
-    end
+    get_school
+    get_vocational
+    @request_vocational = @school_request.vocationals.new
   end
 
   # GET /request_vocationals/1/edit
   def edit
-    @request_vocational = RequestVocational.find(params[:id])
+    get_school
+    get_vocational
+    @request_vocational = @school_request.vocationals.find(params[:id])
   end
 
   # POST /request_vocationals
   # POST /request_vocationals.json
   def create
-    @request_vocational = RequestVocational.new(params[:request_vocational])
-
-    respond_to do |format|
-      if @request_vocational.save
-        format.html { redirect_to @request_vocational, notice: 'Request vocational was successfully created.' }
-        format.json { render json: @request_vocational, status: :created, location: @request_vocational }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @request_vocational.errors, status: :unprocessable_entity }
-      end
-    end
+    get_school
+    @request_vocational = @school_request.vocationals.create(params[:request_vocational])
   end
 
   # PUT /request_vocationals/1
   # PUT /request_vocationals/1.json
   def update
-    @request_vocational = RequestVocational.find(params[:id])
-
-    respond_to do |format|
-      if @request_vocational.update_attributes(params[:request_vocational])
-        format.html { redirect_to @request_vocational, notice: 'Request vocational was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @request_vocational.errors, status: :unprocessable_entity }
-      end
-    end
+    get_school
+    @request_vocational = @school_request.vocationals.find(params[:id])
+    @request_vocational.update_attributes(params[:request_vocational])
   end
 
   # DELETE /request_vocationals/1
   # DELETE /request_vocationals/1.json
   def destroy
-    @request_vocational = RequestVocational.find(params[:id])
+    get_school
+    @request_vocational = @school_request.vocationals.find(params[:id])
     @request_vocational.destroy
-
-    respond_to do |format|
-      format.html { redirect_to request_vocationals_url }
-      format.json { head :no_content }
-    end
   end
 end

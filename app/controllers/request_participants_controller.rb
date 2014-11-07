@@ -1,13 +1,11 @@
 class RequestParticipantsController < ApplicationController
-  # GET /request_participants
-  # GET /request_participants.json
-  def index
-    @request_participants = RequestParticipant.all
+  def get_school
+    @school = School.find(params[:school_id])
+    @school_request = @school.requests.find(params[:school_request_id])
+  end
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @request_participants }
-    end
+  def get_teacher
+    @teachers = Teacher.order(:first_name)
   end
 
   # GET /request_participants/1
@@ -24,60 +22,38 @@ class RequestParticipantsController < ApplicationController
   # GET /request_participants/new
   # GET /request_participants/new.json
   def new
-    @request_participant = RequestParticipant.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @request_participant }
-    end
+    get_school
+    get_teacher
+    @request_participant = @school_request.participants.new
   end
 
   # GET /request_participants/1/edit
   def edit
-    @request_participant = RequestParticipant.find(params[:id])
+    get_school
+    get_teacher
+    @request_participant = @school_request.participants.find(params[:id])
   end
 
   # POST /request_participants
   # POST /request_participants.json
   def create
-    @request_participant = RequestParticipant.new(params[:request_participant])
-
-    respond_to do |format|
-      if @request_participant.save
-        format.html { redirect_to @request_participant, notice: 'Request participant was successfully created.' }
-        format.json { render json: @request_participant, status: :created, location: @request_participant }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @request_participant.errors, status: :unprocessable_entity }
-      end
-    end
+    get_school
+    @request_participant = @school_request.participants.create(params[:request_participant])
   end
 
   # PUT /request_participants/1
   # PUT /request_participants/1.json
   def update
-    @request_participant = RequestParticipant.find(params[:id])
-
-    respond_to do |format|
-      if @request_participant.update_attributes(params[:request_participant])
-        format.html { redirect_to @request_participant, notice: 'Request participant was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @request_participant.errors, status: :unprocessable_entity }
-      end
-    end
+    get_school
+    @request_participant = @school_request.participants.find(params[:id])
+    @request_participant.update_attributes(params[:request_participant])
   end
 
   # DELETE /request_participants/1
   # DELETE /request_participants/1.json
   def destroy
-    @request_participant = RequestParticipant.find(params[:id])
+    get_school
+    @request_participant = @school_request.participants.find(params[:id])
     @request_participant.destroy
-
-    respond_to do |format|
-      format.html { redirect_to request_participants_url }
-      format.json { head :no_content }
-    end
   end
 end

@@ -1,0 +1,26 @@
+<table class="table table-condensed">
+  <tr>
+    <th><%= t 'teacher.nip' %></th>
+    <td><b>:&nbsp;<%= @teacher.nip %></b></td>
+    <th><%= t 'teacher.born_date' %></th>
+    <td><b>:</b>&nbsp;<%= "#{@teacher.born_place}, #{@teacher.born_date}" %></td>
+  </tr>
+  <tr>
+    <th><%= t 'teacher.name' %></th>
+    <td><b>:&nbsp;<%= "#{@teacher.front_title} #{@teacher.first_name} #{@teacher.last_name}, #{@teacher.end_title}" %></b></td>
+    <th><%= t 'teacher.gender' %></th>
+    <td><b>:</b>&nbsp;<%= @teacher.gender_name %></td>
+  </tr>
+  <tr>
+    <th><%= t 'suppllier.email' %>:</th>
+    <td><b>:</b>&nbsp;<%= @teacher.email %></td>
+    <th><%= t 'teacher.religion' %></th>
+    <td><b>:</b>&nbsp;<%= @teacher.religion_name %></td>
+  </tr>
+  <tr>
+    <th><%= t 'suppllier.address' %>:</th>
+    <td><b>:</b>&nbsp;<%= @teacher.address %>, <%= @teacher.city.try(:name) %></td>
+    <th><%= t 'teacher.start_teach' %></th>
+    <td><b>:</b>&nbsp;<%= @teacher.start_teach %></td>
+  </tr>
+</table>
