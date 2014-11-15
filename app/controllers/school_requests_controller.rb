@@ -6,6 +6,11 @@ class SchoolRequestsController < ApplicationController
   def show
     get_school
     @school_request = @school.requests.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /school_requests/new

@@ -1,0 +1,27 @@
+<table class="table table-condensed">
+  <tr style="background-color:#708DC6;">
+    <th><%= t 'teacher.nip' %></th>
+    <th><%= t 'teacher.name' %></th>
+    <th><%= t 'teacher.born_date' %></th>
+    <th><%= t 'teacher.gender' %></th>
+    <th><%= t 'teacher.address' %></th>
+    <th><%= t 'teacher.start_teach' %></th>
+    <th></th>
+  </tr>
+
+<% @school.teachers.each do |teacher| %>
+  <tr>
+    <td><%= teacher.nip %></td>
+    <td><%= "#{teacher.front_title} #{teacher.first_name} #{teacher.last_name}, #{teacher.end_title}" %></td>
+    <td><%= "#{teacher.born_place}, #{teacher.born_date}" %></td>
+    <td><%= teacher.gender_name %></td>
+    <td><%= "#{teacher.address}, #{teacher.city.try(:name)}" %></td>
+    <td><%= teacher.start_teach %></td>
+    <td>
+        <%= link_to "#{t 'show'}", teacher, :class => "btn btn-info btn-xs", :remote => true %>
+        <%= link_to "#{t 'edit'}", edit_teacher_path(teacher), :class => "btn btn-warning btn-xs", :remote => true %>
+        <%= link_to "#{t 'destroy'}", teacher, method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
+    </td>
+  </tr>
+<% end %>
+</table>

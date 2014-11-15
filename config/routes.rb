@@ -1,5 +1,19 @@
 PppkTna::Application.routes.draw do
 
+  resources :events do
+    collection do
+      get :check_request #step 1
+      get :check_request_next
+      get :pick_date #step 2
+    end
+    member do
+      get :save_date
+      get :pick_vocational #step 3
+      get :save_vocational
+      get :entry_information #step 4
+    end
+  end
+
   resources :teachers do
     resources :teacher_vocationals
   end

@@ -1,5 +1,13 @@
 =========================
 Things Done [@ksugiarto]:
+(1) Fixing minor codes in 'School Request' and 'Teacher'.
+(2) Create fresh 'Event'.
+(3) Adding new Gem: 'fullcalendar' to create a calendar widget.
+(4) Working and research on Event's calendar, Event New Wizard Page.
+(5) Delete several unused Javascript n Stylesheet pages.
+
+=========================
+Things Done [@ksugiarto]:
 (1) Working on School Request page, Teacher, and Teacher page.
 
 Next Things To Do:

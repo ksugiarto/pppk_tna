@@ -1,0 +1,22 @@
+<%= will_paginate @vocationals, :class => "apple_pagination" %>
+
+<table class="table table-condensed">
+  <tr style="background-color:#708DC6;">
+    <th><%= t 'school.vocational' %></th>
+    <th><%= t 'school.notes' %></th>
+    <th></th>
+  </tr>
+
+<% @vocationals.each do |vocational| %>
+  <tr>
+    <td><%= vocational.try(:name) %></td>
+    <td><%= vocational.class_for %></td>
+    <td>
+      <%= link_to "#{t 'show'}", events_path, :class => "btn btn-info btn-xs", :remote => true %>
+      <%= link_to "#{t 'pick'}", save_vocational_event_path(@event, :vocational_id => vocational.id), :class => "btn btn-success btn-xs" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @vocationals, :class => "apple_pagination" %>

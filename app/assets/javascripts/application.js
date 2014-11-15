@@ -12,8 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require fullcalendar
+//= require moment
 //= require_tree .
 
+// require fullcalendar/gcal
 jQuery.ajaxSetup({
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
 })
@@ -73,5 +76,33 @@ $(document).ready(function() {
     $('.checkall').on('click', function () {
         $(this).closest('fieldset').find(':checkbox').prop('checked', this.checked);
     });
+  });
+
+  $('#calendar').fullCalendar({
+    events: "/events/pick_date.json",
+    selectable: true,
+    // lang: 'id',
+
+    dayClick: function(date, jsEvent, view) {
+        // alert('Clicked on: ' + date.format());
+        // alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+        // alert('Current view: ' + view.title);
+        // window.location.href = "/events/new?date_start=" + date.format();
+
+        // change the day's background color just for fun
+        // $(this).css('background-color', 'red');
+    },
+
+    select: function( start, end, jsEvent, view ) {
+      if(start < new Date())
+      {
+          alert("Silahkan pilih tanggal setelah hari ini.");
+      }
+      else
+      {
+        var id = $("#event_id").html();
+        window.location.href = "/events/" + id + "/save_date?date_start=" + start.format() + "&date_end=" + end.format();
+      }
+    }
   });
 });

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  vocational_id: 1
+  date_start: 2014-11-08
+  date_end: 2014-11-08
+  description: MyText
+  status: 1
+
+two:
+  name: MyString
+  vocational_id: 1
+  date_start: 2014-11-08
+  date_end: 2014-11-08
+  description: MyText
+  status: 1

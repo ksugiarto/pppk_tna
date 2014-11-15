@@ -4,5 +4,5 @@ class SchoolRequest < ActiveRecord::Base
 	has_many :participants, :class_name => "RequestParticipant"
 	has_many :vocationals, :class_name => "RequestVocational"
 	
-  attr_accessible :notes, :references_number, :request_date, :school_id
+  attr_accessible :notes, :reference_number, :request_date, :school_id
 end

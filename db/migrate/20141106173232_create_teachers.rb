@@ -1,6 +1,7 @@
 class CreateTeachers < ActiveRecord::Migration
   def change
     create_table :teachers do |t|
+      t.integer :school_id
       t.string :nip
       t.string :front_title
       t.string :first_name

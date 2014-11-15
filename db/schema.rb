@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141106173522) do
+ActiveRecord::Schema.define(:version => 20141108081541) do
 
   create_table "basic_competencies", :force => true do |t|
     t.integer  "core_competency_id"
@@ -52,6 +52,17 @@ ActiveRecord::Schema.define(:version => 20141106173522) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.integer  "vocational_id"
+    t.date     "date_start"
+    t.date     "date_end"
+    t.text     "description"
+    t.integer  "status"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "provinces", :force => true do |t|
     t.integer  "country_id"
     t.string   "name"
@@ -77,11 +88,11 @@ ActiveRecord::Schema.define(:version => 20141106173522) do
 
   create_table "school_requests", :force => true do |t|
     t.integer  "school_id"
-    t.string   "references_number"
+    t.string   "reference_number"
     t.date     "request_date"
     t.text     "notes"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "school_vocationals", :force => true do |t|
@@ -120,6 +131,7 @@ ActiveRecord::Schema.define(:version => 20141106173522) do
   end
 
   create_table "teachers", :force => true do |t|
+    t.integer  "school_id"
     t.string   "nip"
     t.string   "front_title"
     t.string   "first_name"

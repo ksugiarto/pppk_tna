@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-2">
+    <% if @event.present? %>
+    	<%= link_to @event, method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-sm" do %>
+    		<span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<%= t 'cancel' %>
+    	<% end %>
+    <% else %>
+      <%= link_to events_path, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<%= t 'cancel' %>
+      <% end %>
+    <% end %>
+  </div>
+  
+  <div class="col-md-8">
+    <h4 align="center"><%= "#{t 'new'} #{t 'event.event'} - #{t 'step'} 1 (#{t 'event.check_request'})" %></h4>
+  </div>
+
+  <div class="col-md-2" align="right">
+    <%= link_to check_request_next_events_path(:id => @event_id), :class => "btn btn-default btn-sm" do %>
+    	<%= t 'next' %>&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
+    <% end %>
+  </div>
+</div>
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          <b>FILTER</b>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+        <%=# render 'filter/curicculum' 
+        %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="check_request"><%= render 'check_request' %></div>
+
+<div id="modal"></div>
+
+<!-- Modal -->
+<div id="general_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="BranchModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:900px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 class="modal-title"></h3>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<p>
+  <b>Name:</b>
+  <%= @event.name %>
+</p>
+
+<p>
+  <b>Vocational:</b>
+  <%= @event.vocational.try(:name) %>
+</p>
+
+<p>
+  <b>Date start:</b>
+  <%= @event.date_start %>
+</p>
+
+<p>
+  <b>Date end:</b>
+  <%= @event.date_end %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @event.description %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @event.status %>
+</p>

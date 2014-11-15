@@ -3,6 +3,7 @@ class TeachersController < ApplicationController
     @countries = Country.order(:name)
     @provinces = Province.order(:name)
     @cities = City.order(:name)
+    @schools = School.order(:name)
   end
 
   # GET /teachers

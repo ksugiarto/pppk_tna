@@ -1,0 +1,14 @@
+Reference Number: <%= @school_request.reference_number %><br>
+Date: <%= date(@school_request.request_date) %>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#participant" data-toggle="tab"><%= t 'school.participant' %></a></li>
+  <li><a href="#vocational" data-toggle="tab"><%= t 'school.vocational' %></a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="participant"><%= render 'request_participants/table' %></div>
+  <div class="tab-pane" id="vocational"><%= render 'request_vocationals/table' %></div>
+</div>

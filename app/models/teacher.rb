@@ -1,11 +1,12 @@
 class Teacher < ActiveRecord::Base
 	belongs_to :country
 	belongs_to :province
-	belongs_to :city
+  belongs_to :city
+	belongs_to :school
 
 	has_many :vocationals, :class_name => "TeacherVocational"
 
-  attr_accessible :address, :born_date, :born_place, :city_id, :country_id, :email, :end_title, :first_name, :front_title, :gender, :last_name, :nip, :province_id, :religion, :start_teach
+  attr_accessible :address, :born_date, :born_place, :city_id, :country_id, :email, :end_title, :first_name, :front_title, :gender, :last_name, :nip, :province_id, :religion, :school_id, :start_teach
 
   def self.pagination(page)
     paginate(:per_page => 20, :page => page)
@@ -36,6 +37,8 @@ class Teacher < ActiveRecord::Base
       return "#{I18n.t 'teacher.buddha'}"
     when 6
       return "#{I18n.t 'teacher.konghuchu'}"
+    when 7
+      return "#{I18n.t 'teacher.other'}"
     else
       return ""
     end

@@ -8,19 +8,25 @@
   <tr>
     <th><%= t 'teacher.name' %></th>
     <td><b>:&nbsp;<%= "#{@teacher.front_title} #{@teacher.first_name} #{@teacher.last_name}, #{@teacher.end_title}" %></b></td>
+    <th><%= t 'teacher.school' %></th>
+    <td><b>:</b>&nbsp;<%= @teacher.school.try(:name) %></td>
+  </tr>
+  <tr>
     <th><%= t 'teacher.gender' %></th>
     <td><b>:</b>&nbsp;<%= @teacher.gender_name %></td>
-  </tr>
-  <tr>
     <th><%= t 'suppllier.email' %>:</th>
     <td><b>:</b>&nbsp;<%= @teacher.email %></td>
-    <th><%= t 'teacher.religion' %></th>
-    <td><b>:</b>&nbsp;<%= @teacher.religion_name %></td>
   </tr>
   <tr>
+    <th><%= t 'teacher.religion' %></th>
+    <td><b>:</b>&nbsp;<%= @teacher.religion_name %></td>
     <th><%= t 'suppllier.address' %>:</th>
     <td><b>:</b>&nbsp;<%= @teacher.address %>, <%= @teacher.city.try(:name) %></td>
+  </tr>
+  <tr>
     <th><%= t 'teacher.start_teach' %></th>
     <td><b>:</b>&nbsp;<%= @teacher.start_teach %></td>
+    <th></th>
+    <td><b></b>&nbsp;</td>
   </tr>
 </table>
