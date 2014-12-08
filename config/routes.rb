@@ -1,11 +1,34 @@
 PppkTna::Application.routes.draw do
 
   resources :events do
+    resources :event_exams do
+      resources :questions
+    end
+
+    resources :event_matters
+
+    resources :event_participants do
+      collection do
+        get :check_request
+        get :check_all
+        get :checked
+        get :checked_email
+        get :send_invitation
+        get :print_invitation
+        get :pick_participant
+        get :register_participant
+        post :fix_participant
+
+        get :review_participant
+      end
+    end
+
     collection do
       get :check_request #step 1
       get :check_request_next
       get :pick_date #step 2
     end
+
     member do
       get :save_date
       get :pick_vocational #step 3
@@ -16,6 +39,7 @@ PppkTna::Application.routes.draw do
 
   resources :teachers do
     resources :teacher_vocationals
+    resources :teacher_histories
   end
 
   resources :schools do

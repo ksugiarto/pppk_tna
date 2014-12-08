@@ -1,5 +1,21 @@
 =========================
 Things Done [@ksugiarto]:
+(1) Adding fresh 'Event Exam', 'Question', 'Event Matter', 'Event Participant'.
+(2) Working on Event Exam and Question pages.
+(3) Working on Event Matter pages, which can upload document in format 'doc, docx, and pdf'.
+(4) Working on Event Participant pages, which is using 'Wizard style steps'.
+(5) Adding mailer.
+(6) Working on Fixing Participant.
+(7) Working on Close and Review Participant, also saving Teacher's histories.
+(8) Adding new Gem: 'best_in_place' that used in reviewing Event Participant.
+
+Next do Do:
+(1) Person In Charge List.
+(2) Report Function.
+(3) Fixing print invitation.
+
+=========================
+Things Done [@ksugiarto]:
 (1) Fixing minor codes in 'School Request' and 'Teacher'.
 (2) Create fresh 'Event'.
 (3) Adding new Gem: 'fullcalendar' to create a calendar widget.

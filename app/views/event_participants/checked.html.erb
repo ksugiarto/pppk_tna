@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-md-2">
+    <%= link_to check_all_event_event_participants_path(@event), :class => "btn btn-default btn-sm" do %>
+      <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<%= t 'previous' %>
+    <% end %>
+  </div>
+  
+  <div class="col-md-8">
+    <h4 align="center"><%= "#{t 'add'} #{t 'event_participant.event_participant'} - #{t 'step'} 3 (#{t 'event_participant.checked'})" %></h4>
+  </div>
+
+  <div class="col-md-2" align="right">
+    <%= link_to checked_email_event_event_participants_path(@event), :class => "btn btn-default btn-sm" do %>
+    	<%= t 'next' %>&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
+    <% end %>
+  </div>
+</div>
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          <b>FILTER</b>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+        <%=# render 'filter/curicculum' 
+        %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="checked"><%= render 'checked' %></div>
+
+<div id="modal"></div>
+
+<!-- Modal -->
+<div id="general_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="BranchModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:900px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 class="modal-title"></h3>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>

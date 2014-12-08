@@ -1,0 +1,8 @@
+Dear <%= @school_name %>,
+
+<% num=0; @participants.each do |participant| %>
+	<% teacher = Teacher.find(participant.teacher_id) %>
+	<%= num+=1 %>. <%= teacher.full_name %>
+<% end %>
+
+This is a system auto generated message, this email can't receive replies. If you have any questions, please e-mail us via customer center: admin@super-courier.com

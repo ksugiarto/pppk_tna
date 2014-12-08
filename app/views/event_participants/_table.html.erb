@@ -1,0 +1,31 @@
+<table id="event_participant_table" class="table table-condensed">
+  <tr style="background-color:#708DC6;">
+    <th><%= t 'event_participant.teacher' %></th>
+    <th><%= t 'event_participant.total_presence' %></th>
+    <th><%= t 'event_participant.exam' %></th>
+    <th><%= t 'event_participant.exam_grade' %></th>
+    <th><%= t 'event_participant.status' %></th>
+    <% if @event.status.to_i==0 %>
+    <th>
+      <%= link_to "#{t 'event_participant.fix_participant'}", register_participant_event_event_participants_path(@event), :class => "btn btn-default btn-xs" %>
+      <%= link_to "#{t 'add'}", check_request_event_event_participants_path(@event), :class => "btn btn-default btn-xs" %>
+    </th>
+    <% end %>
+  </tr>
+
+<% @event.participants.each do |event_participant| %>
+  <tr>
+    <td><%= event_participant.teacher.full_name %></td>
+    <td><%= event_participant.total_presence %></td>
+    <td><%= event_participant.event_exam.try(:exam_type) %></td>
+    <td><%= event_participant.exam_grade %></td>
+    <td><span class="<%= label_class(event_participant.status) %>"><%= event_participant.status_name %></span></td>
+    <% if @event.status.to_i==0 %>
+    <td>
+        <%= link_to "#{t 'edit'}", edit_event_event_participant_path(@event, event_participant), :class => "btn btn-warning btn-xs" %>
+        <%= link_to "#{t 'destroy'}", event_event_participant_path(@event, event_participant), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs" %>
+    </td>
+    <% end %>
+  </tr>
+<% end %>
+</table>

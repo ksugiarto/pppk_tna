@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141108081541) do
+ActiveRecord::Schema.define(:version => 20141208190402) do
 
   create_table "basic_competencies", :force => true do |t|
     t.integer  "core_competency_id"
@@ -52,12 +52,43 @@ ActiveRecord::Schema.define(:version => 20141108081541) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "event_exams", :force => true do |t|
+    t.integer  "event_id"
+    t.text     "description"
+    t.string   "exam_type"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "event_matters", :force => true do |t|
+    t.integer  "event_id"
+    t.text     "notes"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+  end
+
+  create_table "event_participants", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "teacher_id"
+    t.integer  "total_presence"
+    t.integer  "event_exam_id"
+    t.integer  "exam_grade"
+    t.integer  "status"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "events", :force => true do |t|
-    t.string   "name"
+    t.string   "title"
     t.integer  "vocational_id"
     t.date     "date_start"
     t.date     "date_end"
     t.text     "description"
+    t.text     "result_notes"
     t.integer  "status"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
@@ -68,6 +99,20 @@ ActiveRecord::Schema.define(:version => 20141108081541) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "questions", :force => true do |t|
+    t.integer  "event_exam_id"
+    t.text     "content"
+    t.text     "answer_1"
+    t.text     "answer_2"
+    t.text     "answer_3"
+    t.text     "answer_4"
+    t.integer  "right_answer"
+    t.integer  "score"
+    t.text     "notes"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "request_participants", :force => true do |t|
@@ -120,6 +165,15 @@ ActiveRecord::Schema.define(:version => 20141108081541) do
     t.string   "start_year"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "teacher_histories", :force => true do |t|
+    t.integer  "teacher_id"
+    t.integer  "event_id"
+    t.integer  "event_participant_id"
+    t.integer  "status"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "teacher_vocationals", :force => true do |t|

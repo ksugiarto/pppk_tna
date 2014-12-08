@@ -19,6 +19,8 @@ gem "pry"														# using 'binding.pry' inside the code
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'								# required for fullcalendar
 gem 'jbuilder'
+gem "best_in_place", :git => 'https://github.com/aaronchi/best_in_place.git'
+# gem 'rails-i18n', '~> 3.0.0'
 
 # Gems used only for assets and not required
 # in production environments by default.

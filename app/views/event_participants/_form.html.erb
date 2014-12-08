@@ -1,0 +1,37 @@
+<%= form_for(@event_participant) do |f| %>
+  <% if @event_participant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event_participant.errors.count, "error") %> prohibited this event_participant from being saved:</h2>
+
+      <ul>
+      <% @event_participant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :event_id %><br />
+    <%= f.number_field :event_id %>
+  </div>
+  <div class="field">
+    <%= f.label :teacher_id %><br />
+    <%= f.number_field :teacher_id %>
+  </div>
+  <div class="field">
+    <%= f.label :total_presence %><br />
+    <%= f.number_field :total_presence %>
+  </div>
+  <div class="field">
+    <%= f.label :exam_grade %><br />
+    <%= f.number_field :exam_grade %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.number_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

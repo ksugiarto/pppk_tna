@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.remotipart
+//= require best_in_place
 //= require fullcalendar
 //= require moment
 //= require_tree .
@@ -65,6 +67,7 @@ $(document).ready(function() {
   // jQuery(".best_in_place").best_in_place();
 
   $(".apple_pagination a").ajaxPagination();
+  $(".best_in_place").best_in_place();
 
   window.setTimeout(function() {
     $(".alert").fadeTo(500, 0).slideUp(500, function(){

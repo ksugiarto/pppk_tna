@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  event_exam_id: 1
+  content: MyText
+  right_answer: 1
+  score: 1
+  note: MyText
+
+two:
+  event_exam_id: 1
+  content: MyText
+  right_answer: 1
+  score: 1
+  note: MyText

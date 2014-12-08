@@ -1,0 +1,22 @@
+<table class="table table-condensed">
+  <tr style="background-color:#708DC6;">
+    <th><%= t 'teacher.school' %></th>
+    <th><%= t 'teacher.nip' %></th>
+    <th><%= t 'teacher.name' %></th>
+    <th><%= t 'teacher.gender' %></th>
+    <th></th>
+  </tr>
+
+<% @event.participants.have_email.new_participant.each do |event_participant| %>
+  <tr>
+    <td><%= event_participant.teacher.school.try(:name) %></td>
+    <td><%= event_participant.teacher.nip %></td>
+    <td><%= event_participant.teacher.full_name %></td>
+    <td><%= event_participant.teacher.gender_name %></td>
+    <td>
+      <%= link_to "#{t 'show'}", "#", :class => "btn btn-info btn-xs", :remote => true %>
+      <%= link_to "#{t 'destroy'}", event_event_participant_path(@event, event_participant), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
+    </td>
+  </tr>
+<% end %>
+</table>

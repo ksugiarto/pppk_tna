@@ -1,0 +1,32 @@
+<%= form_tag fix_participant_event_event_participants_path(@event), :class => "form-horizontal" do |f| %>
+    
+  <table class="table table-condensed">
+    <tr style="background-color:#708DC6;">
+      <th>
+        <label class="checkbox">
+          <%= check_box_tag "all", "", "", :class => "checkall" %>
+          <%= label_tag "#{t 'select_all'}" %>
+        </label>
+      </th>
+      <th><%= t 'event_participant.teacher' %></th>
+      <th><%= t 'event_participant.school' %></th>
+      <th></th>
+    </tr>
+    <% @event.participants.each do |participant| %>
+    <tr>
+      <td>
+        <label class="checkbox">
+          <%= check_box_tag "event_participant[participant_ids][]", participant.id, @event.participants.fix_participant.include?(participant) %>
+        </label>
+      </td>
+      <td><%= participant.teacher.full_name %></td>
+      <td><%= participant.teacher.school.name %></td>
+    </tr>
+    <% end %>
+  </table>
+
+  <div class="form-group">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-6"><%= submit_tag "#{t 'submit'}", :class => "btn btn-success", :disable_with => "#{t 'disable_with'}" %></div>
+  </div>
+<% end %>

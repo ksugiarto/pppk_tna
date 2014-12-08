@@ -2,7 +2,173 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 id:
-  hello: "Halo dunia"
+  locale:
+    native_name: Bahasa Indonesia
+    address_separator: " "
+  date:
+    day:
+      sunday: "Minggu"
+      monday: "Senin"
+      tuesday: "Selasa"
+      wednesday: "Rabu"
+      thursday: "Kamis"
+      friday: "Jumat"
+      saturday: "Sabtu"
+    month:
+      january: "Januari"
+      february: "Pebruari"
+      march: "Maret"
+      april: "April"
+      may: "Mei"
+      june: "Juni"
+      july: "Juli"
+      august: "Agustus"
+      september: "September"
+      october: "Oktober"
+      november: "November"
+      december: "Desember"
+    formats:
+      default: "%d %B %Y"
+      long: "%A, %d %B %Y"
+      short: "%d.%m.%Y"
+
+    day_names:
+      - Minggu
+      - Senin
+      - Selasa
+      - Rabu
+      - Kamis
+      - "Jum'at"
+      - Sabtu
+    abbr_day_names:
+      - Min
+      - Sen
+      - Sel
+      - Rab
+      - Kam
+      - Jum
+      - Sab
+    month_names:
+      - ~
+      - Januari
+      - Pebruari
+      - Maret
+      - April
+      - Mei
+      - Juni
+      - Juli
+      - Agustus
+      - September
+      - Oktober
+      - November
+      - Desember
+    abbr_month_names:
+      - ~
+      - Jan
+      - Peb
+      - Mar
+      - Apr
+      - Mei
+      - Jun
+      - Jul
+      - Agu
+      - Sep
+      - Okt
+      - Nov
+      - Des
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%a, %d %b %Y %H.%M.%S %z"
+      numeric: "%d-%b-%y %H:%M"
+      short: "%d %b %H.%M"
+      long: "%d %B %Y %H.%M"
+      time: "%H:%M"
+
+    am: "am"
+    pm: "pm"
+
+  support:
+    select:
+      prompt: "Silahkan pilih"
+    array:
+      sentence_connector: "dan"
+      skip_last_comma: true
+      words_connector: ", "
+      two_words_connector: ", "
+      last_word_connector: " dan "
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "setengah menit"
+      less_than_x_seconds:
+        zero:  "kurang dari 1 detik"
+        one:   "kurang dari 1 detik"
+        other: "kurang dari %{count} detik"
+      x_seconds:
+        one:   "satu detik"
+        other: "%{count} detik"
+      less_than_x_minutes:
+        zero:  "kurang dari 1 menit"
+        one:   "kurang dari 1 menit"
+        other: "kurang dari  %{count} menit"
+      x_minutes:
+        one:   "satu menit"
+        other: "%{count} menit"
+      about_x_hours:
+        one:   "sekitar satu jam"
+        other: "sekitar %{count} jam"
+      x_days:
+        one:   "sehari"
+        other: "%{count} hari"
+      about_x_months:
+        one:   "sekitar sebulan"
+        other: "sekitar %{count} bulan"
+      x_months:
+        one:   "sebulan"
+        other: "%{count} bulan"
+      about_x_years:
+        one:   "setahun"
+        other: "noin %{count} tahun"
+      over_x_years:
+        one:   "lebih dari setahun"
+        other: "lebih dari %{count} tahun"
+      almost_x_years:
+        one:   "hampir setahun"
+        other: "hampir %{count} tahun"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "1 kesalahan mengakibatkan %{model} ini tidak bisa disimpan"
+          other:  "%{count} kesalahan mengakibatkan %{model} ini tidak bisa disimpan"
+        body: "Ada masalah dengan field berikut:"
+      messages:
+        inclusion: "tidak termasuk"
+        exclusion: "sudah digunakan"
+        invalid: "tidak valid"
+        confirmation: "tidak sesuai dengan konfirmasi"
+        accepted: "harus diterima"
+        empty: "tidak bisa kosong"
+        blank: "tidak bisa kosong"
+        too_long: "terlalu panjang (maksimum %{count} karakter)"
+        too_short: "terlalu pendek (maksimum %{count} karakter)"
+        wrong_length: "dengan panjang tidak sama (seharusnya %{count} karakter)"
+        taken: "sudah digunakan"
+        not_a_number: "bukan angka"
+        greater_than: "harus lebih besar dari %{count}"
+        greater_than_or_equal_to: "harus sama atau lebih besar dari %{count}"
+        equal_to: "harus sama dengan %{count}"
+        less_than: "harus lebih kecil dari %{count}"
+        less_than_or_equal_to: "harus sama atau lebih kecil dari %{count}"
+        odd: "harus ganjil"
+        even: "harus genap"
+        record_invalid: "Verifikasi gagal: %{errors}"
 
   # GENERAL
   login: "Sign in"
@@ -12,6 +178,7 @@ id:
   edit: "Ubah"
   destroy: "Hapus"
   delete: "Hapus"
+  download: "Download"
   submit: "Simpan"
   show: "Lihat"
   peek: "Intip"
@@ -39,48 +206,9 @@ id:
   import: "Impor"
   import_excel: "Impor dari Excel"
   import_excel_for: "Impor Excel untuk"
+  send_email: "Kirim Email"
   row_number: "No."
   step: "Langkah"
-
-  # DATE
-  date:
-    day_names:
-      sunday: "Minggu"
-      monday: "Senin"
-      tuesday: "Selasa"
-      wednesday: "Rabu"
-      thursday: "Kamis"
-      friday: "Jumat"
-      saturday: "Sabtu"
-    abbr_day_names:
-      sunday: "Minggu"
-      monday: "Senin"
-      tuesday: "Selasa"
-      wednesday: "Rabu"
-      thursday: "Kamis"
-      friday: "Jumat"
-      saturday: "Sabtu"
-    day:
-      sunday: "Minggu"
-      monday: "Senin"
-      tuesday: "Selasa"
-      wednesday: "Rabu"
-      thursday: "Kamis"
-      friday: "Jumat"
-      saturday: "Sabtu"
-    month:
-      january: "Januari"
-      february: "Februari"
-      march: "Maret"
-      april: "April"
-      may: "Mei"
-      june: "Juni"
-      july: "Juli"
-      august: "Agustus"
-      september: "September"
-      october: "Oktober"
-      november: "November"
-      december: "Desember"
 
   # MASTER
   country:
@@ -187,6 +315,12 @@ id:
     country: "Negara"
     province: "Provinsi"
     city: "Kota"
+    history:
+      history: "Riwayat Diklat"
+      event: "Diklat"
+      event_date: "Waktu Diklat"
+      vocational: "Kejuruan"
+      status: "Status"
 
   event:
     events: "Daftar Diklat"
@@ -197,7 +331,12 @@ id:
     date_end: " TanggL Selesai"
     description: "Deskripsi"
     vocational: "Kejuruan"
-    status: "Status"
+    status: "Status Diklat:"
+    status_short: "Status"
+    editable: "(Dapat diubah)"
+    uneditable: "(Tidak dapat diubah)"
+    created_at: "Dibuat pada: "
+    updated_at: "Diubah pada: "
     matter: "Materi"
     exam: "Soal Ujian"
     participant: "Peserta"
@@ -205,3 +344,44 @@ id:
     pick_date: "Periksa Tanggal Tersedia"
     pick_vocational: "Pilih Kejuruan"
     entry_information: "Masukkan Data Diklat"
+
+  event_exam:
+    event_exams: "Daftar Soal Ujian"
+    event_exam: "Soal Ujian"
+    description: "Deskripsi"
+    exam_type: "Jenis Soal"
+    question:
+      question: "Pertanyaan"
+      content: "Pertanyaan"
+      answer_1: "Pilihan A"
+      answer_2: "Pilihan B"
+      answer_3: "Pilihan C"
+      answer_4: "Pilihan D"
+      right_answer: "Pilihan Benar"
+      score: "Skor"
+      notes: "Notes"
+
+  event_matter:
+    event_matter: "Materi Diklat"
+    document: "Dokumen"
+    notes: "Note"
+
+  event_participant:
+    event_participant: "Peserta Diklat"
+    teacher: "Guru"
+    total_presence: "Jumlah Kehadiran"
+    exam: "Soal Ujian"
+    exam_grade: "Nilai Ujian"
+    status: "Status"
+    invited: "terundang"
+    fix: "ikut"
+    cancel: "batal"
+    pass: "lulus"
+    not_pass: "tidak lulus"
+    check_request: "Periksa Permohonan"
+    check_all: "Periksa Sekolah Lain"
+    checked: "Daftar Peserta Terpilih"
+    checked_email: "Kirim Undangan"
+    invitation: "Surat Undangan"
+    fix_participant: "Peserta Fix"
+    review_participant: "Review Peserta Diklat"

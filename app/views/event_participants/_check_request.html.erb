@@ -1,0 +1,22 @@
+<table class="table table-condensed">
+  <tr style="background-color:#708DC6;">
+    <th><%= t 'school.reference_number' %></th>
+    <th><%= t 'school.school' %></th>
+    <th><%= t 'school.teacher' %></th>
+    <th></th>
+  </tr>
+
+<% @school_requests.each do |school_request| %>
+  <% school_request.participants.not_picked(@event.id).each do |request_participant| %>
+    <tr>
+      <td><%= school_request.reference_number %></td>
+      <td><%= school_request.school.try(:name) %></td>
+      <td><%= request_participant.teacher.try(:full_name) %></td>
+      <td>
+        <%= link_to "#{t 'show'}", school_school_request_path(school_request.try(:school_id), school_request), :class => "btn btn-info btn-xs", :remote => true %>
+        <%= link_to "#{t 'pick'}", pick_participant_event_event_participants_path(@event, :teacher_id => request_participant.teacher_id), :class => "btn btn-success btn-xs", :remote => true %>
+      </td>
+    </tr>
+  <% end %>
+<% end %>
+</table>

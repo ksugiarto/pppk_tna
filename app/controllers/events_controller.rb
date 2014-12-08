@@ -47,7 +47,7 @@ class EventsController < ApplicationController
 
   def check_request_next
     if params[:id].to_i==0
-      @event = Event.create(:name => "Diklat Baru")
+      @event = Event.create(:title => "Diklat Baru")
     else
       @event = Event.find(params[:id])
     end

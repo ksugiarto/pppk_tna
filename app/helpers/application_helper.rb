@@ -24,4 +24,20 @@ module ApplicationHelper
   def delimiter(num)
   	return number_with_delimiter(num.to_f, :delimiter => ",", :separator => ".")
   end
+
+  def label_class(id)
+    case id
+    when 0
+      label = "label label-default"
+    when 1
+      label = "label label-warning"
+    when 5
+      label = "label label-inverse"
+    when 7
+      label = "label label-success"
+    when 8
+      label = "label label-danger"
+    else label = ""
+    end
+  end
 end

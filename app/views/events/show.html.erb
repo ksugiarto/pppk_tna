@@ -1,35 +1,79 @@
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-4">
     <%= link_to events_path, :class => "btn btn-default btn-sm" do %>
       <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<%= t 'back' %>
     <% end %>
   </div>
   
-  <div class="col-md-8">
+  <div class="col-md-4">
     <h4 align="center"><%= t 'event.event' %> - <%= t 'detail' %></h4>
   </div>
 
-  <div class="col-md-2" align="right">
-    <%= link_to edit_event_path(@event), :class => "btn btn-warning btn-sm", :remote => true do %>
-      <%= t 'edit' %>&nbsp;<span class="glyphicon glyphicon-pencil"></span>
-    <% end %>
+  <div class="col-md-4" align="right">
+    <% if @event.status.to_i==0 %>
+      <%= form_for(@event) do |f| %>
+        <%= f.hidden_field :status, :value => 1 %>
+        <%= button_tag :type => "submit", :id => "btn", :class => "btn btn-success btn-sm", :disable_with => "#{t 'disable_with'}", data: { confirm: "#{t 'confirm'}" } do %>
+          <%= t 'close' %>&nbsp;<span class="glyphicon glyphicon-lock"></span>
+        <% end -%>
+
+        <%= link_to edit_event_path(@event), :class => "btn btn-warning btn-sm", :remote => true do %>
+          <%= t 'edit' %>&nbsp;<span class="glyphicon glyphicon-pencil"></span>
+        <% end %>
+      <% end -%>
+    <% elsif @event.status.to_i==1 %>
+      <%= form_for(@event) do |f| %>
+        <%= link_to review_participant_event_event_participants_path(@event), :class => "btn btn-success btn-sm", :disable_with => "#{t 'disable_with'}" do %>
+            <%= t 'event_participant.review_participant' %>&nbsp;<span class="glyphicon glyphicon-pencil"></span>
+        <% end %>
+
+        <%= f.hidden_field :status, :value => 5 %>
+        <%= button_tag :type => "submit", :id => "btn", :class => "btn btn-danger btn-sm", :disable_with => "#{t 'disable_with'}", data: { confirm: "#{t 'confirm'}" } do %>
+          <%= t 'void' %>&nbsp;<span class="glyphicon glyphicon-lock"></span>
+        <% end -%>
+      <% end -%>
+    <% end -%>
   </div>
+</div>
+
+<div id="transaction_status" class="status_<%= @event.status.to_i %>" align="center">
+  <% case @event.status.to_i %>
+  <% when 0 %>
+    <%= "#{t 'event.status'} #{t 'new'} #{t 'event.editable'}" %>, <%= "#{t 'event.created_at'}#{date(@event.created_at)}" %>
+  <% when 1 %>
+    <%= "#{t 'event.status'} #{t 'close'} #{t 'event.uneditable'}" %>, <%= "#{t 'event.updated_at'}#{date(@event.updated_at)}" %>
+  <% when 5 %>
+    <%= "#{t 'event.status'} #{t 'void'} #{t 'event.uneditable'}" %>, <%= "#{t 'event.updated_at'}#{date(@event.updated_at)}" %>
+  <% end -%>
 </div>
 
 <%= render 'show' %>
 
 <ul class="nav nav-tabs">
-  <li class="active"><a href="#matter" data-toggle="tab"><%= t 'event.matter' %></a></li>
-  <li><a href="#exam" data-toggle="tab"><%= t 'event.exam' %></a></li>
+  <li class="active"><a href="#exam" data-toggle="tab"><%= t 'event.exam' %></a></li>
+  <li><a href="#matter" data-toggle="tab"><%= t 'event.matter' %></a></li>
   <li><a href="#participant" data-toggle="tab"><%= t 'event.participant' %></a></li>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
-  <div class="tab-pane active" id="matter"><%= #render 'event_requests/table'
-   %></div>
-  <div class="tab-pane" id="exam"><%= #render 'event_vocationals/table'
-   %></div>
-  <div class="tab-pane" id="participant"><%= #render 'table_teacher'
-   %></div>
+  <div class="tab-pane active" id="exam"><%= render 'event_exams/table' %></div>
+  <div class="tab-pane" id="matter"><%= render 'event_matters/table' %></div>
+  <div class="tab-pane" id="participant"><%= render 'event_participants/table' %></div>
+</div>
+
+<div id="modal"></div>
+
+<!-- Modal -->
+<div id="general_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="BranchModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:900px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 class="modal-title"></h3>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Teacher:</b>
+  <%= @teacher_history.teacher_id %>
+</p>
+
+<p>
+  <b>Event:</b>
+  <%= @teacher_history.event_id %>
+</p>
+
+<p>
+  <b>Event participant:</b>
+  <%= @teacher_history.event_participant_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @teacher_history.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_teacher_history_path(@teacher_history) %> |
+<%= link_to 'Back', teacher_histories_path %>

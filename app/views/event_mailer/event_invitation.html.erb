@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h4 style="text-align:center">
+      PEMERINTAH PROVINSI JAWA TIMUR<br>
+      <b>DINAS PENDIDIKAN<br>
+      UPT. PELATIHAN DAN PENGEMBANGAN PENDIDIKAN KEJURUAN</b><br>
+      Jl. Prof. Moch. Yamin No. 25 Kampus Unesa Ketintang Surabaya, 60231<br>
+      Telp: (031) 8291795 Fax: (031) 8288677<br>
+      S&nbsp;U&nbsp;R&nbsp;A&nbsp;B&nbsp;A&nbsp;Y&nbsp;A
+    </h4><hr>
+
+    <table>
+      <tr>
+        <td></td>
+        <td></td>
+        <td width="10%"></td>
+        <td>Surabaya, <%= I18n.l Time.now.localtime, :format => "%d %B %Y" %></td>
+      </tr>
+      <tr>
+        <td>Nomor</td>
+        <td>: 123/123.1/123.12/2014</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Sifat</td>
+        <td>: Penting</td>
+        <td></td>
+        <td>Kepada</td>
+      </tr>
+      <tr>
+        <td>Lampiran</td>
+        <td>: 1 (satu) lembar</td>
+        <td></td>
+        <td>Yth. Sdr. Kepala <%= @school.try(:name) %></td>
+      </tr>
+      <tr>
+        <td>Perihal</td>
+        <td>: <b><u>Pelatihan Pengingkatan Kompetensi Guru SMK</u></b></td>
+        <td></td>
+        <td>Di <%= "#{@school.try(:address)}, #{@school.try(:city).try(:name)}" %></td>
+      </tr>
+    </table>
+
+    <br><p>
+    Bersama ini disampaikan dengan hormat bahwa UPT. Pelatihan dan Pengembangan Pendidikan Kejuruan (UPT PPPK) Dinas Pendidikan Provinsi Jawa Timur, pada tahun <%= @event.try(:date_start).try(:year) %> akan menyelenggarakan Pelatihan Peningkatan Kompetensi Guru untuk Guru SMK se Jatim. Pelatihan akan diselenggarakan pada:
+
+    <p>
+    <table>
+      <tr>
+        <td>Tanggal</td>
+        <td>: <b><%= I18n.l @event.try(:date_start) %> s/d <%= I18n.l @event.try(:date_end) %></b></td>
+      </tr>
+      <tr>
+        <td>Tempat</td>
+        <td>: UPT. Pelatihan dan Pengembangan Pendidikan Kejuruan</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>&nbsp;&nbsp;JL. Prof. Moch. Yamin No. 25, Kampus Unesa Kentintang, Surabaya</td>
+      </tr>
+      <tr>
+        <td>Biaya</td>
+        <td>: Seluruh biaya operasional pelatihan di tanggung oleh APBD Dinas Pendidikan Provinsi Jawa Timur</td>
+      </tr>
+      <tr>
+        <td>Kedatangan Peserta</td>
+        <td>: <b><%= I18n.l @event.try(:date_start).to_time.localtime, :format => "%A, %d %B %Y" %></b></td>
+      </tr>
+    </table>
+
+    <br><p>
+    Sehubungan dengan hal tersebut diminta bantuan Saudara agar mengirimkan Guru sesuai data terlampir dengan ketentuan sebagi berikut:
+
+    <p>
+    1. Identitas lengkap Guru dan jurusan sesuai dengan yang telah disepakati dalam pendaftaran.<br>
+    2. Membawa Surat Keterangan Sehat dari Dokter, Surat tugas dari Sekolah, pakaian olah raga dan Foto Copy NPWP (bila ada).
+
+    <p>
+    Selanjutnya pendaftaran peserta selambat-lambatnya tanggal <b><%= I18n.l @event.try(:date_start) - 3 %></b> harus sudah didaftarkan ke UPT PPPK secara langsung Telp. <b>031 8291795</b> atau melalui Fax <b>031 8288677</b>, dan diminta perhatiannya agar pengiriman Guru sesuai dengan kuota, mengingat daya tampung yang tersedia.
+
+    <p>
+    Demikian untuk menjadikan maklum dan atas perhatiannya disampaikan terima kasih.
+
+    <p>
+    KEPALA<br>
+    UPT. PELATIHAN DAN PENGEMBANGAN<br>
+    PENDIDIKAN KEJURUAN<br><br>
+    [kepala UPT]<br>
+    [kepala UPT jabatan]<br>
+    NIP. [nip kepala UPT]<br>
+
+    <p><hr>
+    Lampiran: -<br>
+    Nomor: 123/123.1/123.12/2014
+
+    <h4 style="text-align:center"><b><u>DAFTAR GURU</u></b></h4>
+    <% num=0; @participants.each do |participant| %>
+      <%= num+=1 %>. <%= participant.try(:teacher).full_name %>
+    <% end %>
+    <br>
+
+    <p>
+    KEPALA<br>
+    UPT. PELATIHAN DAN PENGEMBANGAN<br>
+    PENDIDIKAN KEJURUAN<br><br>
+    [kepala UPT]<br>
+    [kepala UPT jabatan]<br>
+    NIP. [nip kepala UPT]<br>
+
+    <hr>
+    <p>
+      <small>
+        This is a system auto generated message, this email can't receive replies. If you have any questions, please e-mail us via customer center: admin@pppk-tna.com
+      </small>
+    </p>
+  </body>
+</html>
+
+<!-- <a href="http://apps.super-courier.com/order_requests/index_mobile?status=0">here</a> -->
+<%=# link_to "here", :controller => "order_requests", :action => "index_mobile", :status => "0", :only_path => false 
+%>
