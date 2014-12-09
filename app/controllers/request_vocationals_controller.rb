@@ -5,7 +5,15 @@ class RequestVocationalsController < ApplicationController
   end
 
   def get_vocational
-    @vocationals = Vocational.order(:name)
+    # vocatinal that called is those who belongs to the same Curicculum as School's one
+    vocational_ids = Array.new
+    @school.vocationals.each do |school_vocational|
+      Vocational.where("name = ? AND curicculum_id = ?", school_vocational.try(:vocational).name, school_vocational.try(:vocational).curicculum_id).each do |vocational|
+        vocational_ids << vocational.id
+      end
+    end
+
+    @vocationals = Vocational.where("id IN (?)", vocational_ids)
   end
 
   # GET /request_vocationals/1

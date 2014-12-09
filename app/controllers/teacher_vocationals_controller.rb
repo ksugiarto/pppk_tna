@@ -4,7 +4,7 @@ class TeacherVocationalsController < ApplicationController
   end
 
   def get_vocational
-    @vocationals = Vocational.order(:name)
+    @vocationals = Vocational.where("curicculum_id = ?", @teacher.school.try(:curicculum_id))
   end
 
   # GET /teacher_vocationals/new

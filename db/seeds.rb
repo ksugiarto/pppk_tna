@@ -9,14 +9,14 @@
 # LOCATION SETTING
 indonesia = Country.create(:name => "Indonesia", :country_ext => "+62")
 jawa_timur = indonesia.provinces.create(:name => "Jawa Timur")
-jawa_tengah = indonesia.provinces.create(:name => "Jawa Tengah")
-jawa_barat = indonesia.provinces.create(:name => "Jawa Barat")
-surabaya = City.create(:country_id => indonesia.id, :province_id => jawa_timur.id, :name => "Surabaya", :city_ext => "31")
-City.create(:country_id => indonesia.id, :province_id => jawa_timur.id, :name => "Pandaan", :city_ext => "343")
-City.create(:country_id => indonesia.id, :province_id => jawa_tengah.id, :name => "Purwodadi", :city_ext => "292")
-ponorogo = City.create(:country_id => indonesia.id, :province_id => jawa_timur.id, :name => "Ponorogo", :city_ext => "352")
-semarang = City.create(:country_id => indonesia.id, :province_id => jawa_tengah.id, :name => "Semarang", :city_ext => "24")
-bandung = City.create(:country_id => indonesia.id, :province_id => jawa_barat.id, :name => "Bandung", :city_ext => "22")
+# jawa_tengah = indonesia.provinces.create(:name => "Jawa Tengah")
+# jawa_barat = indonesia.provinces.create(:name => "Jawa Barat")
+surabaya = City.create(:country_id => indonesia.id, :province_id => jawa_timur.id, :name => "Surabaya", :city_ext => "031")
+City.create(:country_id => indonesia.id, :province_id => jawa_timur.id, :name => "Pandaan", :city_ext => "0343")
+ponorogo = City.create(:country_id => indonesia.id, :province_id => jawa_timur.id, :name => "Ponorogo", :city_ext => "0352")
+# City.create(:country_id => indonesia.id, :province_id => jawa_tengah.id, :name => "Purwodadi", :city_ext => "292")
+# semarang = City.create(:country_id => indonesia.id, :province_id => jawa_tengah.id, :name => "Semarang", :city_ext => "24")
+# bandung = City.create(:country_id => indonesia.id, :province_id => jawa_barat.id, :name => "Bandung", :city_ext => "22")
 # END LOCATION SETTING
 
 # COMPETENCIES

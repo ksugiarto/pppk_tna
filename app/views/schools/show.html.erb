@@ -18,20 +18,6 @@
 
 <%= render 'show' %>
 
-<!-- Nav tabs -->
-<ul class="nav nav-tabs">
-  <li class="active"><a href="#request" data-toggle="tab"><%= t 'school.request' %></a></li>
-  <li><a href="#vocational" data-toggle="tab"><%= t 'school.vocational' %></a></li>
-  <li><a href="#teacher" data-toggle="tab"><%= t 'school.teacher' %></a></li>
-</ul>
-
-<!-- Tab panes -->
-<div class="tab-content">
-  <div class="tab-pane active" id="request"><%= render 'school_requests/table' %></div>
-  <div class="tab-pane" id="vocational"><%= render 'school_vocationals/table' %></div>
-  <div class="tab-pane" id="teacher"><%= render 'table_teacher' %></div>
-</div>
-
 <div id="modal"></div>
 
 <!-- Modal -->
@@ -42,7 +28,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 class="modal-title"></h3>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="height:500px; overflow:auto;">
       </div>
     </div>
   </div>

@@ -36,3 +36,17 @@
     <td><b>:</b>&nbsp;<%= @school.city.try(:name) %></td>
   </tr>
 </table>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#request" data-toggle="tab"><%= t 'school.request' %></a></li>
+  <li><a href="#school_vocational" data-toggle="tab"><%= t 'school.vocational' %></a></li>
+  <li><a href="#teacher" data-toggle="tab"><%= t 'school.teacher' %></a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="request"><%= render 'school_requests/table' %></div>
+  <div class="tab-pane" id="school_vocational"><%= render 'school_vocationals/table' %></div>
+  <div class="tab-pane" id="teacher"><%= render 'table_teacher' %></div>
+</div>

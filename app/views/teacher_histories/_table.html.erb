@@ -13,7 +13,9 @@
     <td><%= date(teacher_history.event.try(:date_start)) %></td>
     <td><%= teacher_history.event.try(:vocational).try(:name) %></td>
     <td><span class="<%= label_class(teacher_history.status) %>"><%= teacher_history.status_name %></span></td>
+    <% if @modal.to_i==0 %>
     <td><%= link_to "#{t 'show'}", teacher_teacher_history_path(@teacher), :class => "btn btn-info btn-xs", :remote => true %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

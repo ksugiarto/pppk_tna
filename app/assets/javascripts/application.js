@@ -12,11 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require jquery.remotipart
 //= require best_in_place
 //= require fullcalendar
 //= require moment
 //= require_tree .
+//= require_self
 
 // require fullcalendar/gcal
 jQuery.ajaxSetup({
@@ -80,6 +82,16 @@ $(document).ready(function() {
         $(this).closest('fieldset').find(':checkbox').prop('checked', this.checked);
     });
   });
+
+  $('.modal').on('shown.bs.modal', function() {
+    $(this).find('[autofocus]').focus();
+  });
+
+  $( "#datepicker" ).datepicker({
+    changeMonth: true,
+    changeYear: true
+  });
+  $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
 
   $('#calendar').fullCalendar({
     events: "/events/pick_date.json",

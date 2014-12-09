@@ -1,4 +1,4 @@
-<%= form_for([@school, @school_request], :html => { :class => "form-horizontal" }, :remote => true) do |f| %>
+<%= form_for([@school, @school_request], :html => { :class => "form-horizontal" }) do |f| %>
   <% if @school_request.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@school_request.errors.count, "error") %> prohibited this school_request from being saved:</h2>
@@ -13,11 +13,11 @@
 
   <div class="form-group">
     <%= f.label :reference_number, "#{t 'school.reference_number'}", :class => "col-sm-4 control-label" %>
-    <div class="col-sm-6"><%= f.text_field :reference_number, :class => "form-control" %></div>
+    <div class="col-sm-6"><%= f.text_field :reference_number, :required => true, :autofocus => true, :class => "form-control" %></div>
   </div>
   <div class="form-group">
     <%= f.label :request_date, "#{t 'school.request_date'}", :class => "col-sm-4 control-label" %>
-    <div class="col-sm-6"><%= f.text_field :request_date, :class => "form-control" %></div>
+    <div class="col-sm-6"><%= f.text_field :request_date, :class => "form-control", :onMouseOver => "$(this).datepicker({dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true, yearRange: '-5Y:+0Y'});" %></div>
   </div>
   <div class="form-group">
     <%= f.label :notes, "#{t 'school.notes'}", :class => "col-sm-4 control-label" %>

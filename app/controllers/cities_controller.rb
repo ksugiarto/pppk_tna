@@ -33,7 +33,10 @@ class CitiesController < ApplicationController
   # POST /cities
   # POST /cities.json
   def create
-    @city = City.create(params[:city])
+    @city = City.new(params[:city])
+    @city.country_id = @indonesia_id
+    @city.province_id = @jatim_id
+    @city.save
     get_data
   end
 

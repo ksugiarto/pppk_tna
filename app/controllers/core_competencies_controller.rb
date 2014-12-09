@@ -30,6 +30,7 @@ class CoreCompetenciesController < ApplicationController
   def new
     get_vocational
     @core_competency = @vocational.core_competencies.new
+    @core_competency.seq_num = @vocational.core_competencies.order(:id).last.try(:seq_num).to_i+1
   end
 
   # GET /core_competencies/1/edit

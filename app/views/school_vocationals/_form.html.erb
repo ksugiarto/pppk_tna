@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <%= f.label :vocational, "#{t 'school.vocational'}", :class => "col-sm-4 control-label" %>
-    <div class="col-sm-6"><%= f.select(:vocational_id, @vocationals.collect {|vocational| ["#{vocational.name}-#{vocational.class_for}", vocational.id,]}, {:prompt => "#{t 'prompt'} #{t 'school.vocational'}"}, :class => "form-control") %></div>
+    <div class="col-sm-6"><%= f.select(:vocational_id, @vocationals.collect {|vocational| ["#{vocational.name}", vocational.id,]}, {:prompt => "#{t 'prompt'} #{t 'school.vocational'}"}, :class => "form-control") %></div>
   </div>
   <div class="form-group">
     <%= f.label :notes, "#{t 'school.notes'}", :class => "col-sm-4 control-label" %>

@@ -2,8 +2,10 @@
 
 <table class="table table-condensed">
   <tr style="background-color:#708DC6;">
+  <!-- 
     <th><%= t 'city.country' %></th>
     <th><%= t 'city.province' %></th>
+   -->
     <th><%= t 'city.name' %></th>
     <th><%= t 'city.city_ext' %></th>
     <th></th>
@@ -11,13 +13,17 @@
 
 <% @cities.each do |city| %>
   <tr>
+  <!-- 
     <td><%= city.country.try(:name) %></td>
     <td><%= city.province.try(:name) %></td>
+   -->
     <td><%= city.name %></td>
     <td><%= city.city_ext %></td>
     <td class="text-right">
       <%= link_to "#{t 'edit'}", edit_city_path(city), :class => "btn btn-warning btn-xs", :remote => true %>
+      <!-- 
       <%= link_to "#{t 'delete'}", city, method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
+       -->
     </td>
   </tr>
 <% end %>

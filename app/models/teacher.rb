@@ -14,7 +14,13 @@ class Teacher < ActiveRecord::Base
   end
 
   def full_name
-    "#{front_title} #{first_name} #{last_name}, #{end_title}"
+    if end_title.blank?
+      "#{front_title} #{first_name} #{last_name}"
+    elsif last_name.blank?
+      "#{front_title} #{first_name}, #{end_title}"
+    else
+      "#{front_title} #{first_name} #{last_name}, #{end_title}"
+    end
   end
 
   def gender_name
@@ -26,6 +32,14 @@ class Teacher < ActiveRecord::Base
   	else
   		return ""
   	end
+  end
+
+  def full_address
+    if city_id.to_i==0 
+      "#{address}"
+    else
+      "#{address}, #{city.try(:name)}"
+    end
   end
 
   def religion_name

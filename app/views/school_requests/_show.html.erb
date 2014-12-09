@@ -1,5 +1,8 @@
-Reference Number: <%= @school_request.reference_number %><br>
-Date: <%= date(@school_request.request_date) %>
+<div class="text-center">
+	<b><%= t 'school.reference_number' %>:</b> <%= @school_request.reference_number %><br>
+ 	<b><%= t 'school.request_date' %>:</b> <%= date(@school_request.request_date) %>
+ 	<hr>
+</div>
 
 <!-- Nav tabs -->
 <ul class="nav nav-tabs">

@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <%= f.label :teacher, "#{t 'school.teacher'}", :class => "col-sm-4 control-label" %>
-    <div class="col-sm-6"><%= f.select(:teacher_id, @teachers.collect {|teacher| ["#{teacher.first_name} #{teacher.last_name}", teacher.id,]}, {:prompt => "#{t 'prompt'} #{t 'school.teacher'}"}, :class => "form-control") %></div>
+    <div class="col-sm-6"><%= f.select(:teacher_id, @teachers.collect {|teacher| ["#{teacher.full_name}", teacher.id,]}, {:prompt => "#{t 'prompt'} #{t 'school.teacher'}"}, :class => "form-control", :required => true) %></div>
   </div>
   <div class="form-group">
     <%= f.label :notes, "#{t 'school.notes'}", :class => "col-sm-4 control-label" %>

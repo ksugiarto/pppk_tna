@@ -1,29 +1,44 @@
-<p>
-  <b>Name:</b>
-  <%= @event.title %>
-</p>
+<div id="transaction_status" class="status_<%= @event.status.to_i %>" align="center">
+  <% case @event.status.to_i %>
+  <% when 0 %>
+    <%= "#{t 'event.status'} #{t 'event.new'} #{t 'event.editable'}" %>, <%= "#{t 'event.created_at'}#{date(@event.created_at)}" %>
+  <% when 1 %>
+    <%= "#{t 'event.status'} #{t 'event.close'} #{t 'event.uneditable'}" %>, <%= "#{t 'event.updated_at'}#{date(@event.updated_at)}" %>
+  <% when 5 %>
+    <%= "#{t 'event.status'} #{t 'event.void'} #{t 'event.uneditable'}" %>, <%= "#{t 'event.updated_at'}#{date(@event.updated_at)}" %>
+  <% end -%>
+</div>
 
-<p>
-  <b>Vocational:</b>
-  <%= @event.vocational.try(:name) %>
-</p>
+<table class="table table-condensed">
+  <tr>
+    <th><%= t 'event.title' %></th>
+    <td><b>:&nbsp;<%= @event.title %></b></td>
+    <th><%= t 'event.vocational' %></th>
+    <td><b>:</b>&nbsp;<%= @event.vocational.try(:name) %></td>
+  </tr>
+  <tr>
+    <th><%= t 'event.date_start' %></th>
+    <td><b>:</b>&nbsp;<%= date(@event.date_start) %></td>
+    <th><%= t 'event.date_end' %></th>
+    <td><b>:</b>&nbsp;<%= date(@event.date_end) %></td>
+  </tr>
+  <tr>
+    <th><%= t 'event.description' %></th>
+    <td><b>:</b>&nbsp;<%= @event.description %></td>
+    <th></th>
+    <td><b></b>&nbsp;</td>
+  </tr>
+</table>
 
-<p>
-  <b>Date start:</b>
-  <%= @event.date_start %>
-</p>
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#exam" data-toggle="tab"><%= t 'event.exam' %></a></li>
+  <li><a href="#matter" data-toggle="tab"><%= t 'event.matter' %></a></li>
+  <li><a href="#participant" data-toggle="tab"><%= t 'event.participant' %></a></li>
+</ul>
 
-<p>
-  <b>Date end:</b>
-  <%= @event.date_end %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @event.description %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @event.status %>
-</p>
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="exam"><%= render 'event_exams/table' %></div>
+  <div class="tab-pane" id="matter"><%= render 'event_matters/table' %></div>
+  <div class="tab-pane" id="participant"><%= render 'event_participants/table' %></div>
+</div>

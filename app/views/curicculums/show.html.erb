@@ -6,24 +6,27 @@
   </div>
   
   <div class="col-md-8">
-    <h4 align="center"><%= @curicculum.name %></h4>
+    <h4 align="center">
+      <%= t 'curicculum.curicculum' %>: <%= @curicculum.name %>
+      <%= link_to edit_curicculum_path(@curicculum), :class => "btn btn-warning btn-xs", :remote => true do %>
+        <span class="glyphicon glyphicon-pencil"></span>
+      <% end %>
+    </h4>
   </div>
 
   <div class="col-md-2" align="right">
-    <%= link_to edit_curicculum_path(@curicculum), :class => "btn btn-warning btn-sm", :remote => true do %>
-    	<%= t 'edit' %>&nbsp;<span class="glyphicon glyphicon-pencil"></span>
+    <%= link_to new_curicculum_vocational_path(@curicculum), :class => "btn btn-default btn-sm", :remote => true do %>
+      <%= "#{t 'add'} #{t 'vocational.vocational'}" %>&nbsp;<span class="glyphicon glyphicon-plus"></span>
     <% end %>
   </div>
 </div>
 
-<p>
-  <b>Description:</b>
-  <%= @curicculum.description %>
-</p>
-
+<% if @curicculum.description.present? %>
+<div class="text-center">
+  <b><%= t 'curicculum.description' %>:</b> <%= @curicculum.description %>
+</div>
+<% end %>
 <hr>
-
-<%= link_to "#{t 'new'}", new_curicculum_vocational_path(@curicculum), :class => "btn btn-default btn-xs", :remote => true %>
 
 <div id="vocational_table"><%= render 'vocationals/table' %></div>
 

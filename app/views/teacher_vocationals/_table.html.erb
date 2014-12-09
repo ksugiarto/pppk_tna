@@ -2,17 +2,21 @@
   <tr style="background-color:#708DC6;">
     <th><%= t 'teacher.vocational' %></th>
     <th><%= t 'teacher.notes' %></th>
-    <th><%= link_to "#{t 'new'}", new_teacher_teacher_vocational_path(@teacher), :class => "btn btn-default btn-xs", :remote => true %></th>
+    <% if @modal.to_i==0 %>
+    <th width="200" class="text-center"><%= link_to "#{t 'add'}", new_teacher_teacher_vocational_path(@teacher), :class => "btn btn-default btn-xs", :remote => true %></th>
+    <% end %>
   </tr>
 
 <% @teacher.vocationals.each do |teacher_vocational| %>
   <tr>
-    <td><%= "#{teacher_vocational.vocational.try(:name)}-#{teacher_vocational.vocational.try(:class_for)}" %></td>
+    <td><%= teacher_vocational.vocational.try(:full_name) %></td>
     <td><%= teacher_vocational.notes %></td>
-    <td>
+    <% if @modal.to_i==0 %>
+    <td class="text-center">
       <%= link_to "#{t 'edit'}", edit_teacher_teacher_vocational_path(@teacher, teacher_vocational), :class => "btn btn-warning btn-xs", :remote => true %>
       <%= link_to "#{t 'destroy'}", teacher_teacher_vocational_path(@teacher, teacher_vocational), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
     </td>
+    <% end %>
   </tr>
 <% end %>
 </table>

@@ -1,0 +1,32 @@
+<% if @curicculum.description.present? %>
+<div class="text-center"><b><%= t 'curicculum.description' %>:</b> <%= @curicculum.description %></div><hr>
+<% end %>
+
+<% @curicculum.vocationals.order(:class_for).each do |vocational| %>
+  <!-- VOCATIONAL -->
+  <h5><b><%= t 'vocational.vocational' %>:</b> <%= vocational.name %> - <%= t 'vocational.class_for' %>&nbsp;<%= vocational.class_for %></h5>
+  <!-- END VOCATIONAL -->
+
+  <!-- CORE COMPETENCIES -->
+  <table class="table table-condensed table-bordered">
+    <tr style="background-color:#708DC6;">
+      <th width="50%"><%= t 'core_competency.core_competency' %></th>
+      <th width="50%"><%= t 'basic_competency.basic_competency' %></th>
+    </tr>
+
+    <% vocational.core_competencies.order(:seq_num).each do |core_competency| %>
+      <tr>
+        <td><b><%= "#{core_competency.seq_num}." %></b> <%= core_competency.description %></td>
+        <td>
+          <!-- BASIC COMPETENCIES -->
+          <% core_competency.basic_competencies.order(:seq_num).each do |basic_competency| %>
+            <b><%= "#{core_competency.seq_num}.#{basic_competency.seq_num}." %></b> <%= basic_competency.description %>
+            <br>
+          <% end %>
+          <!-- END BASIC COMPETENCIES -->
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <!-- END CORE COMPETENCIES -->
+<% end %>

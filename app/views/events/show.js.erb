@@ -1,0 +1,3 @@
+$('#general_modal').modal('show');
+$('#general_modal .modal-title').html("<%= escape_javascript(t 'event.event') %> - <%= escape_javascript(t 'detail') %>");
+$('#general_modal .modal-body').html("<%= escape_javascript(render 'show') %>");

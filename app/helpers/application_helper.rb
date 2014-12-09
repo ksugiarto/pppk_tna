@@ -25,6 +25,18 @@ module ApplicationHelper
   	return number_with_delimiter(num.to_f, :delimiter => ",", :separator => ".")
   end
 
+  def event_class(id)
+    case id
+    when 0
+      label = "label label-default"
+    when 1
+      label = "label label-success"
+    when 5
+      label = "label label-danger"
+    else label = ""
+    end
+  end
+
   def label_class(id)
     case id
     when 0

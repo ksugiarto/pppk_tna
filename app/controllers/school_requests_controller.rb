@@ -6,6 +6,7 @@ class SchoolRequestsController < ApplicationController
   def show
     get_school
     @school_request = @school.requests.find(params[:id])
+    @modal = params[:modal].to_i
 
     respond_to do |format|
       format.html
@@ -31,6 +32,8 @@ class SchoolRequestsController < ApplicationController
   def create
     get_school
     @school_request = @school.requests.create(params[:school_request])
+
+    redirect_to school_school_request_path(@school, @school_request)
   end
 
   # PUT /school_requests/1
@@ -39,6 +42,8 @@ class SchoolRequestsController < ApplicationController
     get_school
     @school_request = @school.requests.find(params[:id])
     @school_request.update_attributes(params[:school_request])
+
+    redirect_to school_school_request_path(@school, @school_request)
   end
 
   # DELETE /school_requests/1

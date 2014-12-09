@@ -4,21 +4,23 @@ class SchoolVocationalsController < ApplicationController
   end
 
   def get_vocational
-    @vocationals = Vocational.order(:name)
+    @vocationals = Vocational.select("DISTINCT ON (name) *")
+    .where("curicculum_id = ?", @school.curicculum_id)
+    .order(:name)
   end
 
   # GET /school_vocationals/new
   # GET /school_vocationals/new.json
   def new
-    get_vocational
     get_school
+    get_vocational
     @school_vocational = @school.vocationals.new
   end
 
   # GET /school_vocationals/1/edit
   def edit
-    get_vocational 
     get_school
+    get_vocational 
     @school_vocational = @school.vocationals.find(params[:id])
   end
 

@@ -15,7 +15,7 @@
     <div class="col-md-6">
       <div class="form-group">
         <%= f.label :school, "#{t 'teacher.school'}", :class => "col-sm-3 control-label" %>
-        <div class="col-sm-8"><%= f.select(:school_id, @schools.collect {|school| [school.name, school.id,]}, {:prompt => "#{t 'prompt'} #{t 'teacher.school'}"}, :class => "form-control") %></div>
+        <div class="col-sm-8"><%= f.select(:school_id, @schools.collect {|school| [school.name, school.id,]}, {:prompt => "#{t 'prompt'} #{t 'teacher.school'}"}, :class => "form-control", :required => true) %></div>
       </div>
       <div class="form-group">
         <%= f.label :nip, "#{t 'teacher.nip'}", :class => "col-sm-3 control-label" %>
@@ -27,7 +27,7 @@
       </div>
       <div class="form-group">
         <%= f.label :first_name, "#{t 'teacher.first_name'}", :class => "col-sm-3 control-label" %>
-        <div class="col-sm-8"><%= f.text_field :first_name, :class => "form-control" %></div>
+        <div class="col-sm-8"><%= f.text_field :first_name, :class => "form-control", :required => true %></div>
       </div>
       <div class="form-group">
         <%= f.label :last_name, "#{t 'teacher.last_name'}", :class => "col-sm-3 control-label" %>
@@ -36,14 +36,6 @@
       <div class="form-group">
         <%= f.label :end_title, "#{t 'teacher.end_title'}", :class => "col-sm-3 control-label" %>
         <div class="col-sm-8"><%= f.text_field :end_title, :class => "form-control" %></div>
-      </div>
-      <div class="form-group">
-        <%= f.label :born_place, "#{t 'teacher.born_place'}", :class => "col-sm-3 control-label" %>
-        <div class="col-sm-8"><%= f.text_field :born_place, :class => "form-control" %></div>
-      </div>
-      <div class="form-group">
-        <%= f.label :born_date, "#{t 'teacher.born_date'}", :class => "col-sm-3 control-label" %>
-        <div class="col-sm-8"><%= f.text_field :born_date, :class => "form-control" %></div>
       </div>
       <div class="form-group">
         <%= f.label :gender, "#{t 'teacher.gender'}", :class => "col-sm-3 control-label" %>
@@ -58,6 +50,14 @@
       <div class="form-group">
         <%= f.label :email, "#{t 'teacher.email'}", :class => "col-sm-3 control-label" %>
         <div class="col-sm-8"><%= f.text_field :email, :class => "form-control" %></div>
+      </div>
+      <div class="form-group">
+        <%= f.label :born_place, "#{t 'teacher.born_place'}", :class => "col-sm-3 control-label" %>
+        <div class="col-sm-8"><%= f.text_field :born_place, :class => "form-control" %></div>
+      </div>
+      <div class="form-group">
+        <%= f.label :born_date, "#{t 'teacher.born_date'}", :class => "col-sm-3 control-label" %>
+        <div class="col-sm-8"><%= f.text_field :born_date, :class => "form-control" %></div>
       </div>
       <div class="form-group">
         <%= f.label :religion, "#{t 'teacher.religion'}", :class => "col-sm-3 control-label" %>
@@ -76,6 +76,7 @@
         <%= f.label :address, "#{t 'teacher.address'}", :class => "col-sm-3 control-label" %>
         <div class="col-sm-8"><%= f.text_area :address, :rows => 3, :class => "form-control" %></div>
       </div>
+      <!-- 
       <div class="form-group">
         <%= f.label :country, "#{t 'teacher.country'}", :class => "col-sm-3 control-label" %>
         <div class="col-sm-8"><%= f.select(:country_id, @countries.collect {|country| [country.name, country.id,]}, {:prompt => "#{t 'prompt'} #{t 'city.country'}"}, {:class => "form-control"}) %></div>
@@ -84,6 +85,7 @@
         <%= f.label :province, "#{t 'teacher.province'}", :class => "col-sm-3 control-label" %>
         <div class="col-sm-8"><%= f.select(:province_id, @provinces.collect {|province| [province.name, province.id,]}, {:prompt => "#{t 'prompt'} #{t 'city.province'}"}, :class => "form-control") %></div>
       </div>
+       -->
       <div class="form-group">
         <%= f.label :city, "#{t 'teacher.city'}", :class => "col-sm-3 control-label" %>
         <div class="col-sm-8"><%= f.select(:city_id, @cities.collect {|city| [city.name, city.id,]}, {:prompt => "#{t 'prompt'} #{t 'city.city'}"}, :class => "form-control") %></div>

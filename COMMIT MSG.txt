@@ -1,5 +1,20 @@
 =========================
 Things Done [@ksugiarto]:
+(1) Fixing most of layouts.
+(2) Make Country and Province hidden.
+(3) Adding JQuery UI js and css for datepicker.
+(4) Adding required and autofocus on most forms.
+
+Next Things to Do:
+(1) Person In Charge List.
+(2) Report Function.
+(3) Fixing print invitation.
+(4) Event Detail layout's fixing.
+(5) Datepicker arrows missing.
+(6) Devise, Can Can?
+
+=========================
+Things Done [@ksugiarto]:
 (1) Adding fresh 'Event Exam', 'Question', 'Event Matter', 'Event Participant'.
 (2) Working on Event Exam and Question pages.
 (3) Working on Event Matter pages, which can upload document in format 'doc, docx, and pdf'.
@@ -9,7 +24,7 @@ Things Done [@ksugiarto]:
 (7) Working on Close and Review Participant, also saving Teacher's histories.
 (8) Adding new Gem: 'best_in_place' that used in reviewing Event Participant.
 
-Next do Do:
+Next Things to Do:
 (1) Person In Charge List.
 (2) Report Function.
 (3) Fixing print invitation.

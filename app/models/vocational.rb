@@ -7,4 +7,8 @@ class Vocational < ActiveRecord::Base
   def self.pagination(page)
     paginate(:per_page => 20, :page => page)
   end
+
+  def full_name
+  	"#{name} - #{I18n.t 'vocational.class_for'} #{class_for}"
+  end
 end

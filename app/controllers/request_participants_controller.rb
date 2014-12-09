@@ -5,7 +5,7 @@ class RequestParticipantsController < ApplicationController
   end
 
   def get_teacher
-    @teachers = Teacher.order(:first_name)
+    @teachers = @school.teachers.order(:first_name)
   end
 
   # GET /request_participants/1

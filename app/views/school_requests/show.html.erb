@@ -6,10 +6,13 @@
   </div>
   
   <div class="col-md-8">
-    <h4 align="center"><%= t 'school.school' %> <%= t 'school.request' %> - <%= t 'detail' %></h4>
+    <h4 align="center"><%= t 'school.school' %> - <%= t 'school.request' %> - <%= t 'detail' %></h4>
   </div>
 
   <div class="col-md-2" align="right">
+    <%= link_to edit_school_school_request_path(@school, @school_request), :class => "btn btn-warning btn-sm", :remote => true do %>
+      <%= t 'edit' %>&nbsp;<span class="glyphicon glyphicon-pencil"></span>
+    <% end %>
   </div>
 </div>
 

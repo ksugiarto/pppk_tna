@@ -32,6 +32,7 @@ class BasicCompetenciesController < ApplicationController
   def new
     get_core_competency
     @basic_competency = @core_competency.basic_competencies.new
+    @basic_competency.seq_num = @core_competency.basic_competencies.order(:id).last.try(:seq_num).to_i+1
   end
 
   # GET /basic_competencies/1/edit

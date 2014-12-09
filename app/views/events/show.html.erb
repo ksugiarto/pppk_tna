@@ -36,31 +36,7 @@
   </div>
 </div>
 
-<div id="transaction_status" class="status_<%= @event.status.to_i %>" align="center">
-  <% case @event.status.to_i %>
-  <% when 0 %>
-    <%= "#{t 'event.status'} #{t 'new'} #{t 'event.editable'}" %>, <%= "#{t 'event.created_at'}#{date(@event.created_at)}" %>
-  <% when 1 %>
-    <%= "#{t 'event.status'} #{t 'close'} #{t 'event.uneditable'}" %>, <%= "#{t 'event.updated_at'}#{date(@event.updated_at)}" %>
-  <% when 5 %>
-    <%= "#{t 'event.status'} #{t 'void'} #{t 'event.uneditable'}" %>, <%= "#{t 'event.updated_at'}#{date(@event.updated_at)}" %>
-  <% end -%>
-</div>
-
 <%= render 'show' %>
-
-<ul class="nav nav-tabs">
-  <li class="active"><a href="#exam" data-toggle="tab"><%= t 'event.exam' %></a></li>
-  <li><a href="#matter" data-toggle="tab"><%= t 'event.matter' %></a></li>
-  <li><a href="#participant" data-toggle="tab"><%= t 'event.participant' %></a></li>
-</ul>
-
-<!-- Tab panes -->
-<div class="tab-content">
-  <div class="tab-pane active" id="exam"><%= render 'event_exams/table' %></div>
-  <div class="tab-pane" id="matter"><%= render 'event_matters/table' %></div>
-  <div class="tab-pane" id="participant"><%= render 'event_participants/table' %></div>
-</div>
 
 <div id="modal"></div>
 

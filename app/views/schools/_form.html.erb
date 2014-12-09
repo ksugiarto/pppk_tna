@@ -15,15 +15,15 @@
     <div class="col-md-6">
       <div class="form-group">
         <%= f.label :nss, "#{t 'school.nss'}", :class => "col-sm-3 control-label" %>
-        <div class="col-sm-8"><%= f.text_field :nss, :class => "form-control" %></div>
+        <div class="col-sm-8"><%= f.text_field :nss, :required => true, :autofocus => true, :class => "form-control" %></div>
       </div>
       <div class="form-group">
         <%= f.label :npsn, "#{t 'school.npsn'}", :class => "col-sm-3 control-label" %>
-        <div class="col-sm-8"><%= f.text_field :npsn, :class => "form-control" %></div>
+        <div class="col-sm-8"><%= f.text_field :npsn, :required => true, :class => "form-control" %></div>
       </div>
       <div class="form-group">
         <%= f.label :name, "#{t 'school.name'}", :class => "col-sm-3 control-label" %>
-        <div class="col-sm-8"><%= f.text_field :name, :class => "form-control" %></div>
+        <div class="col-sm-8"><%= f.text_field :name, :required => true, :class => "form-control" %></div>
       </div>
       <div class="form-group">
         <%= f.label :status, "#{t 'school.status'}", :class => "col-sm-3 control-label" %>
@@ -39,6 +39,9 @@
         <%= f.label :curicculum, "#{t 'school.curicculum'}", :class => "col-sm-3 control-label" %>
         <div class="col-sm-8"><%= f.select(:curicculum_id, @curicculums.collect {|curicculum| [curicculum.name, curicculum.id,]}, {:prompt => "#{t 'prompt'} #{t 'school.curicculum'}"}, {:class => "form-control"}) %></div>
       </div>
+    </div>
+
+    <div class="col-md-6">
       <div class="form-group">
         <%= f.label :phone, "#{t 'school.phone'}", :class => "col-sm-3 control-label" %>
         <div class="col-sm-8"><%= f.text_field :phone, :class => "form-control" %></div>
@@ -47,13 +50,11 @@
         <%= f.label :fax, "#{t 'school.fax'}", :class => "col-sm-3 control-label" %>
         <div class="col-sm-8"><%= f.text_field :fax, :class => "form-control" %></div>
       </div>
-    </div>
-
-    <div class="col-md-6">
       <div class="form-group">
         <%= f.label :address, "#{t 'school.address'}", :class => "col-sm-3 control-label" %>
         <div class="col-sm-8"><%= f.text_field :address, :class => "form-control" %></div>
       </div>
+      <!-- 
       <div class="form-group">
         <%= f.label :country, "#{t 'school.country'}", :class => "col-sm-3 control-label" %>
         <div class="col-sm-8"><%= f.select(:country_id, @countries.collect {|country| [country.name, country.id,]}, {:prompt => "#{t 'prompt'} #{t 'city.country'}"}, {:class => "form-control"}) %></div>
@@ -62,6 +63,7 @@
         <%= f.label :province, "#{t 'school.province'}", :class => "col-sm-3 control-label" %>
         <div class="col-sm-8"><%= f.select(:province_id, @provinces.collect {|province| [province.name, province.id,]}, {:prompt => "#{t 'prompt'} #{t 'city.province'}"}, :class => "form-control") %></div>
       </div>
+       -->
       <div class="form-group">
         <%= f.label :city, "#{t 'school.city'}", :class => "col-sm-3 control-label" %>
         <div class="col-sm-8"><%= f.select(:city_id, @cities.collect {|city| [city.name, city.id,]}, {:prompt => "#{t 'prompt'} #{t 'city.city'}"}, :class => "form-control") %></div>

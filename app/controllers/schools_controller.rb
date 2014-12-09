@@ -22,9 +22,11 @@ class SchoolsController < ApplicationController
   # GET /schools/1.json
   def show
     @school = School.find(params[:id])
+    @modal = params[:modal].to_i
 
     respond_to do |format|
       format.html # show.html.erb
+      format.js # show.js.erb
       format.json { render json: @school }
     end
   end

@@ -17,4 +17,16 @@ class Event < ActiveRecord::Base
       self.status = 0
     end
   end
+
+  def status_name
+    case status
+    when 0
+      return "#{I18n.t 'event.new'}"
+    when 1
+      return "#{I18n.t 'event.close'}"
+    when 5
+      return "#{I18n.t 'event.void'}"
+    else return ""
+    end
+  end
 end

@@ -7,7 +7,7 @@
   </tr>
   <tr>
     <th><%= t 'teacher.name' %></th>
-    <td><b>:&nbsp;<%= "#{@teacher.front_title} #{@teacher.first_name} #{@teacher.last_name}, #{@teacher.end_title}" %></b></td>
+    <td><b>:&nbsp;<%= @teacher.try(:full_name) %></b></td>
     <th><%= t 'teacher.school' %></th>
     <td><b>:</b>&nbsp;<%= @teacher.school.try(:name) %></td>
   </tr>
@@ -21,7 +21,7 @@
     <th><%= t 'teacher.religion' %></th>
     <td><b>:</b>&nbsp;<%= @teacher.religion_name %></td>
     <th><%= t 'suppllier.address' %>:</th>
-    <td><b>:</b>&nbsp;<%= @teacher.address %>, <%= @teacher.city.try(:name) %></td>
+    <td><b>:</b>&nbsp;<%= @teacher.try(:full_address) %></td>
   </tr>
   <tr>
     <th><%= t 'teacher.start_teach' %></th>
@@ -30,3 +30,15 @@
     <td><b></b>&nbsp;</td>
   </tr>
 </table>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#vocational" data-toggle="tab"><%= t 'school.vocational' %></a></li>
+  <li><a href="#history" data-toggle="tab"><%= t 'teacher.history.history' %></a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="vocational"><%= render 'teacher_vocationals/table' %></div>
+  <div class="tab-pane" id="history"><%= render 'teacher_histories/table' %></div>
+</div>
