@@ -75,7 +75,7 @@ class EventsController < ApplicationController
 
   def pick_vocational #step 3
     @event = Event.find(params[:id])
-    @vocationals = Vocational.order(:name).pagination(params[:page])
+    @vocationals = Vocational.order(:curicculum_id, :name).pagination(params[:page])
   end
 
   def save_vocational

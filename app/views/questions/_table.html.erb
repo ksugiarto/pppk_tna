@@ -5,8 +5,8 @@
     <th>B</th>
     <th>C</th>
     <th>D</th>
-    <% if @event.status.to_i==0 %>
-    <th><%= link_to "#{t 'new'}", new_event_event_exam_question_path(@event, @event_exam), :class => "btn btn-default btn-xs", :remote => true %></th>
+    <% if @event.status.to_i==0 and @modal.to_i==0 %>
+    <th width="200" class="text-center"><%= link_to "#{t 'add'}", new_event_event_exam_question_path(@event, @event_exam), :class => "btn btn-default btn-xs", :remote => true %></th>
     <% end %>
   </tr>
 
@@ -17,8 +17,8 @@
     <td><%= question.answer_2 %></td>
     <td><%= question.answer_3 %></td>
     <td><%= question.answer_4 %></td>
-    <% if @event.status.to_i==0 %>
-    <td>
+    <% if @event.status.to_i==0 and @modal.to_i==0 %>
+    <td class="text-center">
         <%= link_to "#{t 'edit'}", edit_event_event_exam_question_path(@event, @event_exam, question), :class => "btn btn-warning btn-xs", :remote => true %>
         <%= link_to "#{t 'destroy'}", event_event_exam_question_path(@event, @event_exam, question), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
     </td>

@@ -3,6 +3,10 @@ PppkTna::Application.routes.draw do
   resources :events do
     resources :event_exams do
       resources :questions
+
+      member do
+        get :print_exam_pdf
+      end
     end
 
     resources :event_matters

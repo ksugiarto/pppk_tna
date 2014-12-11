@@ -1,5 +1,19 @@
 =========================
 Things Done [@ksugiarto]:
+(1) Cleaning several more layout.
+(2) Preparing for printing Exam.
+
+Next Things to Do:
+(1) Person In Charge List.
+(2) Report Function.
+(3) Fixing print invitation.
+(4) Event Detail layout's fixing.
+(5) Datepicker arrows missing.
+(6) Devise, Can Can?
+(7) Administration prerequirement
+
+=========================
+Things Done [@ksugiarto]:
 (1) Fixing most of layouts.
 (2) Make Country and Province hidden.
 (3) Adding JQuery UI js and css for datepicker.

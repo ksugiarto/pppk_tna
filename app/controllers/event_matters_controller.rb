@@ -62,4 +62,17 @@ class EventMattersController < ApplicationController
     @event_matter.save
     @event_matter.destroy
   end
+
+  def print_exam_pdf
+    get_event
+    @event_matter = @event.matters.find(params[:id])
+
+    respond_to do |format|
+      format.pdf do
+        pdf = ExamPdf.new(@event, @event_matter, view_context)
+        send_data pdf.render, filename: "#{I18n.t 'print'} #{I18n.t 'event_matter.event_matter'} #{I18n.l Time.now.localtime, :format => '%Y-%m-%d %H-%M-%S'}.pdf",
+        type: "application/pdf", :disposition => "inline"
+      end 
+    end
+  end
 end

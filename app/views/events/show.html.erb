@@ -17,7 +17,7 @@
           <%= t 'close' %>&nbsp;<span class="glyphicon glyphicon-lock"></span>
         <% end -%>
 
-        <%= link_to edit_event_path(@event), :class => "btn btn-warning btn-sm", :remote => true do %>
+        <%= link_to check_request_events_path(:id => @event), :class => "btn btn-warning btn-sm" do %>
           <%= t 'edit' %>&nbsp;<span class="glyphicon glyphicon-pencil"></span>
         <% end %>
       <% end -%>

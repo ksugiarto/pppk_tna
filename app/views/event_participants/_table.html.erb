@@ -1,9 +1,13 @@
 <table id="event_participant_table" class="table table-condensed">
   <tr style="background-color:#708DC6;">
     <th><%= t 'event_participant.teacher' %></th>
+
+    <% if @event.status.to_i!=0 %>
     <th><%= t 'event_participant.total_presence' %></th>
     <th><%= t 'event_participant.exam' %></th>
     <th><%= t 'event_participant.exam_grade' %></th>
+    <% end %>
+
     <th><%= t 'event_participant.status' %></th>
     <% if @event.status.to_i==0 and @modal.to_i==0 %>
     <th width="200" class="text-center">
@@ -16,9 +20,13 @@
 <% @event.participants.each do |event_participant| %>
   <tr>
     <td><%= event_participant.teacher.full_name %></td>
+
+    <% if @event.status.to_i!=0 %>
     <td><%= event_participant.total_presence %></td>
     <td><%= event_participant.event_exam.try(:exam_type) %></td>
     <td><%= event_participant.exam_grade %></td>
+    <% end %>
+    
     <td><span class="<%= label_class(event_participant.status) %>"><%= event_participant.status_name %></span></td>
     <% if @event.status.to_i==0 and @modal.to_i==0 %>
     <td class="text-center">

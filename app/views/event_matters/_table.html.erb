@@ -3,7 +3,7 @@
     <th><%= t 'event_matter.document' %></th>
     <th><%= t 'event_matter.notes' %></th>
     <% if @modal.to_i==0 %>
-    <th width="200" class="text-center"><%= link_to "#{t 'new'}", new_event_event_matter_path(@event), :class => "btn btn-default btn-xs", :remote => true if @event.status.to_i==0 %></th>
+    <th width="200" class="text-center"><%= link_to "#{t 'add'}", new_event_event_matter_path(@event), :class => "btn btn-default btn-xs", :remote => true if @event.status.to_i==0 %></th>
     <% end %>
   </tr>
 

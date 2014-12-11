@@ -19,10 +19,12 @@ class EventExamsController < ApplicationController
   def show
     get_event
     @event_exam = @event.exams.find(params[:id])
+    @modal = params[:modal].to_i
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event_exam }
+      format.js # show.js.erb
     end
   end
 

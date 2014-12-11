@@ -13,13 +13,7 @@
   </div>
 </div>
 
-<div class="text-center">
-  <b><%= t 'event_exam.event_exam' %>:</b> <%= @event_exam.event.try(:title) %><br>
-  <b><%= t 'event_exam.exam_type' %>:</b> <%= @event_exam.exam_type %><br>
-  <b><%= t 'event_exam.description' %>:</b> <%= @event_exam.description %>
-</div>
-
-<div id="table"><%= render 'questions/table' %></div>
+<%= render 'show' %>
 
 <div id="modal"></div>
 

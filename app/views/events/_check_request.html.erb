@@ -1,8 +1,8 @@
 <table class="table table-condensed">
   <tr style="background-color:#708DC6;">
-    <th><%= t 'reference_number' %></th>
-    <th><%= t 'request_date' %></th>
-    <th><%= t 'notes' %></th>
+    <th><%= t 'school.reference_number' %></th>
+    <th><%= t 'school.request_date' %></th>
+    <th><%= t 'school.notes' %></th>
     <th></th>
   </tr>
 
@@ -11,8 +11,8 @@
     <td><%= school_request.reference_number %></td>
     <td><%= date(school_request.request_date) %></td>
     <td><%= school_request.notes %></td>
-    <td>
-      <%= link_to "#{t 'show'}", school_school_request_path(school_request.school_id, school_request), :class => "btn btn-info btn-xs", :remote => true %>
+    <td class="text-right">
+      <%= link_to "#{t 'show'}", school_school_request_path(school_request.school_id, school_request, :modal => 1), :class => "btn btn-info btn-xs", :remote => true %>
     </td>
   </tr>
 <% end %>
