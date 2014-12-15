@@ -2,14 +2,14 @@
   <tr style="background-color:#708DC6;">
     <th><%= t 'teacher.name' %></th>
     <th><%= t 'teacher.school' %></th>
-    <th></th>
+    <th width="200"></th>
   </tr>
 
 <% @teacher_vocationals.each do |teacher_vocational| %>
   <tr>
     <td><%= teacher_vocational.try(:teacher).try(:full_name) %></td>
     <td><%= teacher_vocational.try(:teacher).try(:school).try(:name) %></td>
-    <td>
+    <td class="text-right">
       <%= link_to "#{t 'show'}", "#", :class => "btn btn-info btn-xs", :remote => true %>
       <%= link_to "#{t 'pick'}", pick_participant_event_event_participants_path(@event, :teacher_id => teacher_vocational.teacher_id), :class => "btn btn-success btn-xs", :remote => true %>
     </td>

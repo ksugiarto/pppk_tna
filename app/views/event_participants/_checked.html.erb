@@ -3,7 +3,7 @@
     <th><%= t 'teacher.nip' %></th>
     <th><%= t 'teacher.name' %></th>
     <th><%= t 'teacher.gender' %></th>
-    <th></th>
+    <th width="200"></th>
   </tr>
 
 <% @event.participants.each do |event_participant| %>
@@ -11,7 +11,7 @@
     <td><%= event_participant.teacher.nip %></td>
     <td><%= "#{event_participant.teacher.front_title} #{event_participant.teacher.first_name} #{event_participant.teacher.last_name}, #{event_participant.teacher.end_title}" %></td>
     <td><%= event_participant.teacher.gender_name %></td>
-    <td>
+    <td class="text-right">
       <%= link_to "#{t 'show'}", "#", :class => "btn btn-info btn-xs", :remote => true %>
       <%= link_to "#{t 'destroy'}", event_event_participant_path(@event, event_participant), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
     </td>

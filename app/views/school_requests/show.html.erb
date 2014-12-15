@@ -11,7 +11,7 @@
 
   <div class="col-md-2" align="right">
     <%= link_to edit_school_school_request_path(@school, @school_request), :class => "btn btn-warning btn-sm", :remote => true do %>
-      <%= t 'edit' %>&nbsp;<span class="glyphicon glyphicon-pencil"></span>
+      <%= "#{t 'edit'} #{t 'school.request'}" %>&nbsp;<span class="glyphicon glyphicon-pencil"></span>
     <% end %>
   </div>
 </div>

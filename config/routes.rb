@@ -52,6 +52,11 @@ PppkTna::Application.routes.draw do
       resources :request_participants
       resources :request_vocationals
     end
+
+    collection do
+      get :import
+      post :import_submit
+    end
   end
 
   resources :curicculums do
@@ -62,7 +67,12 @@ PppkTna::Application.routes.draw do
     end
   end
 
-  resources :cities
+  resources :cities do
+    collection do
+      get :import
+      post :import_submit
+    end
+  end
   resources :provinces
   resources :countries
 

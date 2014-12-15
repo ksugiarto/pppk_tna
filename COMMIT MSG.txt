@@ -1,5 +1,20 @@
 =========================
 Things Done [@ksugiarto]:
+(1) City Import feature.
+(2) School Import feature.
+(3) Fixing several layouts.
+
+Next Things to Do:
+(1) Person In Charge List.
+(2) Report Function.
+(3) Fixing print invitation.
+(4) Event Detail layout's fixing.
+(5) Datepicker arrows missing.
+(6) Devise, Can Can?
+(7) Administration prerequirement
+
+=========================
+Things Done [@ksugiarto]:
 (1) Cleaning several more layout.
 (2) Preparing for printing Exam.
 

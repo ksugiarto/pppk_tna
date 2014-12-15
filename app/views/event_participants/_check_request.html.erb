@@ -3,7 +3,7 @@
     <th><%= t 'school.reference_number' %></th>
     <th><%= t 'school.school' %></th>
     <th><%= t 'school.teacher' %></th>
-    <th></th>
+    <th width="200"></th>
   </tr>
 
 <% @school_requests.each do |school_request| %>
@@ -12,7 +12,7 @@
       <td><%= school_request.reference_number %></td>
       <td><%= school_request.school.try(:name) %></td>
       <td><%= request_participant.teacher.try(:full_name) %></td>
-      <td>
+      <td class="text-right">
         <%= link_to "#{t 'show'}", school_school_request_path(school_request.try(:school_id), school_request), :class => "btn btn-info btn-xs", :remote => true %>
         <%= link_to "#{t 'pick'}", pick_participant_event_event_participants_path(@event, :teacher_id => request_participant.teacher_id), :class => "btn btn-success btn-xs", :remote => true %>
       </td>

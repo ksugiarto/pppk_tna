@@ -55,4 +55,12 @@ class CitiesController < ApplicationController
     @city.destroy
     get_data
   end
+
+  def import
+  end
+
+  def import_submit
+    City.import(params[:file])
+    redirect_to cities_path
+  end
 end

@@ -3,7 +3,7 @@
     <th><%= t 'school.vocational' %></th>
     <th><%= t 'school.notes' %></th>
     <% if @modal.to_i==0 %>
-    <th width="200" class="text-center"><%= link_to "#{t 'add'}", new_school_school_request_request_vocational_path(@school, @school_request), :class => "btn btn-default btn-xs", :remote => true %></th>
+    <th width="200" class="text-center"><%= link_to "#{t 'add'} #{t 'school.vocational'}", new_school_school_request_request_vocational_path(@school, @school_request), :class => "btn btn-default btn-xs", :remote => true %></th>
     <% end %>
   </tr>
 

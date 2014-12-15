@@ -14,11 +14,11 @@
       <%= form_for(@event) do |f| %>
         <%= f.hidden_field :status, :value => 1 %>
         <%= button_tag :type => "submit", :id => "btn", :class => "btn btn-success btn-sm", :disable_with => "#{t 'disable_with'}", data: { confirm: "#{t 'confirm'}" } do %>
-          <%= t 'close' %>&nbsp;<span class="glyphicon glyphicon-lock"></span>
+          <%= "#{t 'close'} #{t 'event.event'}" %>&nbsp;<span class="glyphicon glyphicon-lock"></span>
         <% end -%>
 
         <%= link_to check_request_events_path(:id => @event), :class => "btn btn-warning btn-sm" do %>
-          <%= t 'edit' %>&nbsp;<span class="glyphicon glyphicon-pencil"></span>
+          <%= "#{t 'edit'} #{t 'event.event'}" %>&nbsp;<span class="glyphicon glyphicon-pencil"></span>
         <% end %>
       <% end -%>
     <% elsif @event.status.to_i==1 %>
@@ -29,7 +29,7 @@
 
         <%= f.hidden_field :status, :value => 5 %>
         <%= button_tag :type => "submit", :id => "btn", :class => "btn btn-danger btn-sm", :disable_with => "#{t 'disable_with'}", data: { confirm: "#{t 'confirm'}" } do %>
-          <%= t 'void' %>&nbsp;<span class="glyphicon glyphicon-lock"></span>
+          <%= "#{t 'void'} #{t 'event.event'}" %>&nbsp;<span class="glyphicon glyphicon-lock"></span>
         <% end -%>
       <% end -%>
     <% end -%>

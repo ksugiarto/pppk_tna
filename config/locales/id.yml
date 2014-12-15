@@ -317,6 +317,7 @@ id:
     country: "Negara"
     province: "Provinsi"
     city: "Kota"
+    vocational: "Kejuruan"
     history:
       history: "Riwayat Diklat"
       event: "Diklat"
@@ -390,3 +391,8 @@ id:
     invitation: "Surat Undangan"
     fix_participant: "Peserta Fix"
     review_participant: "Review Peserta Diklat"
+
+  will_paginate:
+    previous_label: "← Sebelum"
+    next_label: "Berikut →"
+    page_gap: " . . . "

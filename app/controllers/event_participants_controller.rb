@@ -154,7 +154,7 @@ class EventParticipantsController < ApplicationController
     @event_participant.update_attributes(params[:event_participant])
 
     if @event.status.to_i==1
-      teacher_history = @event_participant.teacher.histories.where(:event_id => @event.id, :event_participant_id => @event_participant.id).uniq
+      teacher_history = @event_participant.teacher.histories.where(:event_id => @event.id, :event_participant_id => @event_participant.id).last
       if teacher_history.blank?
         teacher_history = @event_participant.teacher.histories.create(:event_id => @event.id, :event_participant_id => @event_participant.id, :status => @event_participant.status.to_i)
       else

@@ -1,10 +1,10 @@
 <table id="school_request_table" class="table table-condensed">
   <tr style="background-color:#708DC6;">
-    <th><%= t 'reference_number' %></th>
-    <th><%= t 'request_date' %></th>
-    <th><%= t 'notes' %></th>
+    <th><%= t 'school.reference_number' %></th>
+    <th><%= t 'school.request_date' %></th>
+    <th><%= t 'school.notes' %></th>
     <% if @modal.to_i==0 %>
-    <th width="200" class="text-center"><%= link_to "#{t 'add'}", new_school_school_request_path(@school), :class => "btn btn-default btn-xs", :remote => true %></th>
+    <th width="200" class="text-center"><%= link_to "#{t 'add'} #{t 'school.request'}", new_school_school_request_path(@school), :class => "btn btn-default btn-xs", :remote => true %></th>
     <% end %>
   </tr>
 

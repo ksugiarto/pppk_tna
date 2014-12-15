@@ -87,4 +87,12 @@ class SchoolsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def import
+  end
+
+  def import_submit
+    School.import(params[:file])
+    redirect_to schools_path
+  end
 end
