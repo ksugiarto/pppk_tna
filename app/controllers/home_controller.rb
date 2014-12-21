@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   def index
+    @incoming_events = Event.where("date_start > ? AND status = ?", Date.today, 0).order(:date_start)
+    @due_events = Event.where("date_start <= ? AND status = ?", Date.today, 0).order(:date_start)
   end
 
   def provinces_by_country

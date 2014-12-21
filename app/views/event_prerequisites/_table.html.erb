@@ -1,0 +1,19 @@
+<table id="event_exam_table" class="table table-condensed">
+  <tr style="background-color:#708DC6;">
+    <th><%= t 'event_prerequisite.min_age' %></th>
+    <th><%= t 'event_prerequisite.max_age' %></th>
+    <th><%= t 'event_prerequisite.max_event_count' %></th>
+    <th><%= t 'event_prerequisite.min_long_teach' %></th>
+    <th><%= t 'event_prerequisite.max_long_teach' %></th>
+  </tr>
+
+<% @event.prerequisites.each do |event_prerequisite| %>
+  <tr>
+    <td><%= best_in_place event_prerequisite, :min_age, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
+    <td><%= best_in_place event_prerequisite, :max_age, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
+    <td><%= best_in_place event_prerequisite, :max_event_count, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
+    <td><%= best_in_place event_prerequisite, :min_long_teach, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
+    <td><%= best_in_place event_prerequisite, :max_long_teach, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
+  </tr>
+<% end %>
+</table>

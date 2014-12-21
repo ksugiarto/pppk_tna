@@ -1,6 +1,21 @@
 PppkTna::Application.routes.draw do
+  resources :report do
+    collection do
+      get :event
+      get :event_filter
+    end
+  end
+
+  resources :filter do
+    collection do
+      get :event
+    end
+  end
 
   resources :events do
+    resources :event_matters
+    resources :event_prerequisites
+
     resources :event_exams do
       resources :questions
 
@@ -8,8 +23,6 @@ PppkTna::Application.routes.draw do
         get :print_exam_pdf
       end
     end
-
-    resources :event_matters
 
     resources :event_participants do
       collection do

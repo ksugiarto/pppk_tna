@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141208190402) do
+ActiveRecord::Schema.define(:version => 20141221144809) do
 
   create_table "basic_competencies", :force => true do |t|
     t.integer  "core_competency_id"
@@ -80,6 +80,17 @@ ActiveRecord::Schema.define(:version => 20141208190402) do
     t.integer  "status"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "event_prerequisites", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "min_age"
+    t.integer  "max_age"
+    t.integer  "max_event_count"
+    t.integer  "min_long_teach"
+    t.integer  "max_long_teach"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "events", :force => true do |t|

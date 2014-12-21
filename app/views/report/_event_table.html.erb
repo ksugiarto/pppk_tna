@@ -1,0 +1,24 @@
+<%= will_paginate @events, :class => "apple_pagination" %>
+<% get_row_number(@page) %>
+
+<table id="event_table" class="table table-condensed">
+  <tr style="background-color:#708DC6;">
+    <th width="1%"><%= t 'number' %></th>
+    <th><%= t 'event.title' %></th>
+    <th width="50"></th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+    <td class="text-right"><%= @number+=1 %>)</td>
+    <td>
+      <%= event.title %><br>
+    </td>
+    <td style="text-align:center;">
+      <%= link_to "#{t 'show'}", event_path(event, :modal => 1), :remote => true, :class => "btn btn-info btn-xs" %><br>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @events, :class => "apple_pagination" %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  event_id: 1
+  min_age: 1
+  max_age: 1
+  max_event_count: 1
+  min_long_teach: 1
+  max_long_teach: 1
+
+two:
+  event_id: 1
+  min_age: 1
+  max_age: 1
+  max_event_count: 1
+  min_long_teach: 1
+  max_long_teach: 1

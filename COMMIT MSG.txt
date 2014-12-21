@@ -1,5 +1,17 @@
 =========================
 Things Done [@ksugiarto]:
+(1) Adding fresh Event Prerequisites, implemented in Event Show.
+(2) Working on Event Report.
+
+Next Things to Do:
+(1) Person In Charge List.
+(2) Fixing print invitation.
+(3) Event Detail layout's fixing.
+(4) Datepicker arrows missing.
+(5) Devise, Can Can?
+
+=========================
+Things Done [@ksugiarto]:
 (1) City Import feature.
 (2) School Import feature.
 (3) Fixing several layouts.

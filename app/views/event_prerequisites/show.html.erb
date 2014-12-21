@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Event:</b>
+  <%= @event_prerequisite.event_id %>
+</p>
+
+<p>
+  <b>Min age:</b>
+  <%= @event_prerequisite.min_age %>
+</p>
+
+<p>
+  <b>Max age:</b>
+  <%= @event_prerequisite.max_age %>
+</p>
+
+<p>
+  <b>Max event count:</b>
+  <%= @event_prerequisite.max_event_count %>
+</p>
+
+<p>
+  <b>Min long teach:</b>
+  <%= @event_prerequisite.min_long_teach %>
+</p>
+
+<p>
+  <b>Max long teach:</b>
+  <%= @event_prerequisite.max_long_teach %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_prerequisite_path(@event_prerequisite) %> |
+<%= link_to 'Back', event_prerequisites_path %>

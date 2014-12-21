@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
   has_many :exams, :class_name => "EventExam"
   has_many :matters, :class_name => "EventMatter"
   has_many :participants, :class_name => "EventParticipant"
+  has_many :prerequisites, :class_name => "EventPrerequisite"
 
   before_create :default_status
 

@@ -212,6 +212,14 @@ id:
   row_number: "No."
   step: "Langkah"
 
+  report:
+    pdf: "Cetak ke PDF"
+    period: "Periode"
+    start_date: "Tanggal Awal"
+    end_date: "Tanggal Akhir"
+    date: "Tanggal"
+    date_print: "Tanggal Cetak"
+
   # MASTER
   country:
     countries: "Daftar Negara"
@@ -350,6 +358,9 @@ id:
     pick_date: "Periksa Tanggal Tersedia"
     pick_vocational: "Pilih Kejuruan"
     entry_information: "Masukkan Data Diklat"
+    due_events: "Diklat yang Perlu Ditutup"
+    incoming_events: "Diklat Ke Depan"
+    prerequisite: "Prasyarat"
 
   event_exam:
     event_exams: "Daftar Soal Ujian"
@@ -391,6 +402,16 @@ id:
     invitation: "Surat Undangan"
     fix_participant: "Peserta Fix"
     review_participant: "Review Peserta Diklat"
+
+  event_prerequisite:
+    event_prerequisite: "Prasyarat Administratif"
+    age: "Usia"
+    min_age: "Usia Minimum"
+    max_age: "Usia Maksimal"
+    max_event_count: "Maksimal Diklat"
+    long_teach: "Lama Mengajar"
+    min_long_teach: "Lama Mengajar Minimum"
+    max_long_teach: "Lama Mengajar Maksimal"
 
   will_paginate:
     previous_label: "← Sebelum"

@@ -52,4 +52,13 @@ module ApplicationHelper
     else label = ""
     end
   end
+
+  def get_row_number(page)
+    @number=0
+    (1..@page).each do |i|
+      @number+=10
+    end
+
+    return @number
+  end
 end

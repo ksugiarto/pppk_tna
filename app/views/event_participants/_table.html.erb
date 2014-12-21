@@ -19,7 +19,7 @@
 
 <% @event.participants.each do |event_participant| %>
   <tr>
-    <td><%= event_participant.teacher.full_name %></td>
+    <td><%= event_participant.teacher.try(:full_name) %></td>
 
     <% if @event.status.to_i!=0 %>
     <td><%= event_participant.total_presence %></td>

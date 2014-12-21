@@ -1,0 +1,41 @@
+<%= form_for(@event_prerequisite) do |f| %>
+  <% if @event_prerequisite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event_prerequisite.errors.count, "error") %> prohibited this event_prerequisite from being saved:</h2>
+
+      <ul>
+      <% @event_prerequisite.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :event_id %><br />
+    <%= f.number_field :event_id %>
+  </div>
+  <div class="field">
+    <%= f.label :min_age %><br />
+    <%= f.number_field :min_age %>
+  </div>
+  <div class="field">
+    <%= f.label :max_age %><br />
+    <%= f.number_field :max_age %>
+  </div>
+  <div class="field">
+    <%= f.label :max_event_count %><br />
+    <%= f.number_field :max_event_count %>
+  </div>
+  <div class="field">
+    <%= f.label :min_long_teach %><br />
+    <%= f.number_field :min_long_teach %>
+  </div>
+  <div class="field">
+    <%= f.label :max_long_teach %><br />
+    <%= f.number_field :max_long_teach %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

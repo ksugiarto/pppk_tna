@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-2">
+  </div>
+  
+  <div class="col-md-8">
+    <h4 align="center">Laporan Diklat</h4>
+  </div>
+
+  <div class="col-md-2" align="right">
+    <%= button_tag :id => "event_pdf", :class => "btn btn-danger btn-sm" do %>
+      <%= t 'report.pdf' %>&nbsp;<span class="glyphicon glyphicon-print"></i>
+    <% end %>
+  </div>
+</div>
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          <b>FILTER</b>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+        <%= render 'event_filter' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="table"><%= render 'event_table' %></div>
+
+<div id="modal"></div>
+
+<div id="general_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="BranchModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:900px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 class="modal-title"></h3>
+      </div>
+      <div class="modal-body" style="height:500px; overflow:auto;">
+      </div>
+    </div>
+  </div>
+</div>
