@@ -361,6 +361,7 @@ id:
     due_events: "Diklat yang Perlu Ditutup"
     incoming_events: "Diklat Ke Depan"
     prerequisite: "Prasyarat"
+    report: "Laporan Diklat"
 
   event_exam:
     event_exams: "Daftar Soal Ujian"

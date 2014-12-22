@@ -1,5 +1,17 @@
 =========================
 Things Done [@ksugiarto]:
+(1) Datepicker arrows missing is already shown.
+(2) Finishing Event Report.
+
+Next Things to Do:
+(1) Person In Charge List.
+(2) Fixing print invitation.
+(3) Devise, Can Can?
+(4) Event Individual Print.
+(5) Logo?
+
+=========================
+Things Done [@ksugiarto]:
 (1) Adding fresh Event Prerequisites, implemented in Event Show.
 (2) Working on Event Report.
 

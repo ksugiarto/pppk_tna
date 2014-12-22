@@ -1,2 +1,52 @@
 <%= form_tag event_filter_report_index_path, :method => "get", :class => "form-horizontal", :remote => true do %>
+<div class="row">
+  <div class="col-md-5">
+    <div class="form-group">
+      <%= label_tag 'title', "#{t 'event.title'}", :class => "col-sm-4 control-label" %>
+      <div class="col-sm-8"><%= text_field_tag 'title', '', :placeholder => "#{t 'all'}", :class => "form-control" %></div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag 'date_start', "#{t 'event.date_start'}", :class => "col-sm-4 control-label" %>
+      <div class="col-sm-4">
+        <%= text_field_tag 'date_start', '', :placeholder => "#{t 'report.start_date'}", :class => "form-control", :onMouseOver => "$(this).datepicker({dateFormat: 'yy-mm-dd', showButtonPanel: true, changeMonth: true, changeYear: true, yearRange: '-5:+5'})" %>
+      </div>
+      <div class="col-sm-4">
+        <%= text_field_tag 'date_end','', :placeholder => "#{t 'report.end_date'}", :class => "form-control", :onMouseOver => "$(this).datepicker({dateFormat: 'yy-mm-dd', showButtonPanel: true, changeMonth: true, changeYear: true, yearRange: '-5:+5'})" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-5">
+    <div class="form-group">
+      <%= label_tag 'member', "#{t 'event.vocational'}", :class => "col-sm-4 control-label" %>
+      <div class="col-sm-8"><%= text_field_tag 'vocational', '', :placeholder => "#{t 'all'}", :class => "form-control" %></div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag 'status', "#{t 'event.status'}", :class => "col-sm-4 control-label" %>
+      <div class="col-sm-8">
+        <%= select_tag(:status, options_for_select([
+          ["#{t 'all'}", ""], 
+          ["#{t 'event.new'}", 0], 
+          ["#{t 'event.close'}", 1],
+          ["#{t 'event.void'}", 5]]), :class => "form-control") %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <div class="form-group">
+      <div class="col-sm-4">
+        <%= submit_tag "#{t 'process'}", :disable_with => "#{t 'disable_with'}", :class => "btn btn-success" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-4">
+        <%= link_to "#{t 'reset'}", event_report_index_path, :class => "btn btn-default btn-xs" %>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>

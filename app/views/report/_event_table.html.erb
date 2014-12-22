@@ -3,17 +3,23 @@
 
 <table id="event_table" class="table table-condensed">
   <tr style="background-color:#708DC6;">
-    <th width="1%"><%= t 'number' %></th>
+    <th width="1%"><%= t 'row_number' %></th>
     <th><%= t 'event.title' %></th>
+    <th><%= t 'event.vocational' %></th>
+    <th><%= t 'event.date_start' %></th>
+    <th><%= t 'event.date_end' %></th>
+    <th><%= t 'event.status_short' %></th>
     <th width="50"></th>
   </tr>
 
 <% @events.each do |event| %>
   <tr>
     <td class="text-right"><%= @number+=1 %>)</td>
-    <td>
-      <%= event.title %><br>
-    </td>
+    <td><%= event.title %></td>
+    <td><%= event.vocational.try(:name) %></td>
+    <td><%= date(event.date_start) %></td>
+    <td><%= date(event.date_end) %></td>
+    <td><span class="<%= event_class(event.status) %>"><%= event.status_name %></span></td>
     <td style="text-align:center;">
       <%= link_to "#{t 'show'}", event_path(event, :modal => 1), :remote => true, :class => "btn btn-info btn-xs" %><br>
     </td>
