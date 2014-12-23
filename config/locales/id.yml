@@ -212,6 +212,25 @@ id:
   row_number: "No."
   step: "Langkah"
 
+  user:
+    users: "Daftar User"
+    user: "User"
+    username: "Nama User"
+    email: "Email"
+    password: "Password"
+    password_confirmation: "Konfirmasi Password"
+    password_warning: "(*) password minimal 8 characters"
+    user_group: "Group User"
+    last_sign_in: "Terakhir Masuk"
+    delete_success: "User dihapus."
+
+  user_group:
+    user_groups: "Daftar Grup User"
+    user_group: "Grup User"
+    name: "Nama"
+    edit_manage_role: "Ubah dan Atur Role"
+    menu: "Menuju halaman Menu"
+
   report:
     pdf: "Cetak ke PDF"
     period: "Periode"

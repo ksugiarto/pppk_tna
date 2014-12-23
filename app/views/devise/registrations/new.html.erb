@@ -1,0 +1,41 @@
+<div class="row form">
+  <div class="col-md-4"></div>
+  <div class="col-md-4 login">
+    <h3 class="login"><div align="center">SIGN UP</div></h3>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="form-group">
+        <%= f.label :username, "#{t 'user.username'}" %>
+        <%= f.text_field :username, :autofocus => true, :class => "form-control" %>
+      </div>
+
+      <div class="form-group">
+      <%= f.label :user_group_id, "User Group" %>
+      <% @user_groups = UserGroup.order(:name) %>
+      <%= f.select(:user_group_id, @user_groups.collect {|user_group| [user_group.name, user_group.id,]}, {:prompt => "#{t 'prompt'} #{t 'user_group.user_group'}"}, :class => "form-control") %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, "#{t 'user.password'}" %>
+        <% if @validatable %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
+      </div>
+
+      <hr>
+      <div class="form-group">
+        <%= f.submit "SIGN UP", :class => "btn btn-large btn-block btn-primary" %>
+      </div>
+    <% end %>
+
+    <div align="center"><%= render "devise/shared/links" %></div>
+  </div>
+  <div class="span4"></div>
+</div>

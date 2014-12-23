@@ -9,6 +9,7 @@ gem 'jquery-rails', '3.0.4'
 gem "paperclip", '~> 3.4.2'					# required for upload and save photo
 gem 'remotipart', '~> 1.0.5'				# required for form upload image remote form
 gem "prawn", "~> 1.0.0"
+gem 'devise'
 gem 'cancan', '~> 1.6.10'
 gem 'rubyzip', '~> 0.9.9'           # required for roo
 gem 'spreadsheet'                   # required for roo

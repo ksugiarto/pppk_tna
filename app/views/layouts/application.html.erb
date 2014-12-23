@@ -10,6 +10,7 @@
 	<nav class="navbar navbar-default" role="navigation" id="show">
 		<div class="container">
 		  <div class="row">
+		  	<% if user_signed_in? %>
 			  <!-- Brand and toggle get grouped for better mobile display -->
 			  <div class="navbar-header">
 			    <a class="navbar-brand" href="/">
@@ -25,21 +26,27 @@
             <li><a href="/teachers"><%= t 'teacher.teachers' %></a></li>
             <li><a href="/schools"><%= t 'school.schools' %></a></li>
             <li><a href="/curicculums"><%= t 'curicculum.curicculums' %></a></li>
-            <li><a href="/cities"><%= t 'city.cities' %></a></li>
-            <!-- 
+            
+            <% if current_user.try(:user_group).try(:name)=='Developer' or current_user.try(:user_group_id).try(:name)=='Admin' %>
 			    	<li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Setting <span class="caret"></span></a>
 		          <ul class="dropdown-menu" role="menu">
-		            <li><a href="/countries"><%= t 'country.countries' %></a></li>
-		            <li><a href="/provinces"><%= t 'province.provinces' %></a></li>
+		            <li><a href="/cities"><%= t 'city.cities' %></a></li>
+		            <li><a href="/admin/users"><%= t 'user.users' %></a></li>
+		            <li><a href="/user_groups"><%= t 'user_group.user_groups' %></a></li>
 		          </ul>
 		        </li>
+		        <% end %>
+            <!-- 
+            <li><a href="/countries"><%= t 'country.countries' %></a></li>
+            <li><a href="/provinces"><%= t 'province.provinces' %></a></li>
              -->
 			    </ul>
 				  <p class="navbar-text navbar-right">
-				  	Login as Admin (<u>Log Out</u>)
+				  	Login as <%= current_user.try(:username) %> (<u><%= link_to "#{t 'logout'}", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></u>)
 				  </p>
 			  </div><!-- /.navbar-collapse -->
+			  <% end %>
 			</div>
 		</div>
 	</nav>

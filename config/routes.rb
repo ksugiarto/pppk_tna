@@ -1,4 +1,5 @@
 PppkTna::Application.routes.draw do
+
   resources :report do
     collection do
       get :event
@@ -86,6 +87,13 @@ PppkTna::Application.routes.draw do
       post :import_submit
     end
   end
+
+  resources :user_groups
+  devise_for :users
+  scope "/admin" do
+    resources :users
+  end
+  
   resources :provinces
   resources :countries
 
