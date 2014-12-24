@@ -9,7 +9,7 @@
     <th><%= t 'event.date_start' %></th>
     <th><%= t 'event.date_end' %></th>
     <th><%= t 'event.status_short' %></th>
-    <th width="50"></th>
+    <th width="150"></th>
   </tr>
 
 <% @events.each do |event| %>
@@ -20,8 +20,9 @@
     <td><%= date(event.date_start) %></td>
     <td><%= date(event.date_end) %></td>
     <td><span class="<%= event_class(event.status) %>"><%= event.status_name %></span></td>
-    <td style="text-align:center;">
-      <%= link_to "#{t 'show'}", event_path(event, :modal => 1), :remote => true, :class => "btn btn-info btn-xs" %><br>
+    <td style="text-align:right;">
+      <%= link_to "#{t 'show'}", event_path(event, :modal => 1), :remote => true, :class => "btn btn-info btn-xs" %>
+      <%= link_to "#{t 'print'}", event_path(event, :format => :pdf), :target => "_blank", :class => "btn btn-danger btn-xs" %>
     </td>
   </tr>
 <% end %>

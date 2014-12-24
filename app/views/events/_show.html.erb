@@ -14,7 +14,7 @@
     <th><%= t 'event.title' %></th>
     <td><b>:&nbsp;<%= @event.title %></b></td>
     <th><%= t 'event.vocational' %></th>
-    <td><b>:</b>&nbsp;<%= @event.vocational.try(:name) %></td>
+    <td><b>:</b>&nbsp;<%= @event.vocational.try(:full_name) %></td>
   </tr>
   <tr>
     <th><%= t 'event.date_start' %></th>

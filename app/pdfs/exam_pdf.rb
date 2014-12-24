@@ -1,14 +1,14 @@
 class ExamPdf < Prawn::Document
-  def initialize(event_id, event_matter_id, view)
+  def initialize(event_id, event_exam_id, company_name, date_print, view)
   super()
     @event = Event.find(event_id)
-    @event_matter = @event.matters.find(event_matter_id)
-    # @event_participants = @event.participants.no_email.new_participant
-    # @school = School.find(school_id)
+    @event_exam = @event.exams.find(event_exam_id)
+    @company_name = company_name
+    @date_print = date_print
     @view = view
     header
-    content
-    footer
+    # content
+    # footer
   end
 
   def precision(num)
@@ -29,35 +29,11 @@ class ExamPdf < Prawn::Document
     # image logopath, :width => 10, :height => 10, :position => :center, :vposition => :top
   end
 
-  def upt_pppk
-    [["PEMERINTAH PROVINSI JAWA TIMUR"],
-     ["DINAS PENDIDIKAN"],
-     ["UPT. PELATIHAN DAN PENGEMBANGAN PENDIDIKAN KEJURUAN"],
-     ["Jl. Prof. Moch. Yamin No. 25 Kampus Unesa Ketintang Surabaya, 60231"],
-     ["Telp: (031) 8291795 Fax: (031) 8288677"],
-     ["S U R A B A Y A"]]
-  end
-
-  def school_information
-    [["", "", "", "Surabaya, #{I18n.l Time.now.localtime, :format => "%d %B %Y"}"],
-     ["Nomor", ": 123/123.1/123.12/2014", "", ""],
-     ["Sifat", ": Penting", "", "Kepada"],
-     ["Lampiran", ": 1 (satu) lembar", "", "Yth. Sdr. Kepala #{@school.try(:name)}"],
-     ["Perihal", ": Pelatihan Pengingkatan Kompetensi Guru SMK", "", "Di #{@school.try(:address)}, #{@school.try(:city).try(:name)}"]]
-  end
-
   def header
-    table upt_pppk, :cell_style => { :font => "Times-Roman", :size => 10, :height => 18 }, :width => 540 do
-      cells.borders=[]
-      column(0).align=:center
-    end
-
-    stroke do
-      horizontal_rule
-    end
-
-    table school_information, :cell_style => { :font => "Times-Roman", :size => 10, :height => 18 }, :width => 540 do
-      cells.borders=[]
+    font("Times-Roman") do
+      number_pages "" # dunno just make the formatting right
+      text "#{@company_name}", :align => :center, :size => 10, :style => :bold
+      text "#{@event_exam.exam_type}", :align => :center, :size => 10, :style => :bold
     end
   end
 

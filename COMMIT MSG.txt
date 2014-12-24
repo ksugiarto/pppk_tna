@@ -1,5 +1,16 @@
 =========================
 Things Done [@ksugiarto]:
+(1) Working on print Event Individual.
+(2) Working on print Event Exam.
+
+Next Things to Do:
+(1) Person In Charge List.
+(2) Fixing print invitation.
+(3) Ability Can Can.
+(4) Logo?
+
+=========================
+Things Done [@ksugiarto]:
 (1) Working on Devise, User, User Group. (Need to check it later)
 (2) Working on Can Can, ability.rb on the go.
 

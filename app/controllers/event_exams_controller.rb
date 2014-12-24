@@ -25,6 +25,11 @@ class EventExamsController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @event_exam }
       format.js # show.js.erb
+      format.pdf do
+        pdf = ExamPdf.new(@event.id, @event_exam.id, ApplicationController.helpers.company_name, ApplicationController.helpers.get_date_print, view_context)
+        send_data pdf.render, filename: "#{I18n.t 'event_exam.event_exam'} #{I18n.l Time.now.localtime, :format => '%Y-%m-%d %H-%M-%S'}.pdf",
+        type: "application/pdf", :disposition => "inline"
+      end
     end
   end
 
