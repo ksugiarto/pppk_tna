@@ -7,9 +7,11 @@
   </div>
 
   <div class="col-md-2" align="right">
+  <% if can? :create, Event %>
     <%= link_to check_request_events_path, :class => "btn btn-default btn-sm" do %>
       <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;<%= t 'new' %>
     <% end %>
+  <% end %>
   </div>
 </div>
 

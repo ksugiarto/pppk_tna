@@ -12,19 +12,23 @@
   <div class="col-md-4" align="right">
     <% if @event.status.to_i==0 %>
       <%= form_for(@event) do |f| %>
-        <%= f.hidden_field :status, :value => 1 %>
-        <%= button_tag :type => "submit", :id => "btn", :class => "btn btn-success btn-sm", :disable_with => "#{t 'disable_with'}", data: { confirm: "#{t 'confirm'}" } do %>
-          <%= "#{t 'close'} #{t 'event.event'}" %>&nbsp;<span class="glyphicon glyphicon-lock"></span>
-        <% end -%>
+        <% if can? :update, Event %>
+          <%= f.hidden_field :status, :value => 1 %>
+          <%= button_tag :type => "submit", :id => "btn", :class => "btn btn-success btn-sm", :disable_with => "#{t 'disable_with'}", data: { confirm: "#{t 'confirm'}" } do %>
+            <%= "#{t 'close'} #{t 'event.event'}" %>&nbsp;<span class="glyphicon glyphicon-lock"></span>
+          <% end -%>
 
-        <%= link_to check_request_events_path(:id => @event), :class => "btn btn-warning btn-sm" do %>
-          <%= "#{t 'edit'} #{t 'event.event'}" %>&nbsp;<span class="glyphicon glyphicon-pencil"></span>
+          <%= link_to check_request_events_path(:id => @event), :class => "btn btn-warning btn-sm" do %>
+            <%= "#{t 'edit'} #{t 'event.event'}" %>&nbsp;<span class="glyphicon glyphicon-pencil"></span>
+          <% end %>
         <% end %>
       <% end -%>
     <% elsif @event.status.to_i==1 %>
       <%= form_for(@event) do |f| %>
-        <%= link_to review_participant_event_event_participants_path(@event), :class => "btn btn-success btn-sm", :disable_with => "#{t 'disable_with'}" do %>
-            <%= t 'event_participant.review_participant' %>&nbsp;<span class="glyphicon glyphicon-pencil"></span>
+        <% if can? :update, EventParticipant %>
+          <%= link_to review_participant_event_event_participants_path(@event), :class => "btn btn-success btn-sm", :disable_with => "#{t 'disable_with'}" do %>
+              <%= t 'event_participant.review_participant' %>&nbsp;<span class="glyphicon glyphicon-pencil"></span>
+          <% end %>
         <% end %>
 
         <%= f.hidden_field :status, :value => 5 %>

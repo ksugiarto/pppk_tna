@@ -21,10 +21,10 @@
     <% if event.status.to_i==0 %>
         <%= link_to "#{t 'show'}", event_path(event, :modal => 1), :class => "btn btn-info btn-xs", :remote => true %>
         <%= link_to "#{t 'edit'}", event_path(event, :modal => 0), :class => "btn btn-warning btn-xs" %>
-        <%= link_to "#{t 'destroy'}", event, method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs" %>
+        <% if can? :destroy, Event %><%= link_to "#{t 'destroy'}", event, method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs" %><% end %>
     <% elsif event.status.to_i==1 %>
         <%= link_to "#{t 'show'}", event_path(event, :modal => 1), :class => "btn btn-info btn-xs", :remote => true %>
-        <%= link_to "#{t 'review'}", event_path(event, :modal => 0), :class => "btn btn-success btn-xs" %>
+        <% if can? :review, Event %><%= link_to "#{t 'review'}", event_path(event, :modal => 0), :class => "btn btn-success btn-xs" %><% end %>
     <% end %>
     </td>
   </tr>

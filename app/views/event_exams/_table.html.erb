@@ -3,7 +3,11 @@
     <th><%= t 'event_exam.description' %></th>
     <th><%= t 'event_exam.exam_type' %></th>
     <% if @modal.to_i==0 %>
-    <th width="250" class="text-center"><%= link_to "#{t 'add'} #{t 'event_exam.event_exam'}", new_event_event_exam_path(@event), :class => "btn btn-default btn-xs", :remote => true if @event.status.to_i==0 %></th>
+      <th width="250" class="text-center">
+        <% if can? :create, EventExam %>
+          <%= link_to "#{t 'add'} #{t 'event_exam.event_exam'}", new_event_event_exam_path(@event), :class => "btn btn-default btn-xs", :remote => true if @event.status.to_i==0 %>
+        <% end %>
+      </th>
     <% end %>
   </tr>
 
@@ -17,8 +21,12 @@
       <%= link_to "#{t 'print'}", event_event_exam_path(@event, event_exam, :format => :pdf), :target => "_blank", :class => "btn btn-primary btn-xs" %>
       
       <% if @event.status.to_i==0 %>
-        <%= link_to "#{t 'edit'}", event_event_exam_path(@event, event_exam), :class => "btn btn-warning btn-xs" %>
-        <%= link_to "#{t 'destroy'}", event_event_exam_path(@event, event_exam), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
+        <% if can? :update, EventExam %>
+          <%= link_to "#{t 'edit'}", event_event_exam_path(@event, event_exam, :modal => 0), :class => "btn btn-warning btn-xs" %>
+        <% end %>
+        <% if can? :destroy, EventExam %>
+          <%= link_to "#{t 'destroy'}", event_event_exam_path(@event, event_exam), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
+        <% end %>
       <% end %>
     </td>
     <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141223173256) do
+ActiveRecord::Schema.define(:version => 20141228073900) do
 
   create_table "basic_competencies", :force => true do |t|
     t.integer  "core_competency_id"
@@ -28,6 +28,19 @@ ActiveRecord::Schema.define(:version => 20141223173256) do
     t.string   "city_ext"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "company_profiles", :force => true do |t|
+    t.string   "name"
+    t.string   "full_name"
+    t.string   "address"
+    t.integer  "city_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "core_competencies", :force => true do |t|

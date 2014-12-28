@@ -3,7 +3,11 @@
     <th><%= t 'event_matter.document' %></th>
     <th><%= t 'event_matter.notes' %></th>
     <% if @modal.to_i==0 %>
-    <th width="200" class="text-center"><%= link_to "#{t 'add'} #{t 'event_matter.event_matter'}", new_event_event_matter_path(@event), :class => "btn btn-default btn-xs", :remote => true if @event.status.to_i==0 %></th>
+    <th width="200" class="text-center">
+      <% if can? :create, EventMatter %>
+        <%= link_to "#{t 'add'} #{t 'event_matter.event_matter'}", new_event_event_matter_path(@event), :class => "btn btn-default btn-xs", :remote => true if @event.status.to_i==0 %>
+      <% end %>
+    </th>
     <% end %>
   </tr>
 
@@ -14,8 +18,12 @@
     <% if @modal.to_i==0 %>
     <td class="text-center">
       <%= link_to "#{t 'download'}", event_matter.document.url, :class => "btn btn-info btn-xs" %>
-      <%= link_to "#{t 'edit'}", edit_event_event_matter_path(@event, event_matter), :class => "btn btn-warning btn-xs", :remote => true if @event.status.to_i==0 %>
-      <%= link_to "#{t 'destroy'}", event_event_matter_path(@event, event_matter), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true if @event.status.to_i==0 %>
+      <% if can? :update, EventMatter %>
+        <%= link_to "#{t 'edit'}", edit_event_event_matter_path(@event, event_matter), :class => "btn btn-warning btn-xs", :remote => true if @event.status.to_i==0 %>
+      <% end %>
+      <% if can? :destroy, EventMatter %>
+        <%= link_to "#{t 'destroy'}", event_event_matter_path(@event, event_matter), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true if @event.status.to_i==0 %>
+      <% end %>
     </td>
     <% end %>
   </tr>

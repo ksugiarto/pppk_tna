@@ -1,5 +1,8 @@
 PppkTna::Application.routes.draw do
 
+  resources :company_profiles
+
+
   resources :report do
     collection do
       get :event

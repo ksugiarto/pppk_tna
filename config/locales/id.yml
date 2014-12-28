@@ -433,6 +433,26 @@ id:
     min_long_teach: "Lama Mengajar Minimum"
     max_long_teach: "Lama Mengajar Maksimal"
 
+  company:
+    company: "Profile Perusahaan"
+    name: "Nama"
+    full_name: "Nama Panjang"
+    is_pkp: "PKP"
+    npwp: "NPWP"
+    address: "Alamat"
+    city: "Kota"
+    province: "Propinsi"
+    country: "Negara"
+    employee_name: "Nama Karyawan"
+    logo: "Logo"
+    telephone: "Telepon"
+    primary_bank_name: "Nama Bank"
+    primary_bank_account: "Nomor Rekening"
+    primary_bank_account_name: "Atas Nama"
+    secondary_bank_name: "Nama Bank"
+    secondary_bank_account: "Nomor Rekening"
+    secondary_bank_account_name: "Atas Nama"
+
   will_paginate:
     previous_label: "← Sebelum"
     next_label: "Berikut →"

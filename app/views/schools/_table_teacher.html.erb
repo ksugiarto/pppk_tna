@@ -20,7 +20,9 @@
     <% if @modal.to_i==0 %>
     <td class="text-center">
         <%= link_to "#{t 'show'}", teacher_path(teacher, :modal => 1), :class => "btn btn-info btn-xs", :remote => true %>
-        <%= link_to "#{t 'edit'}", teacher_path(teacher, :modal => 0), :class => "btn btn-warning btn-xs" %>
+        <% if can? :update, Teacher %>
+            <%= link_to "#{t 'edit'}", teacher_path(teacher, :modal => 0), :class => "btn btn-warning btn-xs" %>
+        <% end %>
     </td>
     <% end %>
   </tr>

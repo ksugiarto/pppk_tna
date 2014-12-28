@@ -4,7 +4,11 @@
     <th><%= t 'school.request_date' %></th>
     <th><%= t 'school.notes' %></th>
     <% if @modal.to_i==0 %>
-    <th width="200" class="text-center"><%= link_to "#{t 'add'} #{t 'school.request'}", new_school_school_request_path(@school), :class => "btn btn-default btn-xs", :remote => true %></th>
+      <th width="200" class="text-center">
+        <% if can? :create, SchoolRequest %>
+        <%= link_to "#{t 'add'} #{t 'school.request'}", new_school_school_request_path(@school), :class => "btn btn-default btn-xs", :remote => true %>
+        <% end %>
+      </th>
     <% end %>
   </tr>
 
@@ -16,8 +20,12 @@
     <% if @modal.to_i==0 %>
     <td class="text-center">
       <%= link_to "#{t 'show'}", school_school_request_path(@school, school_request, :modal => 1), :class => "btn btn-info btn-xs", :remote => true %>
-      <%= link_to "#{t 'edit'}", school_school_request_path(@school, school_request, :modal => 0), :class => "btn btn-warning btn-xs" %>
-      <%= link_to "#{t 'destroy'}", school_school_request_path(@school, school_request), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
+      <% if can? :update, SchoolRequest %>
+        <%= link_to "#{t 'edit'}", school_school_request_path(@school, school_request, :modal => 0), :class => "btn btn-warning btn-xs" %>
+      <% end %>
+      <% if can? :destroy, SchoolRequest %>
+        <%= link_to "#{t 'destroy'}", school_school_request_path(@school, school_request), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
+      <% end %>
     </td>
     <% end %>
   </tr>

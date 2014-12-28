@@ -1,5 +1,15 @@
 =========================
 Things Done [@ksugiarto]:
+(1) Working on Ability Can Can.
+(2) Adding fresh Company Profile.
+
+Next Things to Do:
+(1) Person In Charge List.
+(2) Fixing print invitation.
+(3) Put Logo on report.
+
+=========================
+Things Done [@ksugiarto]:
 (1) Working on print Event Individual.
 (2) Working on print Event Exam.
 

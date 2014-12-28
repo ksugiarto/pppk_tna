@@ -21,17 +21,18 @@
 			  <!-- Collect the nav links, forms, and other content for toggling -->
 			  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    <ul class="nav navbar-nav">
-			    	<li><a href="/events"><%= t 'event.events' %></a></li>
-			    	<li><a href="/report/event">Laporan Diklat</a></li>
-            <li><a href="/teachers"><%= t 'teacher.teachers' %></a></li>
-            <li><a href="/schools"><%= t 'school.schools' %></a></li>
-            <li><a href="/curicculums"><%= t 'curicculum.curicculums' %></a></li>
+			    	<% if can? :read, Event %><li><a href="/events"><%= t 'event.events' %></a></li><% end %>
+			    	<% if can? :read, "report" %><li><a href="/report/event">Laporan Diklat</a></li><% end %>
+            <% if can? :read, Teacher %><li><a href="/teachers"><%= t 'teacher.teachers' %></a></li><% end %>
+            <% if can? :read, School %><li><a href="/schools"><%= t 'school.schools' %></a></li><% end %>
+            <% if can? :read, Curicculum %><li><a href="/curicculums"><%= t 'curicculum.curicculums' %></a></li><% end %>
             
-            <% if current_user.try(:user_group).try(:name)=='Developer' or current_user.try(:user_group_id).try(:name)=='Admin' %>
+            <% if current_user.try(:user_group).try(:name)=='Developer' or current_user.try(:user_group).try(:name)=='Admin' %>
 			    	<li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Setting <span class="caret"></span></a>
 		          <ul class="dropdown-menu" role="menu">
 		            <li><a href="/cities"><%= t 'city.cities' %></a></li>
+		            <li><a href="/company_profiles"><%= t 'company.company' %></a></li>
 		            <li><a href="/admin/users"><%= t 'user.users' %></a></li>
 		            <li><a href="/user_groups"><%= t 'user_group.user_groups' %></a></li>
 		          </ul>

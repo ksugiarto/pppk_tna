@@ -10,8 +10,10 @@
   </div>
 
   <div class="col-md-2" align="right">
-    <%= link_to edit_school_path(@school), :class => "btn btn-warning btn-sm", :remote => true do %>
-      <%= "#{t 'edit'} #{t 'school.school'}" %>&nbsp;<span class="glyphicon glyphicon-pencil"></span>
+    <% if can? :update, School %>
+      <%= link_to edit_school_path(@school), :class => "btn btn-warning btn-sm", :remote => true do %>
+        <%= "#{t 'edit'} #{t 'school.school'}" %>&nbsp;<span class="glyphicon glyphicon-pencil"></span>
+      <% end %>
     <% end %>
   </div>
 </div>

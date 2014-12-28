@@ -16,9 +16,11 @@
     <td><%= school.name %></td>
     <td><%= school.city.try(:name) %></td>
     <td class="text-right">
-        <%= link_to "#{t 'show'}", school_path(school, :modal => 1), :class => "btn btn-info btn-xs", :remote => true %>
-        <%= link_to "#{t 'edit'}", school_path(school, :modal => 0), :class => "btn btn-warning btn-xs" %>
+      <%= link_to "#{t 'show'}", school_path(school, :modal => 1), :class => "btn btn-info btn-xs", :remote => true %>
+      <%= link_to "#{t 'edit'}", school_path(school, :modal => 0), :class => "btn btn-warning btn-xs" %>
+      <% if can? :destroy, School %>
         <%= link_to "#{t 'delete'}", school, method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
+      <% end %>
     </td>
   </tr>
 <% end %>

@@ -7,8 +7,10 @@
   </div>
 
   <div class="col-md-2" align="right">
-    <%= link_to new_curicculum_path, :class => "btn btn-default btn-sm", :remote => true do %>
-      <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;<%= t 'new' %>
+    <% if can? :create, Curicculum %>
+      <%= link_to new_curicculum_path, :class => "btn btn-default btn-sm", :remote => true do %>
+        <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;<%= t 'new' %>
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -1,2 +1,16 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="row">
+  <div class="col-md-2">
+    <%= link_to users_path, :class => "btn btn-default btn-sm" do %>
+      <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<%= t 'cancel' %>
+    <% end %>
+  </div>
+  
+  <div class="col-md-8">
+    <h4 align="center"><%= t 'user.user' %> - <%= t 'new' %></h4>
+  </div>
+
+  <div class="col-md-2"></div>
+</div>
+<hr>
+
+<%= render 'form' %>

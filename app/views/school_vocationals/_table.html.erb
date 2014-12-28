@@ -3,7 +3,11 @@
     <th><%= t 'school.vocational' %></th>
     <th><%= t 'school.notes' %></th>
     <% if @modal.to_i==0 %>
-    <th width="200" class="text-center"><%= link_to "#{t 'add'} #{t 'school.vocational'}", new_school_school_vocational_path(@school), :class => "btn btn-default btn-xs", :remote => true %></th>
+      <% if can? :create, SchoolVocational %>
+        <th width="200" class="text-center">
+          <%= link_to "#{t 'add'} #{t 'school.vocational'}", new_school_school_vocational_path(@school), :class => "btn btn-default btn-xs", :remote => true %>
+        </th>
+      <% end %>
     <% end %>
   </tr>
 
@@ -12,10 +16,12 @@
     <td><%= "#{school_vocational.vocational.try(:name)}" %></td>
     <td><%= school_vocational.notes %></td>
     <% if @modal.to_i==0 %>
-    <td class="text-center">
-      <%= link_to "#{t 'edit'}", edit_school_school_vocational_path(@school, school_vocational), :class => "btn btn-warning btn-xs", :remote => true %>
-      <%= link_to "#{t 'destroy'}", school_school_vocational_path(@school, school_vocational), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
-    </td>
+      <% if can? :create, SchoolVocational %>
+        <td class="text-center">
+          <%= link_to "#{t 'edit'}", edit_school_school_vocational_path(@school, school_vocational), :class => "btn btn-warning btn-xs", :remote => true %>
+          <%= link_to "#{t 'destroy'}", school_school_vocational_path(@school, school_vocational), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
+        </td>
+      <% end %>
     <% end %>
   </tr>
 <% end %>

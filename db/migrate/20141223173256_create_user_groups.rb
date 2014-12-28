@@ -7,10 +7,10 @@ class CreateUserGroups < ActiveRecord::Migration
     end
 
     user_group_developer = UserGroup.create(:name => 'Developer')
-    user_group_developer.save
-
     user_group_admin = UserGroup.create(:name => 'Administrator')
-    user_group_admin.save
+    UserGroup.create(:name => 'Sub Bagian Tata Usaha')
+    UserGroup.create(:name => 'Seksi Pelayanan Pendidikan')
+    UserGroup.create(:name => 'Kepala UPT')
 
     # update user if user don't have user group yet.
     # for DEVELOPER

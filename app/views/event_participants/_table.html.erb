@@ -11,8 +11,12 @@
     <th><%= t 'event_participant.status' %></th>
     <% if @event.status.to_i==0 and @modal.to_i==0 %>
     <th width="200" class="text-center">
-      <%= link_to "#{t 'event_participant.fix_participant'}", register_participant_event_event_participants_path(@event), :class => "btn btn-default btn-xs" %>
-      <%= link_to "#{t 'add'}", check_request_event_event_participants_path(@event), :class => "btn btn-default btn-xs" %>
+      <% if can? :update, EventParticipant %>
+        <%= link_to "#{t 'event_participant.fix_participant'}", register_participant_event_event_participants_path(@event), :class => "btn btn-default btn-xs" %>
+      <% end %>
+      <% if can? :create, EventParticipant %>
+        <%= link_to "#{t 'add'}", check_request_event_event_participants_path(@event), :class => "btn btn-default btn-xs" %>
+      <% end %>
     </th>
     <% end %>
   </tr>
@@ -30,8 +34,12 @@
     <td><span class="<%= label_class(event_participant.status) %>"><%= event_participant.status_name %></span></td>
     <% if @event.status.to_i==0 and @modal.to_i==0 %>
     <td class="text-center">
+      <% if can? :update, EventParticipant %>
         <%= link_to "#{t 'edit'}", edit_event_event_participant_path(@event, event_participant), :class => "btn btn-warning btn-xs" %>
+      <% end %>
+      <% if can? :destroy, EventParticipant %>
         <%= link_to "#{t 'destroy'}", event_event_participant_path(@event, event_participant), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs" %>
+      <% end %>
     </td>
     <% end %>
   </tr>
