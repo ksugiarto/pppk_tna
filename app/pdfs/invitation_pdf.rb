@@ -1,12 +1,27 @@
 class InvitationPdf < Prawn::Document
-  def initialize(event_id, school_id, view)
+  def initialize(event_id, view)
   super()
-    @event = Event.find(event_id)
-    @event_participants = @event.participants.no_email.new_participant
-    @school = School.find(school_id)
     @view = view
-    header
-    content
+    @event = Event.find(event_id)
+    # @event_participants = @event.participants.no_email.new_participant
+
+    schools = @event.participants.select("teachers.school_id").joins(:teacher).uniq
+    schools.each_with_index do |s, index|
+      @school = School.find(s.school_id)
+      if @school.email.present?
+        @teachers = @event.participants.joins(:teacher).where("teachers.school_id=#{s.school_id}").uniq
+
+        if index != schools.length-1
+          header
+          content
+          signed_place
+        else
+          header
+          content
+          signed_place_blank
+        end
+      end
+    end
     footer
   end
 
@@ -68,6 +83,15 @@ class InvitationPdf < Prawn::Document
      ["Kedatangan Peserta", ": #{I18n.l @event.try(:date_start).to_time.localtime, :format => "%A, %d %B %Y"}"]]
   end
 
+  def teachers
+    @number = 0
+
+    [[ "#{I18n.t 'row_number'}", "#{I18n.t 'teacher.nip'}", "#{I18n.t 'teacher.name'}", "#{I18n.t 'teacher.gender'}" ]] +
+    @teachers.map do |teacher|
+      [ "#{@number+=1}.", "#{teacher.try(:teacher).try(:nip)}", "#{teacher.try(:teacher).try(:full_name)}", "#{teacher.try(:teacher).try(:gender_name)}" ]
+    end
+  end
+
   def content
     move_down 20
     font("Times-Roman", :size => 10) do
@@ -76,6 +100,11 @@ class InvitationPdf < Prawn::Document
 
     move_down 15
     table event_information, :cell_style => { :font => "Times-Roman", :size => 10, :height => 18 }, :width => 540 do
+      cells.borders=[]
+    end
+
+    move_down 15
+    table teachers, :cell_style => { :font => "Times-Roman", :size => 10, :height => 18 }, :width => 540 do
       cells.borders=[]
     end
 
@@ -108,11 +137,32 @@ class InvitationPdf < Prawn::Document
      ["", "", "NIP. [nip kepala UPT]"]]
   end
 
-  def footer
+  def signed_place
     move_down 20
     table signed, :cell_style => { :font => "Times-Roman", :size => 10, :height => 18 }, :width => 540 do
       cells.borders=[]
     end
+    start_new_page
+  end
+
+  def signed_place_blank
+    move_down 20
+    table signed, :cell_style => { :font => "Times-Roman", :size => 10, :height => 18 }, :width => 540 do
+      cells.borders=[]
+    end
+  end
+
+  def footer
+    move_down 10
+
+    repeat(:all) do
+      stroke do
+        horizontal_line 0, 540, :at => 2
+      end
+
+      number_pages "[#{I18n.t 'event.report'} - #{I18n.t 'report.date_print'}: #{@date_print}]", :size => 5, :at => [0, 0]
+    end
+    number_pages "(<page>/<total>)", :size => 5, :at => [520, 0]
   end
 
   def teacher_list

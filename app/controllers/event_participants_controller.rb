@@ -86,7 +86,7 @@ class EventParticipantsController < ApplicationController
 
     respond_to do |format|
       format.pdf do
-        pdf = InvitationPdf.new(@event, 1, view_context)
+        pdf = InvitationPdf.new(@event, view_context)
         send_data pdf.render, filename: "#{I18n.t 'print'} #{I18n.t 'event_participant.invitation'} #{I18n.l Time.now.localtime, :format => '%Y-%m-%d %H-%M-%S'}.pdf",
         type: "application/pdf", :disposition => "inline"
       end 

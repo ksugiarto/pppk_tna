@@ -9,13 +9,12 @@
 
 <% @event.participants.have_email.new_participant.each do |event_participant| %>
   <tr>
-    <td><%= event_participant.teacher.school.try(:name) %></td>
-    <td><%= event_participant.teacher.nip %></td>
-    <td><%= event_participant.teacher.full_name %></td>
-    <td><%= event_participant.teacher.gender_name %></td>
+    <td><%= event_participant.try(:teacher).try(:school).try(:name) %></td>
+    <td><%= event_participant.try(:teacher).try(:nip) %></td>
+    <td><%= event_participant.try(:teacher).try(:full_name) %></td>
+    <td><%= event_participant.try(:teacher).try(:gender_name) %></td>
     <td class="text-right">
-      <%= link_to "#{t 'show'}", "#", :class => "btn btn-info btn-xs", :remote => true %>
-      <%= link_to "#{t 'destroy'}", event_event_participant_path(@event, event_participant), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
+      <%= link_to "#{t 'show'}", teacher_path(event_participant.try(:teacher_id), :modal => 1), :class => "btn btn-info btn-xs", :remote => true %>
     </td>
   </tr>
 <% end %>
