@@ -1,5 +1,8 @@
 PppkTna::Application.routes.draw do
 
+  resources :important_people
+
+
   resources :company_profiles
 
 

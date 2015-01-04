@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Position:</b>
+  <%= @important_person.position %>
+</p>
+
+<p>
+  <b>Nip:</b>
+  <%= @important_person.nip %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @important_person.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_important_person_path(@important_person) %> |
+<%= link_to 'Back', important_people_path %>

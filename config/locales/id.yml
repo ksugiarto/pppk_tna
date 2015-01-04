@@ -453,6 +453,13 @@ id:
     secondary_bank_account: "Nomor Rekening"
     secondary_bank_account_name: "Atas Nama"
 
+  important_person:
+    important_people: Daftar Orang Penting
+    important_person: Orang Penting
+    position: "Jabatan"
+    nip: "NIP"
+    nama: "Nama"
+
   will_paginate:
     previous_label: "← Sebelum"
     next_label: "Berikut →"

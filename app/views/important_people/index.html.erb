@@ -1,0 +1,27 @@
+<h1>Listing important_people</h1>
+
+<table>
+  <tr>
+    <th>Position</th>
+    <th>Nip</th>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @important_people.each do |important_person| %>
+  <tr>
+    <td><%= important_person.position %></td>
+    <td><%= important_person.nip %></td>
+    <td><%= important_person.name %></td>
+    <td><%= link_to 'Show', important_person %></td>
+    <td><%= link_to 'Edit', edit_important_person_path(important_person) %></td>
+    <td><%= link_to 'Destroy', important_person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Important person', new_important_person_path %>

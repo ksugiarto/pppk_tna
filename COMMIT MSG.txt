@@ -1,5 +1,15 @@
 =========================
 Things Done [@ksugiarto]:
+(1) Adding Person In Charge List. Need to fix for the layout.
+(2) Working on Print Invitation.
+(3) Working on Print Exam.
+
+Next Things to Do:
+(1) Put Logo on report.
+(2) Fix layout Important People.
+
+=========================
+Things Done [@ksugiarto]:
 (1) Working on Ability Can Can.
 (2) Adding fresh Company Profile.
 

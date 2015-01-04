@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141228073900) do
+ActiveRecord::Schema.define(:version => 20150104172556) do
 
   create_table "basic_competencies", :force => true do |t|
     t.integer  "core_competency_id"
@@ -116,6 +116,14 @@ ActiveRecord::Schema.define(:version => 20141228073900) do
     t.integer  "status"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "important_people", :force => true do |t|
+    t.string   "position"
+    t.string   "nip"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "provinces", :force => true do |t|
