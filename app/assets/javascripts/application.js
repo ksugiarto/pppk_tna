@@ -92,6 +92,7 @@ $(document).ready(function() {
     changeYear: true
   });
   $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+  $('[data-toggle="tooltip"]').tooltip();
 
   $('#calendar').fullCalendar({
     events: "/events/pick_date.json",

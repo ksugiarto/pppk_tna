@@ -4,6 +4,8 @@
   <tr style="background-color:#708DC6;">
     <th><%= t 'school.curicculum' %></th>
     <th><%= t 'school.vocational' %></th>
+    <th><%= t 'event.information' %></th>
+    <th><%= t 'event.teacher' %></th>
     <th></th>
   </tr>
 
@@ -11,8 +13,10 @@
   <tr>
     <td><%= vocational.curicculum.try(:name) %></td>
     <td><%= vocational.try(:full_name) %></td>
+    <td><span data-toggle="tooltip" title="Diklat terlaksana/ke depan"><%= Vocational.last_event(vocational.id) %></span></td>
+    <td><span data-toggle="tooltip" title="Jumlah Guru mengajar Kejuruan"><%= Vocational.teacher_count(vocational.id) %></span></td>
     <td class="text-right">
-      <%= link_to "#{t 'show'}", events_path, :class => "btn btn-info btn-xs", :remote => true %>
+      <%= link_to "#{t 'show'}", curicculum_vocational_path(vocational.try(:curicculum_id), vocational), :class => "btn btn-info btn-xs", :remote => true %>
       <%= link_to "#{t 'pick'}", save_vocational_event_path(@event, :vocational_id => vocational.id), :class => "btn btn-success btn-xs" %>
     </td>
   </tr>

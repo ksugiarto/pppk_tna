@@ -376,6 +376,8 @@ id:
     check_request: "Periksa Permohonan"
     pick_date: "Periksa Tanggal Tersedia"
     pick_vocational: "Pilih Kejuruan"
+    information: "Informasi"
+    teacher: "Guru"
     entry_information: "Masukkan Data Diklat"
     due_events: "Diklat yang Perlu Ditutup"
     incoming_events: "Diklat Ke Depan"

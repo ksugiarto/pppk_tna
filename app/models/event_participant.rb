@@ -34,4 +34,12 @@ class EventParticipant < ActiveRecord::Base
     else return ""
     end
   end
+
+  def self.passed(event_id)
+    event = Event.find(event_id)
+  end
+
+  def self.not_passed
+    
+  end
 end

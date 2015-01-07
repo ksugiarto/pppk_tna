@@ -5,12 +5,8 @@ class VocationalsController < ApplicationController
 
   # GET /vocationals/1
   def show
+    get_curicculum
     @vocational = Vocational.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @vocational }
-    end
   end
 
   # GET /vocationals/new

@@ -6,6 +6,7 @@ class Event < ActiveRecord::Base
   has_many :prerequisites, :class_name => "EventPrerequisite"
 
   before_create :default_status
+  after_create :default_prerequisite
 
   attr_accessible :date_end, :date_start, :description, :title, :status, :vocational_id
 
@@ -17,6 +18,10 @@ class Event < ActiveRecord::Base
   	if self.status.blank?
       self.status = 0
     end
+  end
+
+  def default_prerequisite
+    EventPrerequisite.create(:event_id => self.id)
   end
 
   def status_name

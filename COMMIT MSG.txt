@@ -1,5 +1,18 @@
 =========================
 Things Done [@ksugiarto]:
+(1) Activated 'tooltip'. Already implemented on 'Event New Pick Vocational' page.
+(2) Remove 'Sign Up' and 'Forgot Password' on Login Page.
+(3) Hardcoded 'passed' and 'not passed' teacher as participant.
+(4) Adding new informations on 'Pick Vocational' page.
+
+Next Things to Do:
+(1) Put Logo on report.
+(2) Fix layout Important People.
+(3) FILTER
+(4) Fix the hardcoded.
+
+=========================
+Things Done [@ksugiarto]:
 (1) Adding Person In Charge List. Need to fix for the layout.
 (2) Working on Print Invitation.
 (3) Working on Print Exam.
