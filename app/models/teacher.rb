@@ -62,4 +62,28 @@ class Teacher < ActiveRecord::Base
       return ""
     end
   end
+
+  def self.filter_nip(nip)
+    if nip.present?
+      where("nip ~* '#{nip}'")
+    else
+      scoped
+    end
+  end
+
+  def self.filter_name(name)
+    if name.present?
+      where("first_name ~* ? OR last_name ~* ?", name, name)
+    else
+      scoped
+    end
+  end
+
+  def self.filter_school(school)
+    if school.present?
+      joins(:school).where("schools.name ~* '#{school}'")
+    else
+      scoped
+    end
+  end
 end

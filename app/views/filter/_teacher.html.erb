@@ -1,0 +1,17 @@
+<%= form_tag teacher_filter_index_path, :method => "get", :class => "form-horizontal", :remote => true do %>
+<div class="form-group">
+	<div class="col-sm-3">
+	  <%= text_field_tag 'nip','', :placeholder => "#{t 'search'} #{t 'teacher.nip'}", :class => "form-control" %>
+	</div>
+	<div class="col-sm-4">
+	  <%= text_field_tag 'name','', :placeholder => "#{t 'search'} #{t 'teacher.name'}", :class => "form-control" %>
+	</div>
+	<div class="col-sm-3">
+	  <%= text_field_tag 'school','', :placeholder => "#{t 'search'} #{t 'school.school'}", :class => "form-control" %>
+	</div>
+	<div class="col-sm-2">
+	  <%= submit_tag "#{t 'process'}", :disable_with => "#{t 'disable_with'}", :class => "btn btn-success" %>
+	  <%= link_to "#{t 'reset'}", teachers_path, :class => "btn btn-default" %>
+	</div>
+</div>
+<% end %>

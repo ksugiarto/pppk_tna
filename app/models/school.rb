@@ -25,6 +25,22 @@ class School < ActiveRecord::Base
   	end
   end
 
+  def self.filter_name(name)
+    if name.present?
+      where("name ~* '#{name}'")
+    else
+      scoped
+    end
+  end
+
+  def self.filter_city(id)
+    if id.present?
+      where(:city_id => id)
+    else
+      scoped
+    end
+  end
+
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)

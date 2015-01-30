@@ -1,0 +1,17 @@
+<table class="table table-condensed">
+  <tr style="background-color:#708DC6;">
+    <th>Jabatan</th>
+    <th>NIP</th>
+    <th>Nama</th>
+    <th></th>
+  </tr>
+
+<% @important_people.each do |important_person| %>
+  <tr>
+    <td><%= important_person.position %></td>
+    <td><%= important_person.nip %></td>
+    <td><%= important_person.name %></td>
+    <td class="text-right"><%= link_to "#{t 'edit'}", edit_important_person_path(important_person), :class => "btn btn-warning btn-xs", :remote => true %></td>
+  </tr>
+<% end %>
+</table>

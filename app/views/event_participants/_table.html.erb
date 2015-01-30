@@ -38,7 +38,7 @@
         <%= link_to "#{t 'edit'}", edit_event_event_participant_path(@event, event_participant), :class => "btn btn-warning btn-xs" %>
       <% end %>
       <% if can? :destroy, EventParticipant %>
-        <%= link_to "#{t 'destroy'}", event_event_participant_path(@event, event_participant), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs" %>
+        <%= link_to "#{t 'cancel'}", event_event_participant_path(@event, event_participant), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs" %>
       <% end %>
     </td>
     <% end %>

@@ -1,51 +1,39 @@
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-3">
     <%= link_to checked_event_event_participants_path(@event), :class => "btn btn-default btn-sm" do %>
-      <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<%= t 'previous' %>
+      <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<%= "#{t 'back_to'} 3" %>
     <% end %>
   </div>
   
-  <div class="col-md-8">
+  <div class="col-md-6">
     <h4 align="center"><%= "#{t 'add'} #{t 'event_participant.event_participant'} - #{t 'step'} 4 (#{t 'event_participant.checked_email'})" %></h4>
   </div>
 
-  <div class="col-md-2" align="right">
+  <div class="col-md-3" align="right">
     <%= link_to @event, :class => "btn btn-default btn-sm" do %>
     	<%= t 'finish' %>&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
     <% end %>
   </div>
 </div>
 
-<div class="panel-group" id="accordion">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          <b>FILTER</b>
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse">
-      <div class="panel-body">
-        <%=# render 'filter/curicculum' 
-        %>
-      </div>
-    </div>
-  </div>
+<div class="status_0" align="center">
+  Berikut adalah daftar Sekolah yang memiliki email untuk dikirimkan. Tekan tombol [Kirim Email] untuk mengirim email kepada Sekolah-Sekolah terkait.
 </div>
-
 <div id="checked_email"><%= render 'checked_email' %></div>
 <div class="text-center">
-  <%= link_to send_invitation_event_event_participants_path(@event), :class => "btn btn-default btn-sm" do %>
-    <span class="glyphicon glyphicon-envelope"></span>&nbsp;<%= t 'send_email' %>
+  <%= link_to send_invitation_event_event_participants_path(@event), :class => "btn btn-default btn-sm", :disable_with => "#{t 'sending'}" do %>
+    <span class="glyphicon glyphicon-envelope"></span>&nbsp;<%= "#{t 'send_email'} (#{@event.participants.have_email.new_participant.count})" %>
   <% end %>
 </div>
 <hr>
 
+<div class="status_0" align="center">
+  Berikut adalah daftar Sekolah yang tidak memiliki email. Tekan tombol [Cetak] untuk mencetak surat undangan dan dikirim secara manual.
+</div>
 <div id="checked_no_email"><%= render 'checked_no_email' %></div>
 <div class="text-center">
-  <%= link_to print_invitation_event_event_participants_path(@event, :format => "pdf"), :target => "_blank", :id => "btn", :class => "btn btn-default btn-sm" do %>
-    <span class="glyphicon glyphicon-print"></span>&nbsp;<%= t 'print' %>
+  <%= link_to print_invitation_event_event_participants_path(@event, :format => "pdf"), :target => "_blank", :id => "btn", :class => "btn btn-default btn-sm", :disable_with => "#{t 'printing'}" do %>
+    <span class="glyphicon glyphicon-print"></span>&nbsp;<%= "#{t 'print'} (#{@event.participants.no_email.new_participant.count})" %>
   <% end %>
 </div>
 

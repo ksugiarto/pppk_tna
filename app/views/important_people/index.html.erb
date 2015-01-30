@@ -1,27 +1,29 @@
-<h1>Listing important_people</h1>
+<div class="row">
+  <div class="col-md-2">
+  </div>
+  
+  <div class="col-md-8">
+    <h4 align="center">Daftar Orang Penting</h4>
+  </div>
 
-<table>
-  <tr>
-    <th>Position</th>
-    <th>Nip</th>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <div class="col-md-2" align="right">
+  </div>
+</div>
 
-<% @important_people.each do |important_person| %>
-  <tr>
-    <td><%= important_person.position %></td>
-    <td><%= important_person.nip %></td>
-    <td><%= important_person.name %></td>
-    <td><%= link_to 'Show', important_person %></td>
-    <td><%= link_to 'Edit', edit_important_person_path(important_person) %></td>
-    <td><%= link_to 'Destroy', important_person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<%= render 'table' %>
 
-<br />
+<div id="modal"></div>
 
-<%= link_to 'New Important person', new_important_person_path %>
+<!-- Modal -->
+<div id="general_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="BranchModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 class="modal-title"></h3>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>

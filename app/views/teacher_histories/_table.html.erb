@@ -3,15 +3,19 @@
     <th><%= t 'teacher.history.event' %></th>
     <th><%= t 'teacher.history.event_date' %></th>
     <th><%= t 'teacher.history.vocational' %></th>
+    <th><%= t 'event_participant.total_presence' %></th>
+    <th><%= t 'event_participant.exam_grade' %></th>
     <th><%= t 'teacher.history.status' %></th>
-    <th width="200"></th>
+    <th width="100"></th>
   </tr>
 
 <% @teacher.histories.each do |teacher_history| %>
   <tr>
     <td><%= teacher_history.event.try(:title) %></td>
     <td><%= date(teacher_history.event.try(:date_start)) %></td>
-    <td><%= teacher_history.event.try(:vocational).try(:name) %></td>
+    <td><%= teacher_history.event.try(:vocational).try(:full_name) %></td>
+    <td><%= teacher_history.event.participants.where(:teacher_id => @teacher.id).last.try(:total_presence).to_i %></td>
+    <td><%= teacher_history.event.participants.where(:teacher_id => @teacher.id).last.try(:exam_grade).to_i %></td>
     <td><span class="<%= label_class(teacher_history.status) %>"><%= teacher_history.status_name %></span></td>
     <% if @modal.to_i==0 %>
     <td class="text-right">

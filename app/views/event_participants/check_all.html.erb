@@ -1,17 +1,17 @@
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-3">
     <%= link_to check_request_event_event_participants_path(@event), :class => "btn btn-default btn-sm" do %>
-      <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<%= t 'previous' %>
+      <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<%= "#{t 'back_to'} 1" %>
     <% end %>
   </div>
   
-  <div class="col-md-8">
+  <div class="col-md-6">
     <h4 align="center"><%= "#{t 'add'} #{t 'event_participant.event_participant'} - #{t 'step'} 2 (#{t 'event_participant.check_all'})" %></h4>
   </div>
 
-  <div class="col-md-2" align="right">
+  <div class="col-md-3" align="right">
     <%= link_to checked_event_event_participants_path(@event), :class => "btn btn-default btn-sm" do %>
-    	<%= t 'next' %>&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
+    	<%= "#{t 'go_to'} 3" %>&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
     <% end %>
   </div>
 </div>
@@ -27,18 +27,17 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse">
       <div class="panel-body">
-        <%=# render 'filter/curicculum' 
-        %>
+        <%= render 'filter/participant_check_all' %>
       </div>
     </div>
   </div>
 </div>
 
 <div id="passed" class="status_1" align="center">Lolos Pra-syarat Administratif</div>
-<div id="check_all"><%= render 'check_all' %></div>
+<div id="check_all" style="height:300px; overflow:auto;"><%= render 'check_all' %></div>
 
 <div id="not_passed" class="status_5" align="center">Tidak Lolos Pra-syarat Administratif</div>
-<div id="check_all2"></div>
+<div id="check_all_not_passed" style="height:300px; overflow:auto;"><%= render 'check_all_not_passed' %></div>
 
 <div id="modal"></div>
 

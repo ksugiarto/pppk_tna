@@ -4,7 +4,10 @@ class TeacherVocationalsController < ApplicationController
   end
 
   def get_vocational
-    @vocationals = Vocational.where("curicculum_id = ?", @teacher.school.try(:curicculum_id))
+    @vocationals = Vocational
+    .where("curicculum_id = ?", @teacher.school.try(:curicculum_id))
+    .where("id NOT IN (SELECT vocational_id FROM teacher_vocationals tv WHERE teacher_id=#{@teacher.id})")
+    .order(:name)
   end
 
   # GET /teacher_vocationals/new

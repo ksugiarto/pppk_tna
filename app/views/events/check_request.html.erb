@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-3">
     <% if @event.present? %>
     	<%= link_to @event, method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-sm" do %>
     		<span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<%= t 'cancel' %>
@@ -11,13 +11,13 @@
     <% end %>
   </div>
   
-  <div class="col-md-8">
+  <div class="col-md-6">
     <h4 align="center"><%= "#{t 'new'} #{t 'event.event'} - #{t 'step'} 1 (#{t 'event.check_request'})" %></h4>
   </div>
 
-  <div class="col-md-2" align="right">
+  <div class="col-md-3" align="right">
     <%= link_to check_request_next_events_path(:id => @event_id), :class => "btn btn-default btn-sm" do %>
-    	<%= t 'next' %>&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
+    	<%= "#{t 'go_to'} 2" %>&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
     <% end %>
   </div>
 </div>
@@ -33,8 +33,7 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse">
       <div class="panel-body">
-        <%=# render 'filter/curicculum' 
-        %>
+        <%= render 'filter/event_check_request' %>
       </div>
     </div>
   </div>

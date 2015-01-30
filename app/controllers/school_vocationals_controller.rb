@@ -6,6 +6,7 @@ class SchoolVocationalsController < ApplicationController
   def get_vocational
     @vocationals = Vocational.select("DISTINCT ON (name) *")
     .where("curicculum_id = ?", @school.curicculum_id)
+    .where("vocationals.name NOT IN (SELECT v.name FROM school_vocationals sv JOIN vocationals v on sv.vocational_id=v.id WHERE school_id=#{@school.id})")
     .order(:name)
   end
 

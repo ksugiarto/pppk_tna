@@ -22,6 +22,9 @@ class TeachersController < ApplicationController
   # GET /teachers/1.json
   def show
     @teacher = Teacher.find(params[:id])
+    @teacher_needs = @teacher.vocationals
+    .where("teacher_vocationals.vocational_id NOT IN (SELECT vocational_id FROM events e JOIN event_participants ep ON e.id=ep.event_id WHERE ep.teacher_id=#{@teacher.id} AND ep.status=7)")
+
     @modal = params[:modal].to_i
 
     respond_to do |format|

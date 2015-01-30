@@ -90,9 +90,8 @@
     KEPALA<br>
     UPT. PELATIHAN DAN PENGEMBANGAN<br>
     PENDIDIKAN KEJURUAN<br><br>
-    [kepala UPT]<br>
-    [kepala UPT jabatan]<br>
-    NIP. [nip kepala UPT]<br>
+    <%= @upt_leader.try(:name) %><br>
+    NIP. <%= @upt_leader.try(:nip) %><br>
 
     <p><hr>
     Lampiran: -<br>
@@ -105,12 +104,12 @@
     <br>
 
     <p>
+    <p>
     KEPALA<br>
     UPT. PELATIHAN DAN PENGEMBANGAN<br>
     PENDIDIKAN KEJURUAN<br><br>
-    [kepala UPT]<br>
-    [kepala UPT jabatan]<br>
-    NIP. [nip kepala UPT]<br>
+    <%= @upt_leader.try(:name) %><br>
+    NIP. <%= @upt_leader.try(:nip) %><br>
 
     <hr>
     <p>

@@ -1,5 +1,18 @@
 =========================
 Things Done [@ksugiarto]:
+(1) Setting Goblal Ajax.
+(2) Fixing Select All feature on Participant Fix.
+(3) Adding 'total_presence' and 'exam_grade' on Teacher's Histories.
+(4) Fix layout Important People.
+(5) Put Filters.
+(6) Fix the hardcoded of Event Prerequisites.
+(7) Fix other minor bugs.
+
+Next Things to Do:
+(1) Put Logo on report.
+
+=========================
+Things Done [@ksugiarto]:
 (1) Activated 'tooltip'. Already implemented on 'Event New Pick Vocational' page.
 (2) Remove 'Sign Up' and 'Forgot Password' on Login Page.
 (3) Hardcoded 'passed' and 'not passed' teacher as participant.

@@ -65,23 +65,8 @@ $.fn.ajaxPagination = function() {
 }
 
 $(document).ready(function() {
-  /* Activating Best In Place */
-  // jQuery(".best_in_place").best_in_place();
-
   $(".apple_pagination a").ajaxPagination();
   $(".best_in_place").best_in_place();
-
-  window.setTimeout(function() {
-    $(".alert").fadeTo(500, 0).slideUp(500, function(){
-      $(this).remove(); 
-    });
-  }, 10000);
-
-  $(function () {
-    $('.checkall').on('click', function () {
-        $(this).closest('fieldset').find(':checkbox').prop('checked', this.checked);
-    });
-  });
 
   $('.modal').on('shown.bs.modal', function() {
     $(this).find('[autofocus]').focus();
@@ -121,4 +106,32 @@ $(document).ready(function() {
       }
     }
   });
+
+  window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+      $(this).remove(); 
+    });
+  }, 10000);
+
+  $('.checkall').click(function() {
+    if (this.checked) {
+       $(':checkbox').each(function() {
+           this.checked = true;                        
+       });
+    } else {
+      $(':checkbox').each(function() {
+           this.checked = false;                        
+       });
+    } 
+  });
+});
+
+$(document)
+  .ajaxStart(function() {
+    // $('#loading-indicator').show(); // show on any Ajax event.
+    $('#loading-indicator').modal('show'); // show on any Ajax event.
+  })
+  .ajaxStop(function() {
+    // $('#loading-indicator').hide(); // hide it when it is done.
+    $('#loading-indicator').modal("hide"); // hide it when it is done.
 });

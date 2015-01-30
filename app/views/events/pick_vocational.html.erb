@@ -1,36 +1,25 @@
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-3">
   	<%= link_to pick_date_events_path(:id => @event.id), :class => "btn btn-default btn-sm" do %>
-  		<span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<%= t 'previous' %>
+  		<span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<%= "#{t 'back_to'} 2" %>
   	<% end %>
   </div>
   
-  <div class="col-md-8">
+  <div class="col-md-6">
     <h4 align="center"><%= "#{t 'new'} #{t 'event.event'} - #{t 'step'} 3 (#{t 'event.pick_vocational'})" %></h4>
   </div>
 
-  <div class="col-md-2" align="right">
+  <div class="col-md-3" align="right">
+    <%= link_to "#", :class => "btn btn-default btn-sm", :disabled => true do %>
+      Pilih kejuruan untuk melanjutkan
+    <% end %>
   </div>
 </div>
 
-<div class="panel-group" id="accordion">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          <b>FILTER</b>
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse">
-      <div class="panel-body">
-        <%=# render 'filter/curicculum' 
-        %>
-      </div>
-    </div>
-  </div>
+<div class="status_0" align="center">
+  Kolom informasi merupakan tanggal terakhir Diklat diadakan atau tanggal berikutnya Diklat akan diadakan.<br>
+  Kolom Guru merupakan jumlah Guru yang mengajar pada kejuruan terkait.
 </div>
-
 <div id="pick_vocational"><%= render 'pick_vocational' %></div>
 
 <div id="modal"></div>

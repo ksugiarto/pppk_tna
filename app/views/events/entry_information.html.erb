@@ -1,23 +1,29 @@
 <%= form_for(@event, :html => { :class => "form-horizontal" }) do |f| %>
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
       <%= link_to pick_vocational_event_path(@event), :class => "btn btn-default btn-sm" do %>
-        <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<%= t 'previous' %>
+        <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<%= "#{t 'back_to'} 3" %>
       <% end %>
     </div>
     
-    <div class="col-md-8">
+    <div class="col-md-6">
       <h4 align="center"><%= "#{t 'new'} #{t 'event.event'} - #{t 'step'} 4 (#{t 'event.entry_information'})" %></h4>
     </div>
 
-    <div class="col-md-2" align="right">
+    <div class="col-md-3" align="right">
       <%= f.submit "#{t 'submit'}", :class => "btn btn-success", :disable_with => "#{t 'disable_with'}" %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :title, "#{t 'event.title'}", :class => "col-sm-4 control-label" %>
-    <div class="col-sm-6"><%= f.text_field :title, :required => true, :class => "form-control" %></div>
+    <div class="col-sm-6">
+      <% if @event.title=='Diklat Baru' %>
+        <%= f.text_field :title, :value => "", :placeholder => "Diklat Baru", :required => true, :class => "form-control" %>
+      <% else %>
+        <%= f.text_field :title, :required => true, :class => "form-control" %>
+      <% end %>
+    </div>
   </div>
   <div class="form-group">
     <%= f.label :description, "#{t 'event.description'}", :class => "col-sm-4 control-label" %>

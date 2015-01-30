@@ -48,17 +48,17 @@ class EventParticipantsController < ApplicationController
     school_requests.each do |sr|
       sr_ids << sr.id
     end
-    # request_participants = RequestParticipant.where("school_request_id IN (?)", sr_ids)
+
+    # minus teacher who already in request participant, minus teacher who already picked
     @teacher_vocationals = TeacherVocational.where(:vocational_id => @event.vocational_id)
                                             .where("teacher_id NOT IN (SELECT teacher_id FROM request_participants WHERE school_request_id IN (?))", sr_ids)
                                             .where("teacher_id NOT IN (SELECT teacher_id FROM event_participants WHERE event_id IN (?))", @event.id)
 
-    # minus teacher who already in request participant, minus teacher who already picked
   end
 
   def checked
     get_event
-    @event_participants = @event.participants.all
+    @event_participants = @event.participants.joins(:teacher).order("teachers.first_name")
   end
 
   def checked_email
@@ -75,7 +75,7 @@ class EventParticipantsController < ApplicationController
       school = School.find(s.school_id)
       teachers = @event.participants.joins(:teacher).where("teachers.school_id=#{school.id}").uniq
 
-      EventMailer.event_invitation(@event.id, school.id, teachers).deliver
+      EventMailer.event_invitation(@event.id, school.id, teachers, ApplicationController.helpers.upt_leader).deliver
     end
 
     redirect_to checked_email_event_event_participants_path(@event)

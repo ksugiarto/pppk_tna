@@ -21,20 +21,20 @@
 			  <!-- Collect the nav links, forms, and other content for toggling -->
 			  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    <ul class="nav navbar-nav">
-			    	<% if can? :read, Event %><li><a href="/events"><%= t 'event.events' %></a></li><% end %>
-			    	<% if can? :read, "report" %><li><a href="/report/event">Laporan Diklat</a></li><% end %>
-            <% if can? :read, Teacher %><li><a href="/teachers"><%= t 'teacher.teachers' %></a></li><% end %>
-            <% if can? :read, School %><li><a href="/schools"><%= t 'school.schools' %></a></li><% end %>
             <% if can? :read, Curicculum %><li><a href="/curicculums"><%= t 'curicculum.curicculums' %></a></li><% end %>
+            <% if can? :read, School %><li><a href="/schools"><%= t 'school.schools' %></a></li><% end %>
+            <% if can? :read, Teacher %><li><a href="/teachers"><%= t 'teacher.teachers' %></a></li><% end %>
+			    	<% if can? :read, Event %><li><a href="/events"><%= t 'event.events' %></a></li><% end %>
+			    	<% if can? :read, "report" %><li><a href="/report/event"><%= t 'event.report' %></a></li><% end %>
             
-            <% if current_user.try(:user_group).try(:name)=='Developer' or current_user.try(:user_group).try(:name)=='Admin' %>
+            <% if current_user.try(:user_group).try(:name)=='Developer' or current_user.try(:user_group).try(:name)=='Administrator' %>
 			    	<li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Setting <span class="caret"></span></a>
 		          <ul class="dropdown-menu" role="menu">
-		            <li><a href="/cities"><%= t 'city.cities' %></a></li>
-		            <li><a href="/important_people"><%= t 'important_person.important_people' %></a></li>
-		            <li><a href="/company_profiles"><%= t 'company.company' %></a></li>
 		            <li><a href="/admin/users"><%= t 'user.users' %></a></li>
+		            <li><a href="/cities"><%= t 'city.cities' %></a></li>
+		            <li><a href="/company_profiles"><%= t 'company.company' %></a></li>
+		            <li><a href="/important_people"><%= t 'important_person.important_people' %></a></li>
 		            <li><a href="/user_groups"><%= t 'user_group.user_groups' %></a></li>
 		          </ul>
 		        </li>
@@ -52,6 +52,16 @@
 			</div>
 		</div>
 	</nav>
+
+	<div id="loading-indicator" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="BranchModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" style="width:900px;">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h3 class="modal-title text-center"><%= image_tag("loading.gif") %> <%= t 'processing' %></h3>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
 	<div class="container">
 	  <div class="row">

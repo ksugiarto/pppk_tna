@@ -9,6 +9,7 @@ class SchoolsController < ApplicationController
   # GET /schools
   # GET /schools.json
   def index
+    get_data
     @schools = School.order(:name).pagination(params[:page])
 
     respond_to do |format|

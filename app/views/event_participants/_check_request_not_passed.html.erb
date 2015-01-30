@@ -40,7 +40,7 @@
       <% end %>
     <% end %>
 
-    <% if @pass==1 %>
+    <% if @pass==0 %>
       <tr>
         <td><%= school_request.reference_number %></td>
         <td><%= school_request.school.try(:name) %></td>

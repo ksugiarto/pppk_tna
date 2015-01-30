@@ -6,7 +6,7 @@
     <th><%= t 'teacher.name' %></th>
     <th><%= t 'teacher.born_date' %></th>
     <th><%= t 'teacher.gender' %></th>
-    <th><%= t 'teacher.address' %></th>
+    <th><%= t 'teacher.school' %></th>
     <th><%= t 'teacher.start_teach' %></th>
     <th width="200"></th>
   </tr>
@@ -17,7 +17,7 @@
     <td><%= teacher.try(:full_name) %></td>
     <td><%= "#{teacher.born_place}, #{teacher.born_date}" %></td>
     <td><%= teacher.gender_name %></td>
-    <td><%= teacher.try(:full_address) %></td>
+    <td><%= teacher.try(:school).try(:name) %></td>
     <td><%= teacher.start_teach %></td>
     <td class="text-right">
         <%= link_to "#{t 'show'}", teacher_path(teacher, :modal => 1), :class => "btn btn-info btn-xs", :remote => true %>

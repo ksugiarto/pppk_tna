@@ -61,7 +61,8 @@ class Event < ActiveRecord::Base
     elsif start_date.present? and end_date.present?
       where("date_start BETWEEN ? AND ?", start_date, "#{end_date} 23:59:59")
     else
-      where("EXTRACT(MONTH FROM date_start)=EXTRACT(MONTH FROM CURRENT_DATE)")
+      # where("EXTRACT(MONTH FROM date_start)=EXTRACT(MONTH FROM CURRENT_DATE)")
+      scoped
     end
   end
 

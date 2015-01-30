@@ -1,0 +1,13 @@
+<table id="teacher_need_table" class="table table-condensed">
+  <tr style="background-color:#708DC6;">
+    <th><%= t 'teacher.vocational' %></th>
+    <th><%= t 'teacher.notes' %></th>
+  </tr>
+
+<% @teacher_needs.each do |teacher_vocational| %>
+  <tr>
+    <td><%= teacher_vocational.vocational.try(:full_name) %></td>
+    <td><%= teacher_vocational.notes %></td>
+  </tr>
+<% end %>
+</table>

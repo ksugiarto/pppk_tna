@@ -1,17 +1,17 @@
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-3">
     <%= link_to check_all_event_event_participants_path(@event), :class => "btn btn-default btn-sm" do %>
-      <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<%= t 'previous' %>
+      <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<%= "#{t 'back_to'} 2" %>
     <% end %>
   </div>
   
-  <div class="col-md-8">
+  <div class="col-md-6">
     <h4 align="center"><%= "#{t 'add'} #{t 'event_participant.event_participant'} - #{t 'step'} 3 (#{t 'event_participant.checked'})" %></h4>
   </div>
 
-  <div class="col-md-2" align="right">
+  <div class="col-md-3" align="right">
     <%= link_to checked_email_event_event_participants_path(@event), :class => "btn btn-default btn-sm" do %>
-    	<%= t 'next' %>&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
+    	<%= "#{t 'go_to'} 4" %>&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
     <% end %>
   </div>
 </div>
@@ -27,8 +27,7 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse">
       <div class="panel-body">
-        <%=# render 'filter/curicculum' 
-        %>
+        <%= render 'filter/participant_checked' %>
       </div>
     </div>
   </div>

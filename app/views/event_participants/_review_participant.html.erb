@@ -12,9 +12,9 @@
 
 <% @event.participants.each do |event_participant| %>
   <tr>
-    <td><%= event_participant.teacher.school.try(:name) %></td>
-    <td><%= event_participant.teacher.nip %></td>
-    <td><%= event_participant.teacher.full_name %></td>
+    <td><%= event_participant.try(:teacher).try(:school).try(:name) %></td>
+    <td><%= event_participant.try(:teacher).try(:nip) %></td>
+    <td><%= event_participant.try(:teacher).try(:full_name) %></td>
     <td><%= best_in_place event_participant, :total_presence, :type => :input, :path => event_event_participant_path(@event, event_participant) %></td>
     <td><%= best_in_place event_participant, :event_exam_id, :type => :select, :collection => @event.exams.collect{|exam| [exam.id, exam.exam_type]}, :path => event_event_participant_path(@event, event_participant) %></td>
     <td><%= best_in_place event_participant, :exam_grade, :type => :input, :path => event_event_participant_path(@event, event_participant) %></td>

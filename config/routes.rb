@@ -1,11 +1,4 @@
 PppkTna::Application.routes.draw do
-
-  resources :important_people
-
-
-  resources :company_profiles
-
-
   resources :report do
     collection do
       get :event
@@ -15,7 +8,13 @@ PppkTna::Application.routes.draw do
 
   resources :filter do
     collection do
+      get :city
+      get :school
+      get :teacher
       get :event
+      get :event_check_request
+      get :participant_check_all
+      get :participant_checked
     end
   end
 
@@ -102,6 +101,8 @@ PppkTna::Application.routes.draw do
   
   resources :provinces
   resources :countries
+  resources :important_people
+  resources :company_profiles
 
   get "home/index"
   # get "*module/home/provinces_by_country" => "home#provinces_by_country"
