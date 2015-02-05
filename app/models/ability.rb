@@ -10,7 +10,7 @@ class Ability
 
     if user_group_id == tata_usaha_id
         can :manage, [School, SchoolRequest, SchoolVocational, Teacher, Curicculum, EventParticipant, EventPrerequisite]
-        can :read, [EventMatter, EventExam, Question, "report"]
+        can :read, [EventMatter, EventExam, Question, "report", Event]
         can :review, Event
     elsif user_group_id == pelayanan_pendidikan_id
         can :manage, [Event, EventMatter, EventExam, Question]

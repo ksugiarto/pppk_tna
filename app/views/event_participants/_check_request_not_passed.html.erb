@@ -11,7 +11,7 @@
     <% teacher = Teacher.find(request_participant.teacher_id.to_i) %>
     <% prerequisite = @event.prerequisites.last %>
     <% if prerequisite.max_event_count.present? %>
-      <% if prerequisite.max_event_count.to_i <= Event.participants.where("events.status=1 AND event_participants.teacher_id=#{teacher.id}").count %>
+      <% if prerequisite.max_event_count.to_i <= Event.joins(:participants).where("events.status=1 AND event_participants.teacher_id=#{teacher.id}").count %>
         <% @pass = @pass * 0 %>
       <% end %>
     <% end %>

@@ -8,14 +8,16 @@
   </tr>
 
 <% @event.prerequisites.each do |event_prerequisite| %>
-  <% if can? :update, EventPrerequisite %>
-  <tr>
-    <td><%= best_in_place event_prerequisite, :min_age, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
-    <td><%= best_in_place event_prerequisite, :max_age, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
-    <td><%= best_in_place event_prerequisite, :max_event_count, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
-    <td><%= best_in_place event_prerequisite, :min_long_teach, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
-    <td><%= best_in_place event_prerequisite, :max_long_teach, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
-  </tr>
+  <% if @event.status.to_i==0 and @modal.to_i==0 %>
+    <% if can? :update, EventPrerequisite %>
+    <tr>
+      <td><%= best_in_place event_prerequisite, :min_age, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
+      <td><%= best_in_place event_prerequisite, :max_age, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
+      <td><%= best_in_place event_prerequisite, :max_event_count, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
+      <td><%= best_in_place event_prerequisite, :min_long_teach, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
+      <td><%= best_in_place event_prerequisite, :max_long_teach, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
+    </tr>
+    <% end %>
   <% else %>
   <tr>
     <td><%= event_prerequisite.min_age %></td>

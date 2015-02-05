@@ -1,5 +1,11 @@
 =========================
 Things Done [@ksugiarto]:
+(1) Fixing several minor bugs.
+(2) Delete unnecessarily assets files.
+(3) Fixing 'Sub Bagian Tata Usaha' ability.
+
+=========================
+Things Done [@ksugiarto]:
 (1) Setting Goblal Ajax.
 (2) Fixing Select All feature on Participant Fix.
 (3) Adding 'total_presence' and 'exam_grade' on Teacher's Histories.

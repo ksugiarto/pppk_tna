@@ -3,6 +3,10 @@ module ApplicationHelper
     return CompanyProfile.last.try(:name)
   end
 
+  def company_logo
+    return CompanyProfile.last.try(:logo).url(:small)
+  end
+
   def upt_leader
     @upt_leader = ImportantPerson.where("position ~* 'kepala upt'").last
     return @upt_leader
