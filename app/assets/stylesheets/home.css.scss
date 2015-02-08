@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//body {
+   // background-image: url(/assets/Logo.png);
+   // background-repeat: no-repeat;
+ //   background-position: 10% 80%;
+  //  background-size: 220px 300px;
+    //background-color: #cccccc;
+//}
+
 .status_0 /*STATUS NEW => LIGHT YELLOW*/
 {
   background-color: #FFE57F;
@@ -39,6 +47,7 @@ div.login
   width:400px;
   padding:10px;
   border:5px solid #cfcfcf;
+  background:#FFFFFF;
   margin:0px;
 }
 

@@ -2,7 +2,12 @@
   <div class="col-md-4"></div>
   <div class="col-md-4 login">
     <h3 class="login">
+      <!-- 
       <%= image_tag company_logo %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= company_name %>
+       -->
+      <div class="text-center">
+        <%= company_name %>
+      </div>
     </h3>
 
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
