@@ -1,1 +1,17 @@
-This is UPT PPPK-TNA
+== Aplikasi Analisis Kebutuhan Diklat Guru SMK di Dispendik Jawa Timur
+
+== Kristono Sugiarto ==
+==== 08.41010.0037 ====
+
+== Petunjuk installasi ==
+1. Masukkan folder aplikasi "pppk_tna" ke dalam folder /home/[user_anda]/
+2. Masuk ke dalam folder /home/[user_anda]/pppk_tna
+3. Jalankan "$ bash deployment_script.sh"
+
+== Petunjuk Restart Aplikasi ==
+1. Masuk ke dalam folder /home/[user_anda]/pppk_tna
+2. Jalankan "$ bash restart-app.sh"
+
+== Petunjuk Migrasi Database == 
+1. Masuk ke dalam folder /home/[user_anda]/pppk_tna
+2. jalankan "RAILS_ENV=production rake db:migrate"
