@@ -2,7 +2,18 @@ class TeacherVocational < ActiveRecord::Base
 	belongs_to :teacher
 	belongs_to :vocational
 
-  attr_accessible :notes, :teacher_id, :vocational_id
+  has_many :subjects, :class_name => "TeacherSubject", dependent: :destroy
+
+  attr_accessible :notes, :teacher_id, :vocational_id, :is_competent
+
+  def is_competent_name
+    case is_competent.to_i
+    when 1
+      return "Kompeten"
+    else
+      return "Belum"
+    end
+  end
 
   def self.filter_nip(nip)
     if nip.present?

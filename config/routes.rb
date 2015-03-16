@@ -1,4 +1,7 @@
 PppkTna::Application.routes.draw do
+  resources :teacher_answer_details
+  resources :teacher_answers
+
   resources :report do
     collection do
       get :event
@@ -23,7 +26,15 @@ PppkTna::Application.routes.draw do
     resources :event_prerequisites
 
     resources :event_exams do
-      resources :questions
+      resources :questions do
+        collection do
+          get :pick_subject
+          get :peek_indicator
+          get :export_ans_sheet
+          get :import_ans_sheet
+          post :import_submit_ans_sheet
+        end
+      end
 
       member do
         get :print_exam_pdf
@@ -49,10 +60,10 @@ PppkTna::Application.routes.draw do
     collection do
       get :check_request #step 1
       get :check_request_next
-      get :pick_date #step 2
     end
 
     member do
+      get :pick_date #step 2
       get :save_date
       get :pick_vocational #step 3
       get :save_vocational
@@ -63,6 +74,9 @@ PppkTna::Application.routes.draw do
   resources :teachers do
     resources :teacher_vocationals
     resources :teacher_histories
+    resources :teacher_subjects do
+      resources :teacher_subject_details
+    end
   end
 
   resources :schools do
@@ -81,7 +95,9 @@ PppkTna::Application.routes.draw do
   resources :curicculums do
     resources :vocationals do
       resources :core_competencies do
-        resources :basic_competencies
+        resources :basic_competencies do
+          resources :subjects
+        end
       end
     end
   end

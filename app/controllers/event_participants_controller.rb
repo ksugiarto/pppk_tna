@@ -17,11 +17,15 @@ class EventParticipantsController < ApplicationController
   # GET /event_participants/1
   # GET /event_participants/1.json
   def show
-    @event_participant = EventParticipant.find(params[:id])
+    # @event_participant = EventParticipant.find(params[:id])
+    get_event
+    @teacher = Teacher.find(EventParticipant.find(params[:id]).try(:teacher_id))
+    @teacher_vocational = @teacher.vocationals.where(:vocational_id => @event.vocational_id).last
 
     respond_to do |format|
-      format.html # show.html.erb
+      # format.html # show.html.erb
       format.json { render json: @event_participant }
+      format.js
     end
   end
 

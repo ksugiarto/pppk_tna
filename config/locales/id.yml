@@ -215,9 +215,11 @@ id:
   import: "Impor"
   import_excel: "Impor dari Excel"
   import_excel_for: "Impor Excel untuk"
+  export: "Ekspor"
   send_email: "Kirim Email"
   row_number: "No."
   step: "Langkah"
+  detail: "Detil"
 
   user:
     users: "Daftar User"
@@ -294,6 +296,13 @@ id:
     seq_num: "Urutan"
     description: "Deskripsi"
 
+  subject:
+    subjects: "Daftar Materi Pokok"
+    subject: "Indikator"
+    seq_num: "Urutan"
+    description: "Deskripsi"
+    assessment: "Penilaian"
+
   school:
     schools: "Daftar Sekolah"
     school: "Sekolah"
@@ -353,6 +362,8 @@ id:
     city: "Kota"
     vocational: "Kejuruan"
     needs: "Kebutuhan Diklat"
+    subject: "Penilaian"
+    is_competent: "Kompeten?"
     history:
       history: "Riwayat Diklat"
       event: "Diklat"
@@ -399,6 +410,7 @@ id:
     exam_type: "Jenis Soal"
     question:
       question: "Pertanyaan"
+      seq_num: "Nomor Urut"
       content: "Pertanyaan"
       answer_1: "Pilihan A"
       answer_2: "Pilihan B"
@@ -407,6 +419,7 @@ id:
       right_answer: "Pilihan Benar"
       score: "Skor"
       notes: "Notes"
+      answer_sheet: "Lembar Jawaban"
 
   event_matter:
     event_matter: "Materi Diklat"

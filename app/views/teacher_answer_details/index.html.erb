@@ -1,0 +1,31 @@
+<h1>Listing teacher_answer_details</h1>
+
+<table>
+  <tr>
+    <th>Teacher answer</th>
+    <th>Question</th>
+    <th>Subject</th>
+    <th>Answer</th>
+    <th>Is correct</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @teacher_answer_details.each do |teacher_answer_detail| %>
+  <tr>
+    <td><%= teacher_answer_detail.teacher_answer_id %></td>
+    <td><%= teacher_answer_detail.question_id %></td>
+    <td><%= teacher_answer_detail.subject_id %></td>
+    <td><%= teacher_answer_detail.answer %></td>
+    <td><%= teacher_answer_detail.is_correct %></td>
+    <td><%= link_to 'Show', teacher_answer_detail %></td>
+    <td><%= link_to 'Edit', edit_teacher_answer_detail_path(teacher_answer_detail) %></td>
+    <td><%= link_to 'Destroy', teacher_answer_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Teacher answer detail', new_teacher_answer_detail_path %>

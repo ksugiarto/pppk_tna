@@ -33,14 +33,14 @@
 
 <!-- Nav tabs -->
 <ul class="nav nav-tabs">
-  <li class="active"><a href="#vocational" data-toggle="tab"><%= t 'school.vocational' %></a></li>
-  <li><a href="#history" data-toggle="tab"><%= t 'teacher.history.history' %></a></li>
+  <li class="active"><a href="#history" data-toggle="tab"><%= t 'teacher.history.history' %></a></li>
   <li><a href="#needs" data-toggle="tab"><%= t 'teacher.needs' %></a></li>
+  <li><a href="#vocational" data-toggle="tab"><%= t 'school.vocational' %></a></li>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
-  <div class="tab-pane active" id="vocational"><%= render 'teacher_vocationals/table' %></div>
-  <div class="tab-pane" id="history"><%= render 'teacher_histories/table' %></div>
+  <div class="tab-pane active" id="history"><%= render 'teacher_histories/table' %></div>
   <div class="tab-pane" id="needs"><%= render 'teacher_need' %></div>
+  <div class="tab-pane" id="vocational"><%= render 'teacher_vocationals/table' %></div>
 </div>

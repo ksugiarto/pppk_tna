@@ -1,0 +1,27 @@
+<h1>Listing teacher_subjects</h1>
+
+<table>
+  <tr>
+    <th>Teacher</th>
+    <th>Subject</th>
+    <th>Is competent</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @teacher_subjects.each do |teacher_subject| %>
+  <tr>
+    <td><%= teacher_subject.teacher_id %></td>
+    <td><%= teacher_subject.subject_id %></td>
+    <td><%= teacher_subject.is_competent %></td>
+    <td><%= link_to 'Show', teacher_subject %></td>
+    <td><%= link_to 'Edit', edit_teacher_subject_path(teacher_subject) %></td>
+    <td><%= link_to 'Destroy', teacher_subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Teacher subject', new_teacher_subject_path %>

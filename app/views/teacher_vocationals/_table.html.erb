@@ -2,8 +2,11 @@
   <tr style="background-color:#708DC6;">
     <th><%= t 'teacher.vocational' %></th>
     <th><%= t 'teacher.notes' %></th>
+    <th width="100" class="text-center"><%= t 'teacher.is_competent' %></th>
     <% if @modal.to_i==0 %>
-    <th width="200" class="text-center"><%= link_to "#{t 'add'}", new_teacher_teacher_vocational_path(@teacher), :class => "btn btn-default btn-xs", :remote => true %></th>
+    <th width="200" class="text-center">
+      <%= link_to "#{t 'add'}", new_teacher_teacher_vocational_path(@teacher), :class => "btn btn-default btn-xs", :remote => true %>
+    </th>
     <% end %>
   </tr>
 
@@ -11,8 +14,18 @@
   <tr>
     <td><%= teacher_vocational.vocational.try(:full_name) %></td>
     <td><%= teacher_vocational.notes %></td>
+    <td class="text-center">
+      <% if teacher_vocational.is_competent.to_i==1 %>
+      <span class="label label-primary">
+      <% else %>
+      <span class="label label-warning">
+      <% end %>
+      <%= teacher_vocational.is_competent_name %>
+      </span>
+    </td>
     <% if @modal.to_i==0 %>
     <td class="text-center">
+      <%= link_to "#{t 'show'}", teacher_teacher_vocational_path(@teacher, teacher_vocational), :class => "btn btn-info btn-xs" %>
       <%= link_to "#{t 'edit'}", edit_teacher_teacher_vocational_path(@teacher, teacher_vocational), :class => "btn btn-warning btn-xs", :remote => true %>
       <%= link_to "#{t 'destroy'}", teacher_teacher_vocational_path(@teacher, teacher_vocational), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true %>
     </td>

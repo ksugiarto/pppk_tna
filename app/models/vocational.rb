@@ -5,7 +5,7 @@ class Vocational < ActiveRecord::Base
   attr_accessible :class_for, :curicculum_id, :name
 
   def self.pagination(page)
-    paginate(:per_page => 20, :page => page)
+    paginate(:per_page => 10, :page => page)
   end
 
   def full_name

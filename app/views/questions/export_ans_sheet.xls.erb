@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+	xmlns:o="urn:schemas-microsoft-com:office:offce"
+	xmlns:x="urn:schemas-microsoft-com:office:excel"
+	xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+	xmlns:html="http://www.w3.org/TR/REC-html40">
+	<Worksheet ss:Name="Sheet1">
+		<Table>
+			<Row>
+				<Cell><Data ss:Type="String"><%= t 'row_number' %></Data></Cell>
+				<Cell><Data ss:Type="String"><%= t 'event.participant' %></Data></Cell>
+				<Cell><Data ss:Type="String"><%= "ID #{t 'teacher.teacher'}" %></Data></Cell>
+				<Cell><Data ss:Type="String">1</Data></Cell>
+				<Cell><Data ss:Type="String">2</Data></Cell>
+				<Cell><Data ss:Type="String">3</Data></Cell>
+				<Cell><Data ss:Type="String">4</Data></Cell>
+				<Cell><Data ss:Type="String">5</Data></Cell>
+				<Cell><Data ss:Type="String">6</Data></Cell>
+				<Cell><Data ss:Type="String">7</Data></Cell>
+				<Cell><Data ss:Type="String">8</Data></Cell>
+				<Cell><Data ss:Type="String">9</Data></Cell>
+				<Cell><Data ss:Type="String">10</Data></Cell>
+			</Row>
+			<%= @row_number=0; @event_participants.each do |participant| %>
+			<Row>
+				<Cell><Data ss:Type="String"><%= @row_number+=1 %></Data></Cell>
+				<Cell><Data ss:Type="String"><%= participant.try(:teacher).try(:full_name) %></Data></Cell>
+				<Cell><Data ss:Type="String"><%= participant.try(:teacher).try(:id) %></Data></Cell>
+				<Cell><Data ss:Type="String"></Data></Cell>
+				<Cell><Data ss:Type="String"></Data></Cell>
+				<Cell><Data ss:Type="String"></Data></Cell>
+				<Cell><Data ss:Type="String"></Data></Cell>
+				<Cell><Data ss:Type="String"></Data></Cell>
+				<Cell><Data ss:Type="String"></Data></Cell>
+				<Cell><Data ss:Type="String"></Data></Cell>
+				<Cell><Data ss:Type="String"></Data></Cell>
+				<Cell><Data ss:Type="String"></Data></Cell>
+				<Cell><Data ss:Type="String"></Data></Cell>
+			</Row>
+			<% end %>
+		</Table>
+	</Worksheet>
+</Workbook>

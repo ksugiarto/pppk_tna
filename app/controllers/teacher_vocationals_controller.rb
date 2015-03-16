@@ -10,6 +10,11 @@ class TeacherVocationalsController < ApplicationController
     .order(:name)
   end
 
+  def show
+    get_teacher
+    @teacher_vocational = @teacher.vocationals.find(params[:id])
+  end
+
   # GET /teacher_vocationals/new
   # GET /teacher_vocationals/new.json
   def new
@@ -30,6 +35,16 @@ class TeacherVocationalsController < ApplicationController
   def create
     get_teacher
     @teacher_vocational = @teacher.vocationals.create(params[:teacher_vocational])
+
+    vocational = Vocational.find(@teacher_vocational.vocational_id)
+    vocational.core_competencies.each do |core_competency|
+      core_competency.basic_competencies.each do |basic_competency|
+        teacher_subject = @teacher_vocational.subjects.create(:teacher_id => @teacher.id, :basic_competency_id => basic_competency.id, :is_competent => 0)
+        basic_competency.subjects.each do |subject|
+          teacher_subject.details.create(:subject_id => subject.id, :is_competent => 0)
+        end
+      end
+    end
   end
 
   # PUT /teacher_vocationals/1

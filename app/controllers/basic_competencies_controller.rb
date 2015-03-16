@@ -5,28 +5,6 @@ class BasicCompetenciesController < ApplicationController
     @core_competency = @vocational.core_competencies.find(params[:core_competency_id])
   end
 
-  # GET /basic_competencies
-  # GET /basic_competencies.json
-  def index
-    @basic_competencies = BasicCompetency.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @basic_competencies }
-    end
-  end
-
-  # GET /basic_competencies/1
-  # GET /basic_competencies/1.json
-  def show
-    @basic_competency = BasicCompetency.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @basic_competency }
-    end
-  end
-
   # GET /basic_competencies/new
   # GET /basic_competencies/new.json
   def new

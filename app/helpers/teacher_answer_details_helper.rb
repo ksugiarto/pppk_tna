@@ -1,0 +1,2 @@
+module TeacherAnswerDetailsHelper
+end

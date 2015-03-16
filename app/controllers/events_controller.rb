@@ -60,32 +60,36 @@ class EventsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to pick_date_events_path(:id => @event.id) }
+      format.html { redirect_to pick_vocational_event_path(:id => @event.id) }
     end
   end
 
-  def pick_date #step 2
+  def pick_vocational #step 2
     @event = Event.find(params[:id]) if params[:id].to_i!=0
-    @events = Event.where("date_start IS NOT NULL")
-  end
-
-  def save_date
-    @event = Event.find(params[:id])
-    @event.update_attributes(:date_start => params[:date_start], :date_end => params[:date_end])
-
-    respond_to do |format|
-      format.html { redirect_to pick_vocational_event_path(@event) }
-    end
-  end
-
-  def pick_vocational #step 3
-    @event = Event.find(params[:id])
     @vocationals = Vocational.order(:curicculum_id, :name).pagination(params[:page])
+
+    # kategori berdasarkan kejuruan
+    # mencari kejuruan yang paling banyak masih belum kompeten, tampilkan beserta nama guru
   end
 
   def save_vocational
     @event = Event.find(params[:id])
     @event.update_attributes(:vocational_id => params[:vocational_id].to_i)
+
+    respond_to do |format|
+      format.html { redirect_to pick_date_event_path(@event) }
+    end
+  end
+
+  def pick_date #step 3
+    # @event = Event.find(params[:id]) if params[:id].to_i!=0
+    @event = Event.find(params[:id])
+    @events = Event.where("date_start IS NOT NULL")
+  end
+
+  def save_date
+    @event = Event.find(params[:id])
+    @event.update_attributes(:date_start => params[:date_start], :date_end => params[:date_end].to_date-1)
 
     respond_to do |format|
       format.html { redirect_to entry_information_event_path(@event) }
@@ -94,6 +98,7 @@ class EventsController < ApplicationController
 
   def entry_information #step 4
     @event = Event.find(params[:id])
+    @event.title = @event.vocational.try(:full_name)
   end
 
   # GET /events/1/edit

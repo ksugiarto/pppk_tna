@@ -1,0 +1,3 @@
+$('#general_modal').modal('show');
+$('#general_modal .modal-title').html("<%= @subject.try(:basic_competency).try(:core_competency).try(:seq_num) %>.<%= @subject.try(:basic_competency).try(:seq_num) %>. <%= @subject.basic_competency.description %>");
+$('#general_modal .modal-body').html("<%= escape_javascript(render 'peek_indicator') %>");

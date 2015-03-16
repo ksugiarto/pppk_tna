@@ -5,7 +5,8 @@ class Teacher < ActiveRecord::Base
 	belongs_to :school
 
   has_many :vocationals, :class_name => "TeacherVocational"
-	has_many :histories, :class_name => "TeacherHistory"
+  has_many :histories, :class_name => "TeacherHistory"
+	has_many :subjects, :class_name => "TeacherSubject"
 
   attr_accessible :address, :born_date, :born_place, :city_id, :country_id, :email, :end_title, :first_name, :front_title, :gender, :last_name, :nip, :province_id, :religion, :school_id, :start_teach
 

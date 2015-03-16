@@ -1,0 +1,31 @@
+<% @teacher.subjects.order(:id).each do |teacher_subject| %>
+	<hr>
+	<% sub_score = teacher_subject.details.sum(:is_competent).to_f/teacher_subject.details.count.to_f %>
+	<% if sub_score==1 %>
+		<h5 class="status_1"><%= t 'basic_competency.basic_competency' %>: <b><%= teacher_subject.try(:basic_competency).try(:description) %> (Kompeten)</b></h5>
+	<% else %>
+		<h5 class="status_0"><%= t 'basic_competency.basic_competency' %>: <b><%= teacher_subject.try(:basic_competency).try(:description) %> (Belum Kompeten)</b></h5>
+	<% end %>
+
+	<table id="teacher_subject_table" class="table table-condensed table-hover">
+	  <tr style="background-color:#708DC6;">
+	    <th><%= t 'subject.subject' %></th>
+	    <th width="100" class="text-center"><%= t 'teacher.is_competent' %></th>
+	  </tr>
+
+	<% teacher_subject.details.order(:id).each do |subject_detail| %>
+	  <tr>
+	    <td><%= subject_detail.try(:subject).try(:description) %></td>
+	    <td class="text-center">
+	    	<% if subject_detail.is_competent.to_i==1 %>
+	      <span class="label label-primary">
+	      <% else %>
+	      <span class="label label-warning">
+	      <% end %>
+	    		<%= best_in_place subject_detail, :is_competent, :type => :select, :collection => [["1", "Kompeten"], ["0", "Belum"]], :path => teacher_teacher_subject_teacher_subject_detail_path(@teacher, teacher_subject, subject_detail) %>
+	    	</span>
+	    </td>
+	  </tr>
+	<% end %>
+	</table>
+<% end %>

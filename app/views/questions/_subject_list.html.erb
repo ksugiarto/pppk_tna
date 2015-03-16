@@ -1,0 +1,28 @@
+<table class="table table-condensed table-bordered">
+  <tr style="background-color:#708DC6;"><th colspan="3"><%= t 'subject.subject' %></th></tr>
+
+  <% @event.try(:vocational).core_competencies.order(:seq_num).each do |core_competency| %>
+    <% core_competency.basic_competencies.order(:seq_num).each do |basic_competency| %>
+      <tr>
+        <th><b><%= "#{core_competency.seq_num}.#{basic_competency.seq_num}." %></b>&nbsp;<%= "#{basic_competency.description}" %><br></th>
+        <th width="5%"></th><th width="5%"></th>
+      </tr>
+
+      <% basic_competency.subjects.order(:seq_num).each do |subject| %>
+        <% if @subject_picked_id==subject.id %>
+        <tr class="status_1">
+        <% else %>
+        <tr>
+        <% end %>
+          <td><b><%= "#{core_competency.seq_num}.#{basic_competency.seq_num}.#{subject.seq_num}." %></b>&nbsp;<%= "#{subject.description}" %></td>
+          <td><%= @event_exam.questions.where(:subject_id => subject.id).count.to_i %></td>
+          <td>
+            <%= link_to pick_subject_event_event_exam_questions_path(@event.id, @event_exam.id, :subject_id => subject.id), :remote => true, :class => "btn btn-default btn-xs" do %>
+              <span class="glyphicon glyphicon-ok"></span>
+            <% end -%>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  <% end %>
+</table>

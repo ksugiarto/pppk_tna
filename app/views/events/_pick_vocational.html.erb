@@ -1,26 +1,44 @@
 <%= will_paginate @vocationals, :class => "apple_pagination" %>
-
-<table class="table table-condensed">
-  <tr style="background-color:#708DC6;">
-    <th><%= t 'school.curicculum' %></th>
-    <th><%= t 'school.vocational' %></th>
-    <th><%= t 'event.information' %></th>
-    <th><%= t 'event.teacher' %></th>
-    <th></th>
-  </tr>
-
 <% @vocationals.each do |vocational| %>
-  <tr>
-    <td><%= vocational.curicculum.try(:name) %></td>
-    <td><%= vocational.try(:full_name) %></td>
-    <td><span data-toggle="tooltip" title="Diklat terlaksana/ke depan"><%= Vocational.last_event(vocational.id) %></span></td>
-    <td><span data-toggle="tooltip" title="Jumlah Guru mengajar Kejuruan"><%= Vocational.teacher_count(vocational.id) %></span></td>
-    <td class="text-right">
-      <%= link_to "#{t 'show'}", curicculum_vocational_path(vocational.try(:curicculum_id), vocational), :class => "btn btn-info btn-xs", :remote => true %>
-      <%= link_to "#{t 'pick'}", save_vocational_event_path(@event, :vocational_id => vocational.id), :class => "btn btn-success btn-xs" %>
-    </td>
-  </tr>
+  <% teacher_vocationals = TeacherVocational.where(:vocational_id => vocational.id, :is_competent => 0) %>
+    <% if teacher_vocationals.count>=1 %>
+      <table class="table table-condensed table-hover">
+        <tr style="background-color:#708DC6;">
+          <th colspan="2">
+            <%= vocational.curicculum.try(:name) %><br>
+            <%= vocational.try(:full_name) %>
+          </th>
+          <th><span data-toggle="tooltip" title="Diklat terlaksana/ke depan"><%= Vocational.last_event(vocational.id) %></span></th>
+          <th class="text-center">
+            <%= link_to "#{t 'show'}", curicculum_vocational_path(vocational.try(:curicculum_id), vocational), :class => "btn btn-info btn-xs", :remote => true %>
+            <%= link_to "#{t 'pick'}", save_vocational_event_path(@event, :vocational_id => vocational.id), :class => "btn btn-success btn-xs" %>
+          </th>
+        </tr>
+
+        <tr style="background-color:#708DC6;">
+          <th width="180"><%= t 'teacher.nip' %></th>
+          <th width="200"><%= t 'teacher.teacher' %> (<%= teacher_vocationals.count %>)</th>
+          <th></th>
+          <th width="100"></th>
+        </tr>
+      <% teacher_vocationals.each do |teacher_vocational| %>
+        <tr>
+          <td><%= teacher_vocational.try(:teacher).try(:nip) %></td>
+          <td><%= teacher_vocational.try(:teacher).try(:full_name) %></td>
+          <td colspan="2">
+            <% teacher_vocational.subjects.where(:is_competent => 0).each do |teacher_subject| %>
+              <%= teacher_subject.try(:basic_competency).try(:core_competency).try(:seq_num) %>.<%= teacher_subject.try(:basic_competency).try(:seq_num) %>. <%= teacher_subject.try(:basic_competency).try(:description) %><br>
+            <% end %>
+          </td>
+          </td>
+        </tr>
+      <% end %>
+      </table>
+      
+    <% end %>
+<!-- 
+<th><%= t 'event.teacher' %>: <span data-toggle="tooltip" title="Jumlah Guru mengajar Kejuruan"><%= Vocational.teacher_count(vocational.id) %></span></th>
+ -->
 <% end %>
-</table>
 
 <%= will_paginate @vocationals, :class => "apple_pagination" %>

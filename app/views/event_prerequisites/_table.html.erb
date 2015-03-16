@@ -11,20 +11,20 @@
   <% if @event.status.to_i==0 and @modal.to_i==0 %>
     <% if can? :update, EventPrerequisite %>
     <tr>
-      <td><%= best_in_place event_prerequisite, :min_age, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
-      <td><%= best_in_place event_prerequisite, :max_age, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
-      <td><%= best_in_place event_prerequisite, :max_event_count, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
-      <td><%= best_in_place event_prerequisite, :min_long_teach, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
-      <td><%= best_in_place event_prerequisite, :max_long_teach, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite)  %></td>
+      <td><%= best_in_place event_prerequisite, :min_age, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite) %> Tahun</td>
+      <td><%= best_in_place event_prerequisite, :max_age, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite) %> Tahun</td>
+      <td><%= best_in_place event_prerequisite, :max_event_count, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite) %> Kali</td>
+      <td><%= best_in_place event_prerequisite, :min_long_teach, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite) %> Tahun</td>
+      <td><%= best_in_place event_prerequisite, :max_long_teach, :type => :input, :path => event_event_prerequisite_path(@event, event_prerequisite) %> Tahun</td>
     </tr>
     <% end %>
   <% else %>
   <tr>
-    <td><%= event_prerequisite.min_age %></td>
-    <td><%= event_prerequisite.max_age %></td>
-    <td><%= event_prerequisite.max_event_count %></td>
-    <td><%= event_prerequisite.min_long_teach %></td>
-    <td><%= event_prerequisite.max_long_teach %></td>
+    <td><%= event_prerequisite.min_age %> <%= "Tahun" if event_prerequisite.min_age.present? %></td>
+    <td><%= event_prerequisite.max_age %>  <%= "Tahun" if event_prerequisite.max_age.present? %></td>
+    <td><%= event_prerequisite.max_event_count %> <%= "Kali" if event_prerequisite.max_event_count.present? %></td>
+    <td><%= event_prerequisite.min_long_teach %>  <%= "Tahun" if event_prerequisite.min_long_teach.present? %></td>
+    <td><%= event_prerequisite.max_long_teach %>  <%= "Tahun" if event_prerequisite.max_long_teach.present? %></td>
   </tr>
   <% end %>
 <% end %>

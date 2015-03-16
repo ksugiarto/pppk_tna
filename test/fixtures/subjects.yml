@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  basic_competency_id: 1
+  seq_num: 1
+  description: MyString
+
+two:
+  basic_competency_id: 1
+  seq_num: 1
+  description: MyString

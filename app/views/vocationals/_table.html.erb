@@ -1,4 +1,4 @@
-<% @curicculum.vocationals.order(:class_for).each do |vocational| %>
+<% @curicculum.vocationals.order(:name, :class_for).each do |vocational| %>
   <!-- VOCATIONAL -->
   <h4>
     <b><%= t 'vocational.vocational' %>:</b> <%= vocational.name %>
@@ -23,9 +23,7 @@
           <%= "#{t 'add'} #{t 'core_competency.core_competency'}" %>&nbsp;<span class="glyphicon glyphicon-plus"></span>
         <% end %>
       </th>
-      <th width="50%">
-        <%= t 'basic_competency.basic_competency' %>
-      </th>
+      <th width="50%"><%= t 'basic_competency.basic_competency' %></th>
     </tr>
 
     <% vocational.core_competencies.order(:seq_num).each do |core_competency| %>
@@ -61,11 +59,48 @@
               <span class="glyphicon glyphicon-remove"></span>
             <% end %>
             <br>
-          <% end %>
           <!-- END BASIC COMPETENCIES -->
+          <% end %>
         </td>
       </tr>
     <% end %>
   </table>
   <!-- END CORE COMPETENCIES -->
+
+  <table class="table table-condensed table-bordered">
+    <tr>
+      <th width="50%"><%= t 'basic_competency.basic_competency' %></th>
+      <th width="50%"><%= t 'subject.subject' %></th>
+    </tr>
+
+    <% vocational.core_competencies.order(:seq_num).each do |core_competency| %>
+      <% core_competency.basic_competencies.order(:seq_num).each do |basic_competency| %>
+        <tr>
+          <td>
+            <b><%= "#{core_competency.seq_num}.#{basic_competency.seq_num}." %></b>
+            <%= "#{basic_competency.description}" %><br>
+
+            <%= link_to new_curicculum_vocational_core_competency_basic_competency_subject_path(@curicculum, vocational, core_competency, basic_competency), :class => "btn btn-default btn-xs", :remote => true do %>
+              <%= "#{t 'add'} #{t 'subject.subject'}" %>&nbsp;<span class="glyphicon glyphicon-plus"></span>
+            <% end %>
+          </td>
+          <td>
+            <% basic_competency.subjects.order(:seq_num).each do |subject| %>
+              <b><%= "#{core_competency.seq_num}.#{basic_competency.seq_num}.#{subject.seq_num}." %></b>
+              <%= "#{subject.description}" %>
+
+              <%= link_to edit_curicculum_vocational_core_competency_basic_competency_subject_path(@curicculum, vocational, core_competency, basic_competency, subject), :class => "btn btn-warning btn-xs", :remote => true do %>
+                <span class="glyphicon glyphicon-pencil"></span>
+              <% end %>
+
+              <%= link_to curicculum_vocational_core_competency_basic_competency_subject_path(@curicculum, vocational, core_competency, basic_competency, subject), method: :delete, data: { confirm: "#{t 'confirm'}" }, :class => "btn btn-danger btn-xs", :remote => true do %>
+                <span class="glyphicon glyphicon-remove"></span>
+              <% end %>
+              <br>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
 <% end %>

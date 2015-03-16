@@ -34,6 +34,9 @@
     <td><span class="<%= label_class(event_participant.status) %>"><%= event_participant.status_name %></span></td>
     <% if @event.status.to_i==0 and @modal.to_i==0 %>
     <td class="text-center">
+      <% if can? :read, EventParticipant %>
+        <%= link_to "#{t 'show'}", event_event_participant_path(@event, event_participant), :class => "btn btn-info btn-xs", :remote => true %>
+      <% end %>
       <% if can? :update, EventParticipant %>
         <%= link_to "#{t 'edit'}", edit_event_event_participant_path(@event, event_participant), :class => "btn btn-warning btn-xs" %>
       <% end %>

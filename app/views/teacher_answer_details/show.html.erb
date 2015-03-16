@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Teacher answer:</b>
+  <%= @teacher_answer_detail.teacher_answer_id %>
+</p>
+
+<p>
+  <b>Question:</b>
+  <%= @teacher_answer_detail.question_id %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @teacher_answer_detail.subject_id %>
+</p>
+
+<p>
+  <b>Answer:</b>
+  <%= @teacher_answer_detail.answer %>
+</p>
+
+<p>
+  <b>Is correct:</b>
+  <%= @teacher_answer_detail.is_correct %>
+</p>
+
+
+<%= link_to 'Edit', edit_teacher_answer_detail_path(@teacher_answer_detail) %> |
+<%= link_to 'Back', teacher_answer_details_path %>

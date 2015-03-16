@@ -14,8 +14,10 @@
       <%= form_for(@event) do |f| %>
         <% if can? :update, Event %>
           <%= f.hidden_field :status, :value => 1 %>
-          <%= button_tag :type => "submit", :id => "btn", :class => "btn btn-success btn-sm", :disable_with => "#{t 'disable_with'}", data: { confirm: "#{t 'confirm'}" } do %>
-            <%= "#{t 'close'} #{t 'event.event'}" %>&nbsp;<span class="glyphicon glyphicon-lock"></span>
+          <% if @event.date_end==Date.today %>
+            <%= button_tag :type => "submit", :id => "btn", :class => "btn btn-success btn-sm", :disable_with => "#{t 'disable_with'}", data: { confirm: "#{t 'confirm'}" } do %>
+              <%= "#{t 'close'} #{t 'event.event'}" %>&nbsp;<span class="glyphicon glyphicon-lock"></span>
+            <% end -%>
           <% end -%>
 
           <%= link_to check_request_events_path(:id => @event), :class => "btn btn-warning btn-sm" do %>

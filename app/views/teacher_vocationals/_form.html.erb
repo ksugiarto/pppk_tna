@@ -20,7 +20,7 @@
     <div class="col-sm-6"><%= f.text_area :notes, :rows => 3, :class => "form-control" %></div>
   </div>
   <div class="form-group">
-    <div class="col-sm-4"></div>
+    <div class="col-sm-4"><%= f.hidden_field :is_competent, :value => 0 %></div>
     <div class="col-sm-6"><%= f.submit "#{t 'submit'}", :class => "btn btn-success", :disable_with => "#{t 'disable_with'}" %></div>
   </div>
 <% end %>

@@ -1,5 +1,27 @@
 =========================
 Things Done [@ksugiarto]:
+(1) Change 'Login as [role]'.
+(2) Fixing 'date_end' on Pick Date Create new Event.
+(3) Adding date_time_picker' on Teacher Form.
+(4) Adding measure on Event Prerequisite.
+(5) Event's Title not need to be re-enter again.
+(6) Fixing bug on Teacher Subject Details.
+(7) Adding Export and Import Answert Sheet feature.
+(8) Adding fresh scaffold TeacherAnswer and TeacherAnswerDetail.
+
+Next Things to Do:
+(1) Fixing date show on Teacher Show, and form when taking from database.
+(2) Fixing measure on Event Prerequisite, make it more solid.
+
+=========================
+Things Done [@ksugiarto]:
+(1) Adding fresh 'Subject' under 'Basic Competency'.
+(2) Adding fresh 'Teacher Subject' under 'Teacher'.
+(3) Adding 'assessment' feature on Teacher Vocationals page.
+(4) Exchange Step 2 with Step 3 on Create New Event.
+
+=========================
+Things Done [@ksugiarto]:
 (1) Fixing several minor bugs.
 (2) Delete unnecessarily assets files.
 (3) Fixing 'Sub Bagian Tata Usaha' ability.

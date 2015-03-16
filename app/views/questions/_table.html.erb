@@ -1,17 +1,26 @@
 <table id="school_vocational_table" class="table table-condensed">
   <tr style="background-color:#708DC6;">
+    <th width="8%"><%= t 'subject.subject' %></th>
+    <th><%= t 'row_number' %></th>
     <th><%= t 'event_exam.question.content' %></th>
     <th>A</th>
     <th>B</th>
     <th>C</th>
     <th>D</th>
     <% if @event.status.to_i==0 and @modal.to_i==0 %>
-    <th width="200" class="text-center"><%= link_to "#{t 'add'}", new_event_event_exam_question_path(@event, @event_exam), :class => "btn btn-default btn-xs", :remote => true %></th>
+    <th width="125" class="text-center"><%= link_to "#{t 'add'}", new_event_event_exam_question_path(@event, @event_exam), :class => "btn btn-default btn-xs", :remote => true %></th>
     <% end %>
   </tr>
 
-<% @event_exam.questions.each do |question| %>
+<% @event_exam.questions.order(:seq_num).each do |question| %>
   <tr>
+    <td>
+        <%= question.try(:subject).try(:full_seq_num) %>
+        <%= link_to peek_indicator_event_event_exam_questions_path(@event.id, @event_exam.id, :subject_id => question.subject_id), :class => "btn btn-default btn-xs", :remote => true do %>
+            <span class="glyphicon glyphicon-search"></span>
+        <% end %>
+    </td>
+    <td><%= question.seq_num %>.</td>
     <td><%= question.content %></td>
     <td><%= question.answer_1 %></td>
     <td><%= question.answer_2 %></td>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150104172556) do
+ActiveRecord::Schema.define(:version => 20150227070509) do
 
   create_table "basic_competencies", :force => true do |t|
     t.integer  "core_competency_id"
@@ -145,6 +145,8 @@ ActiveRecord::Schema.define(:version => 20150104172556) do
     t.text     "notes"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "subject_id"
+    t.integer  "seq_num"
   end
 
   create_table "request_participants", :force => true do |t|
@@ -199,6 +201,32 @@ ActiveRecord::Schema.define(:version => 20150104172556) do
     t.datetime "updated_at",    :null => false
   end
 
+  create_table "subjects", :force => true do |t|
+    t.integer  "basic_competency_id"
+    t.integer  "seq_num"
+    t.string   "description"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "teacher_answer_details", :force => true do |t|
+    t.integer  "teacher_answer_id"
+    t.integer  "question_id"
+    t.integer  "subject_id"
+    t.integer  "answer"
+    t.integer  "is_correct"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "teacher_answers", :force => true do |t|
+    t.integer  "teacher_id"
+    t.integer  "event_exam_id"
+    t.float    "score"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "teacher_histories", :force => true do |t|
     t.integer  "teacher_id"
     t.integer  "event_id"
@@ -208,12 +236,30 @@ ActiveRecord::Schema.define(:version => 20150104172556) do
     t.datetime "updated_at",           :null => false
   end
 
+  create_table "teacher_subject_details", :force => true do |t|
+    t.integer  "teacher_subject_id"
+    t.integer  "subject_id"
+    t.integer  "is_competent"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  create_table "teacher_subjects", :force => true do |t|
+    t.integer  "teacher_id"
+    t.integer  "teacher_vocational_id"
+    t.integer  "basic_competency_id"
+    t.integer  "is_competent"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
   create_table "teacher_vocationals", :force => true do |t|
     t.integer  "teacher_id"
     t.integer  "vocational_id"
     t.text     "notes"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "is_competent"
   end
 
   create_table "teachers", :force => true do |t|

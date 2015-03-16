@@ -1,0 +1,27 @@
+<h1>Listing teacher_answers</h1>
+
+<table>
+  <tr>
+    <th>Teacher</th>
+    <th>Event exam</th>
+    <th>Score</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @teacher_answers.each do |teacher_answer| %>
+  <tr>
+    <td><%= teacher_answer.teacher_id %></td>
+    <td><%= teacher_answer.event_exam_id %></td>
+    <td><%= teacher_answer.score %></td>
+    <td><%= link_to 'Show', teacher_answer %></td>
+    <td><%= link_to 'Edit', edit_teacher_answer_path(teacher_answer) %></td>
+    <td><%= link_to 'Destroy', teacher_answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Teacher answer', new_teacher_answer_path %>

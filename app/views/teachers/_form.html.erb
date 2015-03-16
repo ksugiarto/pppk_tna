@@ -57,7 +57,7 @@
       </div>
       <div class="form-group">
         <%= f.label :born_date, "#{t 'teacher.born_date'}", :class => "col-sm-3 control-label" %>
-        <div class="col-sm-8"><%= f.text_field :born_date, :class => "form-control" %></div>
+        <div class="col-sm-8"><%= f.text_field :born_date, :class => "form-control", :onMouseOver => "$(this).datepicker({dateFormat: 'dd-mm-yy', showButtonPanel: true, changeMonth: true, changeYear: true, yearRange: '-100:+0'})" %></div>
       </div>
       <div class="form-group">
         <%= f.label :religion, "#{t 'teacher.religion'}", :class => "col-sm-3 control-label" %>

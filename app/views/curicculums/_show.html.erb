@@ -10,8 +10,9 @@
   <!-- CORE COMPETENCIES -->
   <table class="table table-condensed table-bordered">
     <tr style="background-color:#708DC6;">
-      <th width="50%"><%= t 'core_competency.core_competency' %></th>
-      <th width="50%"><%= t 'basic_competency.basic_competency' %></th>
+      <th width="30%"><%= t 'core_competency.core_competency' %></th>
+      <th width="30%"><%= t 'basic_competency.basic_competency' %></th>
+      <th width="40%"><%= t 'basic_competency.basic_competency' %></th>
     </tr>
 
     <% vocational.core_competencies.order(:seq_num).each do |core_competency| %>
@@ -29,4 +30,29 @@
     <% end %>
   </table>
   <!-- END CORE COMPETENCIES -->
+
+  <table class="table table-condensed table-bordered">
+    <tr>
+      <th width="50%"><%= t 'basic_competency.basic_competency' %></th>
+      <th width="50%"><%= t 'subject.subject' %></th>
+    </tr>
+
+    <% vocational.core_competencies.order(:seq_num).each do |core_competency| %>
+      <% core_competency.basic_competencies.order(:seq_num).each do |basic_competency| %>
+        <tr>
+          <td>
+            <b><%= "#{core_competency.seq_num}.#{basic_competency.seq_num}." %></b>
+            <%= "#{basic_competency.description}" %><br>
+          </td>
+          <td>
+            <% basic_competency.subjects.order(:seq_num).each do |subject| %>
+              <b><%= "#{core_competency.seq_num}.#{basic_competency.seq_num}.#{subject.seq_num}." %></b>
+              <%= "#{subject.description}" %>
+              <br>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
 <% end %>
